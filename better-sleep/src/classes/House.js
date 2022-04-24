@@ -1,13 +1,22 @@
-const Clock = require('../utils/Clock.js')
+const Observable = require('./Observable')
+const Clock = require('./Clock')
 
 class House {
 
+    peopleLocations
     people
     rooms
 
-    constructor(people, rooms) {
+    /**
+     * 
+     * @param {object} people 
+     * @param {object} rooms 
+     * @param {object} defaultLocations
+     */
+    constructor(people, rooms, defaultLocations) {
         this.people = people
         this.rooms = rooms
+        this.peopleLocations = new Observable(defaultLocations)
 
         Clock.startTimer()
         Clock.wallClock()
@@ -17,11 +26,11 @@ class House {
         // Check if the person and the rooms exist
         if(this.people.hasOwnProperty(person) && this.rooms.hasOwnProperty(from) && this.rooms.hasOwnProperty(to)) {
             // Check if person is in start room
-            if(this.people[person].location == from) {
+            if(this.peopleLocations[person] == from) {
                 // can the person move to the desired room
-                if(this.rooms[from].doors.includes(to) || this.rooms[to].doors.includes(from)) {
-                    this.people[person].location = to
-                    console.log(`${person} is now in ${to}.`)
+                if(this.rooms[from].hasPathToRoom(to) || this.rooms[to].hasPathToRoom(from)) {
+                    console.log('OK ALLES KLAR LAEUFT')
+                    this.peopleLocations.set(person, to)
                 } else {
                     console.warn(`There is no direct way from ${from} to ${to}.`)
                 }
