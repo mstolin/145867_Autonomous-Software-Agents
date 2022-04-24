@@ -1,11 +1,19 @@
-const Observable = require('../utils/Observable.js')
-const identifier = require('../utils/RoomIdentifier.js')
+const Person = require('../classes/Person')
 
-let sandra = new Observable({name: 'Sandra', location: identifier.LIVING_ROOM})
-sandra.observe('location', (v, _) => console.log(`Room: ${v}`))
+const ID_PERSON_SANDRA = 'sandra'
+const ID_PERSON_BOB = 'bob'
 
-let bob = new Observable({name: 'Bob', location: identifier.LIVING_ROOM})
-bob.observe('location', (v, _) => console.log(`Room: ${v}`))
+let sandra = new Person('Sandra', null)
+let bob = new Person('Bob', null)
 
-module.exports.sandra = sandra
-module.exports.bob = bob
+// exports identifier
+module.exports.identifier = {
+    ID_PERSON_SANDRA,
+    ID_PERSON_BOB
+}
+
+// exports persons
+let persons = {}
+persons[ID_PERSON_SANDRA] = sandra
+persons[ID_PERSON_BOB] = bob
+module.exports.persons = persons
