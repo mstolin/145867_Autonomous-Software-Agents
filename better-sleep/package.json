@@ -2,10 +2,10 @@
   "name": "better-sleep",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "scenario": "node src/scenario.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Marcel Pascal Stolin",
+  "author": "Marcel Pascal Stolin <marcelpascal.stolin@studenti.unitn.it>",
   "license": "MIT"
 }
