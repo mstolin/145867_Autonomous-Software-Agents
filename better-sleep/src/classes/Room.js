@@ -5,10 +5,10 @@ class Room {
     windows = {}
     lights = {}
 
-    constructor(name, doors, windows, lights) {
+    constructor(name, doors, shutters, lights) {
         this.name = name
         this.doors = doors
-        this.windows = windows
+        this.shutter = shutters
         this.lights = lights
     }
 
