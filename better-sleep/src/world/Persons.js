@@ -7,7 +7,7 @@ let sandra = new Person('Sandra', null)
 let bob = new Person('Bob', null)
 
 // exports identifier
-module.exports.identifier = {
+module.exports.personIds = {
     ID_PERSON_SANDRA,
     ID_PERSON_BOB
 }
