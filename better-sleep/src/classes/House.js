@@ -22,6 +22,15 @@ class House {
         Clock.wallClock()
     }
 
+    /**
+     * Moves a person from one room to another.
+     * It is important that the start room has a direct path
+     * to the destination.
+     * 
+     * @param {string} person The person identifier
+     * @param {string} from Identifer of the source room
+     * @param {string} to Identifier of the destination room
+     */
     movePersonTo(person, from, to) {
         // Check if the person and the rooms exist
         if(this.people.hasOwnProperty(person) && this.rooms.hasOwnProperty(from) && this.rooms.hasOwnProperty(to)) {
@@ -29,7 +38,6 @@ class House {
             if(this.peopleLocations[person] == from) {
                 // can the person move to the desired room
                 if(this.rooms[from].hasPathToRoom(to) || this.rooms[to].hasPathToRoom(from)) {
-                    console.log('OK ALLES KLAR LAEUFT')
                     this.peopleLocations.set(person, to)
                 } else {
                     console.warn(`There is no direct way from ${from} to ${to}.`)
