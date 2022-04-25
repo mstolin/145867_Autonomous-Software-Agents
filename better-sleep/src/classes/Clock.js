@@ -41,9 +41,11 @@ class Clock {
             await new Promise( res => setTimeout(res, 50))
             
             var {dd, hh, mm} = Clock.global
+
+            let steps = 1
             
-            if(mm<60-15)
-                Clock.global.mm += 15
+            if(mm<60-steps)
+                Clock.global.mm += steps
             else {
                 if(hh<24) {
                     Clock.global.hh += 1 // increased hh but mm still 45
