@@ -1,6 +1,9 @@
 // Imports
+const Agent = require('./classes/Agent')
 const Clock = require('./classes/Clock')
+const Goal = require('./classes/Goal')
 const House = require('./classes/House')
+const Intention = require('./classes/Intention')
 const persons = require('./world/Persons')
 const rooms = require('./world/Rooms')
 
@@ -144,4 +147,42 @@ Clock.global.observe('mm', (_) => {
             roomIds.ID_ROOM_GUESTROOM
         )
     }
+
+    var houseAgent = new Agent('House Agent')
+
+    class SetupMorningLight extends Goal {
+        isConditionTrue(helper) {
+            if(helper.hh && helper.mm) {
+                console.log(helper.hh, '#', helper.mm, '#', helper.hh == this.condition.hh && helper.mm == this.condition.mm)
+                return helper.hh == this.condition.hh && helper.mm == this.condition.mm
+            } else {
+                return false
+            }
+        }
+    }
+
+    class MorningLight extends Intention {
+        static applicable(goal) {
+            return goal instanceof SetupMorningLight
+        }
+
+        *exec() {
+            while(true) {
+                yield Clock.global.notifyChange('mm')
+                if(this.goal.isConditionTrue(Clock.global)) {
+                    console.log('Turn on the Morning Light')
+                    /**
+                     * e.g.:
+                     * houseAgent.turnOnLight()
+                     * or
+                     * this.agent.devices[bedroom-main-light].turnOn
+                     */
+                    break
+                }
+            }
+        }
+    }
+
+    houseAgent.addIntention(MorningLight)
+    houseAgent.postSubGoal(new SetupMorningLight({hh: 7, mm: 1}))
 })
