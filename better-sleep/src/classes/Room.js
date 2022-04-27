@@ -1,19 +1,24 @@
 class Room {
 
     name
+    mainLight
     doors = []
     windows = {}
-    lights = {}
+    smallLights = {}
 
-    constructor(name, doors, shutters, lights) {
+    constructor(name, doors, shutters, smallLights) {
         this.name = name
         this.doors = doors
         this.shutter = shutters
-        this.lights = lights
+        this.smallLights = smallLights
     }
 
     hasPathToRoom(roomId) {
         return this.doors.includes(roomId)
+    }
+
+    getSmallLight(id) {
+        return this.smallLights[id]
     }
 
 }
