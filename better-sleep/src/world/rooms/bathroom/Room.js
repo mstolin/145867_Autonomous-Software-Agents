@@ -1,3 +1,4 @@
+const Room = require('../../../classes/Room')
 const ids = require('../RoomIds')
 const lights = require('./Lights')
 const shutters = require('./Shutters')
