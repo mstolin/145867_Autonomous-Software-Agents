@@ -1,5 +1,6 @@
 const Room = require('../classes/Room')
 const Light = require('../classes/Light')
+const Shutter = require('../classes/Shutter')
 
 const ID_ROOM_FIRST_FLOOR = 'first_floor'
 const ID_ROOM_LIVING_ROOM = 'living_room'
@@ -26,44 +27,44 @@ lightProfile2[ID_LIGHT_SMALL_2] = new Light('Small Light 2')
 let firstFloor = new Room(
     'First Floor',
     [ID_ROOM_LIVING_ROOM, ID_ROOM_KITCHEN, ID_ROOM_FIRST_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile1
 )
 let livingRoom = new Room(
     'Living Room',
     [ID_ROOM_KITCHEN, ID_ROOM_FIRST_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile2
 )
 let kitchen = new Room(
     'Kitchen',
     [ID_ROOM_LIVING_ROOM, ID_ROOM_FIRST_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile2
 )
 // Upper floor
 let bedroom = new Room(
     'Bedroom',
     [ID_ROOM_SECOND_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile2
 )
 let guestroom = new Room(
     'Guestroom',
     [ID_ROOM_SECOND_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile2
 )
 let secondFloor = new Room(
     'Second Floor',
     [ID_ROOM_BEDROOM, ID_ROOM_BATHROOM, ID_ROOM_GUESTROOM, ID_ROOM_FIRST_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile1
 )
 let bathroom = new Room(
     'Bathroom',
     [ID_ROOM_SECOND_FLOOR],
-    {},
+    [new Shutter(''), new Shutter()],
     lightProfile1
 )
 

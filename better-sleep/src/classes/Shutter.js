@@ -13,12 +13,18 @@ class Shutter extends Observable {
         this.name = name
     }
 
+    /**
+     * Opens the shutter by setting the state to STATE_SHUTTER_OPEN.
+     */
     open() {
         if(this.state != STATE_SHUTTER_OPEN) {
             this.set('state', STATE_SHUTTER_OPEN)
         }
     }
 
+    /**
+     * Closes the shutter by setting the state to STATE_SHUTTER_CLOSED.
+     */
     close() {
         if(this.state != STATE_SHUTTER_CLOSED) {
             this.set('state', STATE_SHUTTER_CLOSED)
