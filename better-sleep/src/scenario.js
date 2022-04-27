@@ -4,24 +4,21 @@ const Clock = require('./classes/Clock')
 const Goal = require('./classes/Goal')
 const House = require('./classes/House')
 const Intention = require('./classes/Intention')
-const persons = require('./world/Persons')
-const rooms = require('./world/Rooms')
-
-const personIds = persons.personIds
-const roomIds = rooms.roomIds
+const persons = require('./world/persons/Persons')
+const personIds = require('./world/persons/PersonIds')
+const rooms = require('./world/rooms/Rooms')
+const roomIds = require('./world/rooms/RoomIds')
 
 // Create house
 let defaultLocations = {}
 defaultLocations[personIds.ID_PERSON_SANDRA] = roomIds.ID_ROOM_BEDROOM
 defaultLocations[personIds.ID_PERSON_BOB] = roomIds.ID_ROOM_BEDROOM
 
-let house = new House(persons.persons, rooms.rooms, defaultLocations)
+let house = new House(persons, rooms, defaultLocations)
 
 // Set observers
 house.peopleLocations.observe(personIds.ID_PERSON_SANDRA, (v, k) => console.log(`${k} has entered ${v}`))
 house.peopleLocations.observe(personIds.ID_PERSON_BOB, (v, k) => console.log(`${k} has entered ${v}`))
-house.rooms[roomIds.ID_ROOM_SECOND_FLOOR].lights['main-light'].observe(
-    'state', (v, k) => console.log(`Light ${k} is now in state ${v}`))
 
 // Create the schedule
 Clock.global.observe('mm', (_) => {
@@ -39,7 +36,7 @@ Clock.global.observe('mm', (_) => {
      * 6. Bob walks into the guest room to start working
      */
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 0) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 0) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_BEDROOM,
@@ -52,7 +49,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 1) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 1) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -65,7 +62,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 2) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 2) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_FIRST_FLOOR,
@@ -73,7 +70,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 15) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 15) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_BATHROOM,
@@ -87,7 +84,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if (time.dd == 00 && time.hh == 7 && time.mm == 16) {
+    if (time.dd == 00 && time.hh == 1 && time.mm == 16) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -95,7 +92,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if (time.dd == 00 && time.hh == 7 && time.mm == 17) {
+    if (time.dd == 00 && time.hh == 1 && time.mm == 17) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_FIRST_FLOOR,
@@ -103,7 +100,7 @@ Clock.global.observe('mm', (_) => {
         )
     } 
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 45) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 45) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_LIVING_ROOM,
@@ -116,7 +113,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 46) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 46) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_FIRST_FLOOR,
@@ -124,7 +121,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd == 0 && time.hh == 7 && time.mm == 47) {
+    if(time.dd == 0 && time.hh == 1 && time.mm == 47) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -132,7 +129,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd == 0 && time.hh == 8 && time.mm == 0) {
+    if(time.dd == 0 && time.hh == 2 && time.mm == 0) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_BATHROOM,
@@ -140,7 +137,7 @@ Clock.global.observe('mm', (_) => {
         )
     }
 
-    if(time.dd ==0 && time.hh == 8 && time.mm == 1) {
+    if(time.dd ==0 && time.hh == 2 && time.mm == 1) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -153,7 +150,6 @@ Clock.global.observe('mm', (_) => {
     class SetupMorningLight extends Goal {
         isConditionTrue(helper) {
             if(helper.hh && helper.mm) {
-                console.log(helper.hh, '#', helper.mm, '#', helper.hh == this.condition.hh && helper.mm == this.condition.mm)
                 return helper.hh == this.condition.hh && helper.mm == this.condition.mm
             } else {
                 return false
@@ -183,6 +179,35 @@ Clock.global.observe('mm', (_) => {
         }
     }
 
+    class TurnOnLight extends Goal {
+        isConditionTrue(location) {
+            //console.log('LOCATION', location)
+            return location == roomIds.ID_ROOM_SECOND_FLOOR
+        } 
+    }
+
+    class TurnOnLightIntention extends Intention {
+        static applicable(goal) {
+            return goal instanceof TurnOnLight
+        }
+
+        *exec() {
+            while(true) {
+                yield house.peopleLocations.notifyChange(personIds.ID_PERSON_SANDRA)
+                //yield house.peopleLocations.notifyChange(personIds.ID_PERSON_BOB)
+                if(this.goal.isConditionTrue(house.peopleLocations[personIds.ID_PERSON_SANDRA])) {
+                    console.log('Turn on light in second floor because of sandra')
+                    break
+                }
+            }
+        }
+    }
+
     houseAgent.addIntention(MorningLight)
-    houseAgent.postSubGoal(new SetupMorningLight({hh: 7, mm: 1}))
+    houseAgent.addIntention(TurnOnLightIntention)
+    houseAgent.postSubGoal(new SetupMorningLight({hh: 1, mm: 1}))
+    let turnOnLightConditions = {}
+    turnOnLightConditions[personIds.ID_PERSON_SANDRA] = roomIds.ID_ROOM_SECOND_FLOOR
+    houseAgent.postSubGoal(new TurnOnLight(turnOnLightConditions))
+
 })
