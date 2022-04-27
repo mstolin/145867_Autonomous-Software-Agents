@@ -1,4 +1,4 @@
-const Observable = require('./Observable')
+const Observable = require('../../classes/Observable')
 
 const STATE_SHUTTER_OPEN = 'open'
 const STATE_SHUTTER_CLOSED = 'closed'
@@ -32,3 +32,5 @@ class Shutter extends Observable {
     }
 
 }
+
+module.exports = Shutter
