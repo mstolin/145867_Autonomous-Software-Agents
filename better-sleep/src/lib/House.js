@@ -1,5 +1,5 @@
 const Observable = require('./Observable')
-const Clock = require('./Clock')
+const Clock = require('./utils/Clock')
 
 class House {
 
