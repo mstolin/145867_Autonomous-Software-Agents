@@ -1,4 +1,4 @@
-const Observable = require('../../classes/Observable')
+const Observable = require('../../lib/Observable')
 
 const STATE_SHUTTER_OPEN = 'open'
 const STATE_SHUTTER_CLOSED = 'closed'

@@ -1,4 +1,4 @@
-const Room = require('../../../classes/Room')
+const Room = require('../../../lib/Room')
 const ids = require('../RoomIds')
 const lights = require('./Lights')
 const shutters = require('./Shutters')
