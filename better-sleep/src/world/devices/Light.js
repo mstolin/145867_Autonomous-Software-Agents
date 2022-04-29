@@ -1,4 +1,4 @@
-const Observable = require('../../lib/Observable')
+const Observable = require('../../lib/utils/Observable')
 
 const STATE_LIGHT_ON = 'on'
 const STATE_LIGHT_STANDBY = 'standby'
