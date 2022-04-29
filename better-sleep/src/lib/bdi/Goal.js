@@ -4,21 +4,16 @@ class Goal {
     #property
     /** @type {any} */
     #desiredState
-    /** @type {function} */
-    #precondition
 
     /**
      * Constructs a Goal instance
      * 
      * @param {string} property The goals property
      * @param {any} desiredState The desired state, the goal represents
-     * @param {function} precondition A precondition that is checked to conduct if the goal
-     * has already been achieved
      */
-    constructor(property, desiredState, precondition) {
+    constructor(property, desiredState) {
         this.#property = property
         this.#desiredState = desiredState
-        this.#precondition = precondition
     }
 
     get property() {
@@ -30,14 +25,14 @@ class Goal {
     }
 
     /**
-     * Checks, given the state, if this
+     * Checks, given the current beliefs, if this
      * Goal has already been achieved.
      * 
-     * @param {object} state The current state/beliefs
+     * @param {BeliefSet} beliefs The current beliefs
      * @returns {boolean} True if goal has already been achieved
      */
-    hasAlreadyBeenAchieved(state) {
-        return this.#precondition(state)
+    hasAlreadyBeenAchieved(beliefs) {
+        return beliefs.getBelief(this.#property) == this.#desiredState
     }
 
 }
