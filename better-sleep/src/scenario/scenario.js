@@ -1,3 +1,6 @@
+// libs
+const _ = require('lodash');
+
 // BDI
 const Agent = require('../lib/bdi/Agent')
 const BeliefSet = require('../lib/bdi/BeliefSet')
@@ -30,9 +33,9 @@ house.peopleLocations.observe(personIds.ID_PERSON_BOB, (v, k) => console.log(`${
 // Goals
 let morningLightGoal = new Goal('bedroom_light', 'on')
 class TurnOnLightInTheMorning extends Intention {
-    static applicable(goal) {
+    /*static applicable(goal) {
         return goal instanceof MorningLightGoal
-    }
+    }*/
     *exec() {
         while(true) {
             yield Clock.global.notifyChange('mm')
@@ -43,15 +46,13 @@ class TurnOnLightInTheMorning extends Intention {
         }
     }
 }
-/*
-let goal = new Goal('some_light', 'on', (time) => { time.hh == 7 && time.mm == 0 })
-*/
 
 // House Agent
-let houseAgentBeliefs = new BeliefSet(defaultLocations) // the house agent needs to know about the people locations
+let beliefs = _.merge(defaultLocations, {'bedroom_light': 'off'})
+let houseAgentBeliefs = new BeliefSet(beliefs) // the house agent needs to know about the people locations
 let houseAgent = new Agent('House Agent', houseAgentBeliefs)
 houseAgent.addIntention(TurnOnLightInTheMorning)
-houseAgent.postSubGoal(morningLightGoal).catch(err => console.error(err))
+houseAgent.postSubGoal(morningLightGoal).catch(err => console.error('Not able to achieve goal morningLightGoal:', err))
 
 
 // Start the routine when the clock starts
