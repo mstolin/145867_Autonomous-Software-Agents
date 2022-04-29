@@ -1,30 +1,40 @@
 const Goal = require("./Goal")
 
 class Intention {
-
-    goal
-
-    constructor(goal) {
-        this.goal = goal
-    }
-
+ 
+    /**
+     * Checks if this Intention can be used to achieve the given goal
+     * (is applicable).
+     * 
+     * @param {Goal} goal 
+     * @returns {boolean} True of the given goal is applicable
+     */
     static applicable(goal) {
         return goal instanceof Goal
     }
 
+    /**
+     * Executes a Plan to achieve the given Goal.
+     * 
+     * @returns {boolean} True if the intentions plan was successful
+     */
     async run() {
+        // get the plan
         let iterator = this.exec()
-        var actionVal = null
+        var action = null
 
         var failed = false
         var done = false
 
+        // as long as the intention has not failed
+        // try to execute the plan to achieve
         while(!failed && !done) {
             try {
-                var {value: actionVal, done: done} = iterator.next(await actionVal)
+                // execute action defined in the plan
+                var {value: action, done: done} = iterator.next(await action)
 
-                if(actionVal instanceof Promise) {
-                    actionVal.catch(_ => {
+                if(action instanceof Promise) {
+                    action.catch(_ => {
                         failed = true
                         return false
                     })
