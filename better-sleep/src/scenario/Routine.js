@@ -1,28 +1,8 @@
-// Imports
-const Agent = require('./classes/Agent')
-const Clock = require('./classes/Clock')
-const Goal = require('./classes/Goal')
-const House = require('./classes/House')
-const Intention = require('./classes/Intention')
-const persons = require('./world/persons/Persons')
-const personIds = require('./world/persons/PersonIds')
-const rooms = require('./world/rooms/Rooms')
-const roomIds = require('./world/rooms/RoomIds')
+const roomIds = require('../world/rooms/RoomIds')
+const personIds = require('../world/persons/PersonIds')
 
-// Create house
-let defaultLocations = {}
-defaultLocations[personIds.ID_PERSON_SANDRA] = roomIds.ID_ROOM_BEDROOM
-defaultLocations[personIds.ID_PERSON_BOB] = roomIds.ID_ROOM_BEDROOM
-
-let house = new House(persons, rooms, defaultLocations)
-
-// Set observers
-house.peopleLocations.observe(personIds.ID_PERSON_SANDRA, (v, k) => console.log(`${k} has entered ${v}`))
-house.peopleLocations.observe(personIds.ID_PERSON_BOB, (v, k) => console.log(`${k} has entered ${v}`))
-
-// Create the schedule
-Clock.global.observe('mm', (_) => {
-    let time = Clock.global
+function startRoutine(time, house) {
+    //let time = Clock.global
 
     /**
      * 1. Snadra and Bob wake up
@@ -144,70 +124,6 @@ Clock.global.observe('mm', (_) => {
             roomIds.ID_ROOM_GUESTROOM
         )
     }
+}
 
-    var houseAgent = new Agent('House Agent')
-
-    class SetupMorningLight extends Goal {
-        isConditionTrue(helper) {
-            if(helper.hh && helper.mm) {
-                return helper.hh == this.condition.hh && helper.mm == this.condition.mm
-            } else {
-                return false
-            }
-        }
-    }
-
-    class MorningLight extends Intention {
-        static applicable(goal) {
-            return goal instanceof SetupMorningLight
-        }
-
-        *exec() {
-            while(true) {
-                yield Clock.global.notifyChange('mm')
-                if(this.goal.isConditionTrue(Clock.global)) {
-                    console.log('Turn on the Morning Light')
-                    /**
-                     * e.g.:
-                     * houseAgent.turnOnLight()
-                     * or
-                     * this.agent.devices[bedroom-main-light].turnOn
-                     */
-                    break
-                }
-            }
-        }
-    }
-
-    class TurnOnLight extends Goal {
-        isConditionTrue(location) {
-            //console.log('LOCATION', location)
-            return location == roomIds.ID_ROOM_SECOND_FLOOR
-        } 
-    }
-
-    class TurnOnLightIntention extends Intention {
-        static applicable(goal) {
-            return goal instanceof TurnOnLight
-        }
-
-        *exec() {
-            while(true) {
-                yield house.peopleLocations.notifyChange(personIds.ID_PERSON_SANDRA)
-                //yield house.peopleLocations.notifyChange(personIds.ID_PERSON_BOB)
-                if(this.goal.isConditionTrue(house.peopleLocations[personIds.ID_PERSON_SANDRA])) {
-                    console.log('Turn on light in second floor because of sandra')
-                    break
-                }
-            }
-        }
-    }
-
-    houseAgent.addIntention(MorningLight)
-    houseAgent.addIntention(TurnOnLightIntention)
-    houseAgent.postSubGoal(new SetupMorningLight({hh: 1, mm: 1}))
-    let turnOnLightConditions = {}
-    turnOnLightConditions[personIds.ID_PERSON_SANDRA] = roomIds.ID_ROOM_SECOND_FLOOR
-    houseAgent.postSubGoal(new TurnOnLight(turnOnLightConditions))
-
-})
+module.exports = startRoutine
