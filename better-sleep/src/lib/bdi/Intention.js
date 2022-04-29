@@ -16,9 +16,16 @@ class Intention {
     /**
      * Executes a Plan to achieve the given Goal.
      * 
+     * @param {Goal} goal The goal to achieve
+     * @param {BeliefSet} beliefs The agents beliefs
      * @returns {boolean} True if the intentions plan was successful
      */
-    async run() {
+    async run(goal, beliefs) {
+        // Check the goals precondition
+        if(goal.hasAlreadyBeenAchieved(beliefs)) {
+            return false
+        }
+
         // get the plan
         let iterator = this.exec()
         var action = null

@@ -1,3 +1,4 @@
+const BeliefSet = require('./BeliefSet')
 const Goal = require('./Goal')
 const Intention = require('./Intention')
 
@@ -25,14 +26,27 @@ test('Intention.run (A general test if run works as expected)', async() => {
             s4 = yield
         }
     }
+    let beliefs = new BeliefSet({'light': 'on'})
+    let goal = new Goal('light', 'off')
 
-    let goal = new Goal()
-
-    expect(await new TestIntention(goal).run()).toBe(true)
+    expect(await new TestIntention().run(goal, beliefs)).toBe(true)
     expect(s1).toBe(undefined)
     expect(s2).toBe(1234)
     expect(s3).toBe(false)
     expect(s4).toBe(undefined)
+})
+
+test('Intention.run (Fail because Goal has already been achieved)', async () => {
+    class TestIntention extends Intention {
+        *exec() {
+            // wont reach this anyway
+            yield true
+        }
+    }
+
+    let beliefs = new BeliefSet({'light': 'on'})
+    let goal = new Goal('light', 'on')
+    expect(await new TestIntention().run(goal, beliefs)).toBe(false)
 })
 
 test('Intention.run (Fail because of Promise.reject)', async () => {
@@ -42,8 +56,9 @@ test('Intention.run (Fail because of Promise.reject)', async () => {
         }
     }
 
-    let goal = new Goal({})
-    expect(await new TestIntention(goal).run()).toBe(false)
+    let beliefs = new BeliefSet({'light': 'on'})
+    let goal = new Goal('light', 'off')
+    expect(await new TestIntention().run(goal, beliefs)).toBe(false)
 })
 
 test('Intention.run (Fail because of throw error)', async () => {
@@ -53,6 +68,7 @@ test('Intention.run (Fail because of throw error)', async () => {
         }
     }
 
-    let goal = new Goal({})
-    expect(await new TestIntention(goal).run()).toBe(false)
+    let beliefs = new BeliefSet({'light': 'on'})
+    let goal = new Goal('light', 'off')
+    expect(await new TestIntention().run(goal, beliefs)).toBe(false)
 })

@@ -57,23 +57,19 @@ class Agent {
         if(!this.#beliefSet.includesPredicate(subGoal.property)) {
             return Promise.reject(`${subGoal.property} is not part of the agent belief set`)
         }
-        // 2. Check if the preceondition if the goal is true, otherwise no need to execute intentions
-        if(subGoal.hasAlreadyBeenAchieved(this.#beliefSet)) {
-            return Promise.reject(`${subGoal.property} is already in state ${subGoal.desiredState}`)
-        }
 
-        // 3. Check if any intention of this agent can be used to reach the given goal
+        // 2. Check if any intention of this agent can be used to reach the given goal
         for(let IntentionClass of Object.values(this.#intentions)) {
             if(!IntentionClass.applicable(subGoal)) {
                 // Intention cannot be used to achieve the goal
                 continue
             }
 
-            // 4. Use this intention to reach the given subgoal
+            // 3. Use this intention to reach the given subgoal
             let intention = new IntentionClass(subGoal)
             // Run the plan of the intention to reach the goal
             let success = await intention
-                .run()
+                .run(subGoal, this.#beliefSet)
                 .catch(err => {
                     console.log(`Error running intention ${IntentionClass}`, err)
                 })
