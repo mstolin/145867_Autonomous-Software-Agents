@@ -54,8 +54,8 @@ class Agent {
      */
     async postSubGoal(subGoal) {
         // 1. Check if the agent does know about the predicate
-        if(!this.#beliefSet.includesPredicate(subGoal.predicate)) {
-            return Promise.reject(`${subGoal.predicate} is not part of the agent belief set`)
+        if(!this.#beliefSet.includesPredicate(subGoal.property)) {
+            return Promise.reject(`${subGoal.property} is not part of the agent belief set`)
         }
 
         // 2. Check if any intention of this agent can be used to reach the given goal
