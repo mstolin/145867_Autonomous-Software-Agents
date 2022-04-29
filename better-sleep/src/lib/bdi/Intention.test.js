@@ -1,4 +1,3 @@
-const Observable = require('../utils/Observable')
 const Goal = require('./Goal')
 const Intention = require('./Intention')
 

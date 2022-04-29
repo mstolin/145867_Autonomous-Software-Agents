@@ -22,7 +22,7 @@ test('Agent.postSubGoal', async() => {
     let agent = new Agent('007', beliefs)
 
     // A new goal to turn on the kitchen light
-    let kitchenLightOn = new Goal('kitchen_light', 'on')
+    let kitchenLightOn = new Goal('kitchen_light', 'on', null)
 
     // This intention is supposed to turn the kitchen light on if its off
     class TurnLightOn extends Intention {
