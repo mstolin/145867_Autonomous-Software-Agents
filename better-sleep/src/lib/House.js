@@ -1,5 +1,4 @@
-const Observable = require('./Observable')
-const Clock = require('./utils/Clock')
+const Observable = require('./utils/Observable')
 
 class House {
 
@@ -17,9 +16,6 @@ class House {
         this.people = people
         this.rooms = rooms
         this.peopleLocations = new Observable(defaultLocations)
-
-        Clock.startTimer()
-        Clock.wallClock()
     }
 
     /**
