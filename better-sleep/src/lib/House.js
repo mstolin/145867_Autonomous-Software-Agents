@@ -2,20 +2,36 @@ const Observable = require('./utils/Observable')
 
 class House {
 
-    peopleLocations
-    people
-    rooms
+    /** @type {object} */
+    #peopleLocations
+    /** @type {object} */
+    #people
+    /** @type {object} */
+    #rooms
 
     /**
+     * Constructs a new House instance.
      * 
-     * @param {object} people 
-     * @param {object} rooms 
-     * @param {object} defaultLocations
+     * @param {object} people The people of this house 
+     * @param {object} rooms All rooms of the house 
+     * @param {object} defaultLocations The initial location of the people
      */
     constructor(people, rooms, defaultLocations) {
-        this.people = people
-        this.rooms = rooms
-        this.peopleLocations = new Observable(defaultLocations)
+        this.#people = people
+        this.#rooms = rooms
+        this.#peopleLocations = new Observable(defaultLocations)
+    }
+
+    get people() {
+        return this.#people
+    }
+
+    get rooms() {
+        return this.#rooms
+    }
+
+    get locations() {
+        return this.#peopleLocations
     }
 
     /**
