@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^28.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
