@@ -22,8 +22,9 @@ const startRoutine = require('./Routine')
     ENVIRONMENT
 */
 // Set some test observers
-house.locations.observe(personIds.ID_PERSON_SANDRA, (v, k) => console.log(`${k} has entered ${v}`))
-house.locations.observe(personIds.ID_PERSON_BOB, (v, k) => console.log(`${k} has entered ${v}`))
+house.getPerson(personIds.ID_PERSON_SANDRA).observe('location', (v, _) => console.log(`Sandra has entered ${v}`))
+house.getPerson(personIds.ID_PERSON_BOB).observe('location', (v, _) => console.log(`Bob has entered ${v}`))
+house.getRoom(roomIds.ID_ROOM_BEDROOM).mainLight.observe('state', (v, _) => console.log(`Bedroom main light changed state to ${v}`))
 
 /*
     AGENTS, INTENTIONS, AND GOALS
@@ -39,6 +40,7 @@ class TurnOnLightInTheMorning extends Intention {
             yield Clock.global.notifyChange('mm')
             if(Clock.global.hh == 1 && Clock.global.mm == 0) {
                 console.log('Its 7, wake up!')
+                house.getRoom(roomIds.ID_ROOM_BEDROOM).mainLight.turnOn(500, 2000)
                 break
             }
         }
