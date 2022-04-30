@@ -1,9 +1,11 @@
+const Light = require('./Light')
+
 class Room {
 
     /** @type {string} */
     #name
     /** @type {Light} */
-    #mainLight
+    #mainLight = new Light('main-light')
     /** @type {Array<string>} */
     #doors = []
     /** @type {{string: Shutter}} */
