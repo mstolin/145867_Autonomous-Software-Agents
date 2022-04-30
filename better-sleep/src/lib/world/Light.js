@@ -23,6 +23,8 @@ class Light extends Observable {
     /**
      * Max. Lumen is 800lm.
      * Value can't be less than 0.
+     * 
+     * @param {number} brightness The desired brightness
      */
     setBrightness(brightness) {
         if(this.state != STATE_LIGHT_ON) {
@@ -37,6 +39,8 @@ class Light extends Observable {
     /**
      * This light has a min. temperature of 1700K and
      * a max. value of 6500K.
+     * 
+     * @param {number} temperature The desired temperature
      */
     setTemperature(temperature) {
         if(this.state != STATE_LIGHT_ON) {
