@@ -4,6 +4,8 @@ test('Shutter.constructor', () => {
     let shutter = new Shutter('test')
     expect(shutter.name).toBe('test')
     expect(shutter.state).toBe('closed')
+    expect(shutter.isClosed).toBeTruthy()
+    expect(shutter.isOpen).toBeFalsy()
 })
 
 test('Shutter.open, Shutter.close', () => {
@@ -13,10 +15,10 @@ test('Shutter.open, Shutter.close', () => {
     expect(() => shutter.close()).toThrow()
 
     shutter.open()
-    expect(shutter.state).toBe('open')
+    expect(shutter.isOpen).toBeTruthy()
     // already open => throw
     expect(() => shutter.open()).toThrow()
 
     shutter.close()
-    expect(shutter.state).toBe('closed')
+    expect(shutter.isClosed).toBeTruthy()
 })

@@ -20,6 +20,14 @@ class Light extends Observable {
         return this.#name
     }
 
+    get isOn() {
+        return this.state == STATE_LIGHT_ON
+    }
+
+    get isOff() {
+        return this.state == STATE_LIGHT_OFF
+    }
+
     /**
      * Max. Lumen is 800lm.
      * Value can't be less than 0.
@@ -27,7 +35,7 @@ class Light extends Observable {
      * @param {number} brightness The desired brightness
      */
     setBrightness(brightness) {
-        if(this.state != STATE_LIGHT_ON) {
+        if(this.isOff) {
             throw(`${this.#name} is not in state ${STATE_LIGHT_ON}`)
         }
         if(brightness < 1 || brightness > 800) {
@@ -43,7 +51,7 @@ class Light extends Observable {
      * @param {number} temperature The desired temperature
      */
     setTemperature(temperature) {
-        if(this.state != STATE_LIGHT_ON) {
+        if(this.isOff) {
             throw(`${this.#name} is not in state ${STATE_LIGHT_ON}`)
         }
         if(temperature < 1700 || temperature > 6500) {
@@ -61,7 +69,7 @@ class Light extends Observable {
      * @param {number} temperature 
      */
     turnOn(brightness, temperature) {
-        if(this.state == STATE_LIGHT_ON) {
+        if(this.isOn) {
             throw(`${this.#name} is already in state ${STATE_LIGHT_ON}`)
         }
 
@@ -81,7 +89,7 @@ class Light extends Observable {
      * temperature to 0.
      */
     turnOff() {
-        if(this.state == STATE_LIGHT_OFF) {
+        if(this.isOff) {
             throw(`${this.#name} is already in state ${STATE_LIGHT_OFF}`)
         }
 

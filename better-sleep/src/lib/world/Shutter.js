@@ -18,6 +18,14 @@ class Shutter extends Observable {
         return this.#name
     }
 
+    get isOpen() {
+        return this.state == STATE_SHUTTER_OPEN
+    }
+
+    get isClosed() {
+        return this.state == STATE_SHUTTER_CLOSED
+    }
+
     /**
      * Opens the shutter by setting the state to STATE_SHUTTER_OPEN.
      */

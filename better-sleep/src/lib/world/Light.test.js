@@ -4,21 +4,23 @@ test('Light.constructor', () => {
     let light = new Light('Light1')
     expect(light.name).toBe('Light1')
     expect(light.state).toBe('off')
+    expect(light.isOn).toBeFalsy()
+    expect(light.isOff).toBeTruthy()
     expect(light.brightness).toBe(0)
     expect(light.temperature).toBe(0)
 })
 
 test('Light.turnOn Light.turnOff', () => {
     let light = new Light('Test')
-    expect(light.state).toBe('off')
+    expect(light.isOff).toBeTruthy()
 
     // simply turn on
     light.turnOn(500, 1700)
-    expect(light.state).toBe('on')
+    expect(light.isOn).toBeTruthy()
 
     // simply turn off again
     light.turnOff()
-    expect(light.state).toBe('off')
+    expect(light.isOff).toBeTruthy()
 
     // this should thro because of incorrect values
     expect(() => light.turnOn(801, 1700)).toThrow()
