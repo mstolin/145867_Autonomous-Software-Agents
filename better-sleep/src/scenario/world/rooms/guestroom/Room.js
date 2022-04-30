@@ -1,5 +1,5 @@
 const ids = require('../RoomIds')
-const Room = require('../../../lib/Room')
+const Room = require('../../../../lib/world/Room')
 const lights = require('./Lights')
 const shutters = require('./Shutters')
 

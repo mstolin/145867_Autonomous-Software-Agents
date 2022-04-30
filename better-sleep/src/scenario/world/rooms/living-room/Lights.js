@@ -1,4 +1,4 @@
-const Light = require('../../devices/Light')
+const Light = require('../../../../lib/world/Light')
 
 let lights = {}
 lights['small-light-1'] = new Light('Small Light 1')
