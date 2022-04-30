@@ -47,10 +47,10 @@ class House {
         // Check if the person and the rooms exist
         if(this.people.hasOwnProperty(person) && this.rooms.hasOwnProperty(from) && this.rooms.hasOwnProperty(to)) {
             // Check if person is in start room
-            if(this.peopleLocations[person] == from) {
+            if(this.locations[person] == from) {
                 // can the person move to the desired room
                 if(this.rooms[from].hasPathToRoom(to) || this.rooms[to].hasPathToRoom(from)) {
-                    this.peopleLocations.set(person, to)
+                    this.locations.set(person, to)
                 } else {
                     console.warn(`There is no direct way from ${from} to ${to}.`)
                 }
