@@ -1,9 +1,7 @@
-const roomIds = require('../world/rooms/RoomIds')
-const personIds = require('../world/persons/PersonIds')
+const roomIds = require('./world/rooms/RoomIds')
+const personIds = require('./world/persons/PersonIds')
 
 function startRoutine(time, house) {
-    //let time = Clock.global
-
     /**
      * 1. Snadra and Bob wake up
      * 2.1. Sandra walks into the bathroom and needs 15min 
