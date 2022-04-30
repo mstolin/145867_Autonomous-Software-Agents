@@ -1,9 +1,5 @@
-const Observable = require('../utils/Observable')
-
 class House {
 
-    /** @type {object} */
-    #peopleLocations
     /** @type {object} */
     #people
     /** @type {object} */
@@ -14,12 +10,10 @@ class House {
      * 
      * @param {object} people The people of this house 
      * @param {object} rooms All rooms of the house 
-     * @param {object} defaultLocations The initial location of the people
      */
-    constructor(people, rooms, defaultLocations) {
+    constructor(people, rooms) {
         this.#people = people
         this.#rooms = rooms
-        this.#peopleLocations = new Observable(defaultLocations)
     }
 
     get people() {
@@ -30,8 +24,32 @@ class House {
         return this.#rooms
     }
 
-    get locations() {
-        return this.#peopleLocations
+    /**
+     * Returns the room for the given ID.
+     * 
+     * @param {string} roomId Desired room
+     * @returns 
+     */
+    getRoom(roomId) {
+        if(!this.hasRoom(roomId)) {
+            throw(`Room with ID ${roomId} does not exist`)
+        }
+        return this.#rooms[roomId]
+    }
+
+    getPerson(personId) {
+        if(!this.hasPerson(personId)) {
+            throw(`Person with ID ${personId} does not exist`)
+        }
+        return this.#people[personId]
+    }
+
+    hasRoom(roomId) {
+        return this.#rooms.hasOwnProperty(roomId)
+    }
+
+    hasPerson(personId) {
+        return this.#people.hasOwnProperty(personId)
     }
 
     /**
@@ -43,23 +61,17 @@ class House {
      * @param {string} from Identifer of the source room
      * @param {string} to Identifier of the destination room
      */
-    movePersonTo(person, from, to) {
-        // Check if the person and the rooms exist
-        if(this.people.hasOwnProperty(person) && this.rooms.hasOwnProperty(from) && this.rooms.hasOwnProperty(to)) {
-            // Check if person is in start room
-            if(this.locations[person] == from) {
-                // can the person move to the desired room
-                if(this.rooms[from].hasPathToRoom(to) || this.rooms[to].hasPathToRoom(from)) {
-                    this.locations.set(person, to)
-                } else {
-                    console.warn(`There is no direct way from ${from} to ${to}.`)
-                }
-            } else {
-                console.warn(`${person} is currently not in ${from}.`)
-            }
-        } else {
-            console.warn(`Either ${person} does not exist in people, or ${from} or ${to} do not exist in rooms.`)
+    movePersonTo(personId, sourceId, destinationId) {
+        let person = this.getPerson(personId)
+        let sourceRoom = this.getRoom(sourceId)
+        let destinationRoom = this.getRoom(destinationId)
+        if(!sourceRoom.hasPathToRoom(destinationId) && !destinationRoom.hasPathToRoom(sourceId)) {
+            throw(`There is no direct path from ${sourceId} to ${destinationId}.`)
         }
+        if(!person.isInRoom(sourceId)) {
+            throw(`Person ${personId} is not in ${sourceId}`)
+        }
+        person.setLocation(destinationId)
     }
     
 }
