@@ -4,6 +4,9 @@ This node.js project is an implemention of the proposol for a multi-agent system
 The goal is to provide autonomous behaviour that adjusts and controls the light in
 a house to increase the quality of sleep, of its inhabitants.
 
+The project is influenced by https://github.com/marcorobol/Autonode.js and
+https://github.com/TimKam/JS-son.
+
 # Development
 
 ## Install Dependencies
