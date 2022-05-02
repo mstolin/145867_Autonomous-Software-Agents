@@ -55,6 +55,7 @@ Includes the implemention of all utilities:
 
 * `Clock.js` - An implemention of a clock.
 * `Observable.js` - Observables are used to observe the state of an entity.
+* `Logger.js` - A very minimal implementation of a Logger.
 
 ## `src/lib/world`
 
@@ -106,3 +107,12 @@ The following rooms are available:
 * Kitchen
 * Living Room
 * Second Floor
+
+## `src/scenario/bdi/agents/house-agent`
+
+The definition of the house-agent, its definitions, beliefs, and goals.
+
+* `Beliefs.js` - The house-agents' initial beliefs.
+* `Goals.js` - Goals the house-agent has to achieve.
+* `HouseAgent.js` - Definition of the house-agent.
+* `Intentions.js` - All intentions used to achieve the goals.
