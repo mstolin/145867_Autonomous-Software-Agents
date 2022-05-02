@@ -1,3 +1,5 @@
+const Goal = require("./Goal")
+
 /**
  * An Agent is based on Beliefs, Intentions and Goals.
  * It uses its Intention to achieve a specific Goal,
@@ -49,42 +51,23 @@ class Agent {
     /**
      * Tries to achieve the given goal.
      * 
-     * @param {Goal} subGoal 
+     * @param {[Goal]} subGoals
      * @returns {Promise}
      */
-    async postSubGoal(subGoal) {
-        // 1. Check if the agent does know about the predicate
-        if(!this.#beliefSet.includesPredicate(subGoal.property)) {
-            return Promise.reject(`${subGoal.property} is not part of the agent belief set`)
-        }
+    async postSubGoals(subGoals) {
+        let intentions = Object
+            .keys(subGoals)
+            .filter(goalName => this.#beliefSet.includesPredicate(subGoals[goalName].property)) // 1. Check if goal can be achieved
+            .flatMap(goalName => {
+                let goal = subGoals[goalName]
+                let intentions = Object
+                    .values(this.#intentions)
+                    .filter(IntentionClass => IntentionClass.applicable(goalName)) // 2. Get intentions for goal
+                    .map(IntentionClass => new IntentionClass().run(goal, this.#beliefSet)) //  3. Instantiate intention 
+                    return intentions
+            })
 
-        // 2. Check if any intention of this agent can be used to reach the given goal
-        for(let IntentionClass of Object.values(this.#intentions)) {
-            if(!IntentionClass.applicable(subGoal)) {
-                // Intention cannot be used to achieve the goal
-                continue
-            }
-
-            // 3. Use this intention to reach the given subgoal
-            let intention = new IntentionClass(subGoal)
-            // Run the plan of the intention to reach the goal
-            let success = await intention
-                .run(subGoal, this.#beliefSet)
-                .catch(err => {
-                    console.log(`Error running intention ${IntentionClass}`, err)
-                })
-
-            if(success) {
-                // Plan was successful
-                return Promise.resolve(true)
-            } else {
-                // Plan was not successful to reach the goal
-                // Try the next intention
-                continue
-            }
-        }
-
-        return Promise.resolve(this)
+        await Promise.all(intentions) // 4. Run all intentions concurrently
     }
 
 }
