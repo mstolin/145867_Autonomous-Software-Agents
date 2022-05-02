@@ -1,6 +1,8 @@
 const roomIds = require('./world/rooms/RoomIds')
 const personIds = require('./world/persons/PersonIds')
 
+// To simplify things, instead of starting the day at 7, 
+// we start at 1
 function startRoutine(time, house) {
     /**
      * 1. Snadra and Bob wake up
