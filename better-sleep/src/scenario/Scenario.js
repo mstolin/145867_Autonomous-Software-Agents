@@ -2,7 +2,7 @@
     IMPORTS
 */
 // libs
-const _ = require('lodash');
+//const _ = require('lodash');
 // BDI
 const houseAgent = require('./bdi/agents/house-agent/HouseAgent')
 const houseAgentGoals = require('./bdi/agents/house-agent/Goals')
