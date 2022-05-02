@@ -22,7 +22,7 @@ class Intention {
      */
     async run(goal, beliefs) {
         // Check the goals precondition
-        if(goal.hasAlreadyBeenAchieved(beliefs)) {
+        if(goal.hasAlreadyBeenAchieved(beliefs)) { // TODO This might become a problem when a new day rises
             return false
         }
 
