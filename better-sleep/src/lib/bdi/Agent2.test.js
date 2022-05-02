@@ -12,7 +12,7 @@ test('Agent.constructor', () => {
     expect(agent.beliefs).toBe(beliefs)
 })
 
-test('Agent.postSubGoal', async() => {
+/*test('Agent.postSubGoal', async() => {
     var kitchenLightState = 'off'
 
     let beliefs = new BeliefSet({
@@ -34,4 +34,4 @@ test('Agent.postSubGoal', async() => {
 
     expect(await agent.postSubGoal(kitchenLightOn)).toBe(true)
     expect(kitchenLightState).toBe('on')
-})
+})*/

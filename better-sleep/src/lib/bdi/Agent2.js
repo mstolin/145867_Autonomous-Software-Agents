@@ -121,4 +121,4 @@ class Agent2 {
 
 }
 
-module.exports = Agent
+module.exports = Agent2
