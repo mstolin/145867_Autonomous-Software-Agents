@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "scenario": "node src/scenario/scenario.js",
+    "scenario": "node src/scenario/Scenario.js",
     "test": "jest"
   },
   "author": "Marcel Pascal Stolin <marcelpascal.stolin@studenti.unitn.it>",
