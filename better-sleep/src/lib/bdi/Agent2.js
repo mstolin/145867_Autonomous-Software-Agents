@@ -16,7 +16,7 @@ const Goal = require("./Goal")
  * It uses its Intention to achieve a specific Goal,
  * based on its Beliefs.
  */
-class Agent2 {
+class Agent {
 
     /** @type {[Intention]} */
     #intentions = []
@@ -65,60 +65,48 @@ class Agent2 {
      * @param {Goal} subGoal 
      * @returns {Promise}
      */
-    async postSubGoals(subGoals) {
-        /*for(let goalName in subGoals) {
-            let goal = subGoals[goalName]
-            // 1. Check if the agent does know about the predicate
-            if(!this.#beliefSet.includesPredicate(goal.property)) {
-                return Promise.reject(`${goal.property} is not part of the agent belief set`)
-            }
-            
-            // 2. Check if any intention of this agent can be used to reach the given goal
-            for(let IntentionClass of Object.values(this.#intentions)) {
-                if(!IntentionClass.applicable(goalName)) {
-                    // Intention cannot be used to achieve the goal
-                    continue
-                }
-
-                // 3. Use this intention to reach the given subgoal
-                let intention = new IntentionClass()
-                // Run the plan of the intention to reach the goal
-                console.log('START GOAL', goalName)
-                let success = await intention
-                    .run(goal, this.#beliefSet)
-                    .catch(err => {
-                        console.log(`Error running intention ${IntentionClass}`, err)
-                    })
-
-                if(success) {
-                    // Plan was successful
-                    return Promise.resolve(true)
-                } else {
-                    // Plan was not successful to reach the goal
-                    // Try the next intention
-                    continue
-                }
-            }*/
-
-        let intentions = Object
-            .keys(subGoals)
-            .filter(goalName => this.#beliefSet.includesPredicate(subGoals[goalName].property)) // 1. Check if goal can be achieved
-            .flatMap(goalName => {
+    postSubGoals(subGoals) {
+        async function run(delay, subGoals, beliefSet, intentions) {
+            console.log("RUN")
+            for(let goalName in subGoals) {
                 let goal = subGoals[goalName]
-                let intentions = Object
-                    .values(this.#intentions)
-                    .filter(IntentionClass => IntentionClass.applicable(goalName))
-                    .map(IntentionClass => new IntentionClass().run(goal, this.#beliefSet)) // Instantiation intention
-                    return intentions
-            }) // 2. Check if any intention can be used for this goal
+                // 1. Check if the agent can change the environment based on its beliefs
+                if(!beliefSet.includesPredicate(goal.property)) {
+                    return Promise.reject(`${goal.property} is not part of the agent belief set`)
+                }
+                
+                // 2. Check if any intention of this agent can be used to reach the given goal
+                for(let IntentionClass of Object.values(intentions)) {
+                    if(!IntentionClass.applicable(goalName)) {
+                        // Intention cannot be used to achieve the goal
+                        continue
+                    }
 
-        await Promise.all(intentions)
+                    // 3. Use this intention to reach the given subgoal
+                    let intention = new IntentionClass()
+                    // Run the plan of the intention to reach the goal
+                    console.log('START GOAL', goalName)
+                    let success = await intention
+                        .run(goal, beliefSet)
+                        .catch(err => {
+                            console.log(`Error running intention ${IntentionClass}`, err)
+                        })
 
-
-        //}
-        //return Promise.resolve(this)
+                    if(success) {
+                        // Plan was successful
+                        return Promise.resolve(true)
+                    } else {
+                        // Plan was not successful to reach the goal
+                        // Try the next intention
+                        continue
+                    }
+                }
+            }
+            setTimeout(() => run(delay, subGoals, beliefSet, intentions), delay)
+        }
+        run(0, subGoals, this.#beliefSet, this.#intentions)
     }
 
 }
 
-module.exports = Agent2
+module.exports = Agent

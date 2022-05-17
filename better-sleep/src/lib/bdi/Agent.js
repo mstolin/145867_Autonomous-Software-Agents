@@ -67,7 +67,7 @@ class Agent {
                     return intentions
             })
 
-        await Promise.all(intentions) // 4. Run all intentions concurrently
+        await Promise.all(intentions) // 4. Run all intentions 
     }
 
 }
