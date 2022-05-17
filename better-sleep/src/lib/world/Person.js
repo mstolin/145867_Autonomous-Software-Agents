@@ -9,11 +9,9 @@ class Person extends Observable {
      * Constructs a Person instance.
      * 
      * @param {string} name Name of the Person
-     * @param {string} location Room ID of the initial location
      */
-    constructor(name, location) {
+    constructor(name) {
         super({})
-        this.defineProperty('location', location)
         this.#name = name
     }
 
