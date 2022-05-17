@@ -1,4 +1,4 @@
-# Planning - Problems
+# Planning Domain
 
 At the beginning of the day, Sandra and Bob are
 in the Bedroom, where light is turned on.
@@ -54,6 +54,77 @@ light has to be turned on.
             The light in a room can be turned on
             or off
         </td>
+    </tr>
+</table>
+
+## Action - Turn-On-Light
+
+<table>
+    <tr>
+        <th colspan="2">
+            Turn on light in Room y, if Person x is in y
+        </th>
+    </tr>
+    <tr>
+        <th>Precondition</th>
+        <td>
+            x is a Person;
+            y is a Room;
+            x is in y;
+            Light is off in y
+        </td>
+    </tr>
+    <tr>
+        <th>Effect</th>
+        <td>Light is on in y</td>
+    </tr>
+</table>
+
+## Action - Turn-Off-Light
+
+<table>
+    <tr>
+        <th colspan="2">
+            Turn off light in Room y, if Person x is not in y
+        </th>
+    </tr>
+    <tr>
+        <th>Precondition</th>
+        <td>
+            x is a Person;
+            y is a Room;
+            x is not in y;
+            Light is on in y
+        </td>
+    </tr>
+    <tr>
+        <th>Effect</th>
+        <td>Light is off in y</td>
+    </tr>
+</table>
+
+## Action - Move
+
+<table>
+    <tr>
+        <th colspan="2">
+            Move Person x from Room y to Room z
+        </th>
+    </tr>
+    <tr>
+        <th>Precondition</th>
+        <td>
+            x is a Person;
+            y is a Room;
+            z is a Room;
+            x is in y;
+            x is not in z;
+            Movement is possible from y to z
+        </td>
+    </tr>
+    <tr>
+        <th>Effect</th>
+        <td>x is in Room z; x is not in Room y</td>
     </tr>
 </table>
 
