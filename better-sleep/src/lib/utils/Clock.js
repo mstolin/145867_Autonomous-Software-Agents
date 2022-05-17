@@ -1,4 +1,6 @@
-const Observable =  require('./Observable.js')
+const Observable =  require('./Observable')
+
+
 
 /**
  * @static {global} is the global time
@@ -10,21 +12,12 @@ const Observable =  require('./Observable.js')
  */
 class Clock {
 
+    /** @type {Observable} {dd, hh, mm} */
     static global = new Observable( {dd: 0, hh: 0, mm: 0} )
 
     static format() {
         var time = Clock.global
-        return time.dd + ':' + (time.hh<10?'0':'')+time.hh + ':' + (time.mm==0?'00':time.mm)
-    }
-
-    static wallClock() {
-        // Wall clock
-        Clock.global.observe('mm', mm => {
-            var time = Clock.global
-            process.stdout.clearLine(0);
-            process.stdout.cursorTo(0);
-            process.stdout.write( Clock.format() + '\t');
-        })
+        return '' + time.dd + ':' + (time.hh<10?'0':'')+time.hh + ':' + (time.mm==0?'00':time.mm)
     }
 
     static #start = true
@@ -33,7 +26,7 @@ class Clock {
         Clock.#start = false
     }
 
-    static async startTimer() {
+    static async startTimer(steps=15) {
 
         Clock.#start = true
 
@@ -41,13 +34,11 @@ class Clock {
             await new Promise( res => setTimeout(res, 50))
             
             var {dd, hh, mm} = Clock.global
-
-            let steps = 1
             
             if(mm<60-steps)
                 Clock.global.mm += steps
             else {
-                if(hh<24) {
+                if(hh<23) {
                     Clock.global.hh += 1 // increased hh but mm still 45
                     Clock.global.mm = 0 // however, observers are handled as microtask so at the time they are called everything will be sync
                 }
@@ -57,8 +48,16 @@ class Clock {
                     Clock.global.dd += 1
                 }
             }
+            
+            // Here, time is logged immediately before any other observable gets updated!
+            process.stdout.clearLine(0);
+            process.stdout.cursorTo(0);
+            process.stdout.write( Clock.format() + '\t');
         }
     }
+
 }
+
+
 
 module.exports = Clock
