@@ -1,17 +1,15 @@
-
-var nextId = 0
+var nextId = 0;
 
 /**
  * @class Goal
  */
 class Goal {
-
-    constructor (parameters = {}) {
-        this.id = nextId++
+    constructor(parameters = {}) {
+        this.id = nextId++;
 
         /** @type {*} parameters */
-        this.parameters = parameters
-        
+        this.parameters = parameters;
+
         // // [x, y] given parameters=['x','y']
         // if (Array.isArray(parameters))
         //     for (let i = 0; i < parameters.length; i++) {
@@ -24,7 +22,9 @@ class Goal {
     }
 
     toString() {
-        return this.constructor.name + '#'+this.id + this.parameters.toString() //+ this.effect.map(e=>'('+e+')').join('')
+        return (
+            this.constructor.name + "#" + this.id + this.parameters.toString()
+        ); //+ this.effect.map(e=>'('+e+')').join('')
     }
 
     // get precondition () {
@@ -49,6 +49,4 @@ class Goal {
     // }
 }
 
-
-
-module.exports = Goal
+module.exports = Goal;
