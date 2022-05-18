@@ -4,11 +4,14 @@ var nextId = 0;
  * @class Goal
  */
 class Goal {
-    constructor(parameters = {}) {
-        this.id = nextId++;
+    /** @type {int} */
+    #id;
+    /** @type {any} */
+    #parameters;
 
-        /** @type {*} parameters */
-        this.parameters = parameters;
+    constructor(parameters = {}) {
+        this.#id = nextId++;
+        this.#parameters = parameters;
 
         // // [x, y] given parameters=['x','y']
         // if (Array.isArray(parameters))
@@ -21,9 +24,17 @@ class Goal {
         //     this.parameters = parameters
     }
 
+    get id() {
+        return this.#id;
+    }
+
+    get parameters() {
+        return this.#parameters;
+    }
+
     toString() {
         return (
-            this.constructor.name + "#" + this.id + this.parameters.toString()
+            this.constructor.name + "#" + this.#id + this.#parameters.toString()
         ); //+ this.effect.map(e=>'('+e+')').join('')
     }
 

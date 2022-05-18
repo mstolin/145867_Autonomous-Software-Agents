@@ -7,23 +7,38 @@ var nextId = 0;
  * @class Intention
  */
 class Intention {
+    /** @type {int} */
+    #id;
+    /** @type {Agent} */
+    #agent;
+    /** @type {Goal} */
+    #goal;
+
     constructor(agent, goal) {
-        this.id = nextId++;
+        this.#id = nextId++;
+        this.#agent = agent;
+        this.#goal = goal;
+    }
 
-        /** @type {Agent} agent */
-        this.agent = agent;
+    get id() {
+        return this.#id;
+    }
 
-        /** @type {Goal} goal */
-        this.goal = goal;
+    get agent() {
+        return this.#agent;
+    }
+
+    get goal() {
+        return this.#goal;
     }
 
     log(...args) {
         console.log(
-            this.agent.name +
+            this.#agent.name +
                 ">" +
                 this.constructor.name +
                 "#" +
-                this.id +
+                this.#id +
                 "\t",
             ...args
         ); //this.goal.constructor.name+'['+this.goal.id+']'+'>'
@@ -36,8 +51,11 @@ class Intention {
      * @returns {boolean}   true if applicable
      */
     static applicable(goal) {
-        if (goal instanceof Goal) return true;
-        else return false;
+        if (goal instanceof Goal) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
