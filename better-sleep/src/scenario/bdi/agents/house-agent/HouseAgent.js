@@ -5,8 +5,7 @@ const beliefs = require('./Beliefs')
 let houseAgent = new Agent('House Agent', beliefs)
 // add all intentions
 for(let intention of intentions) {
-    //houseAgent.addIntention(intention)
-    houseAgent.intentions.push(intention)
+    houseAgent.addIntention(intention)
 }
 
 module.exports = houseAgent
