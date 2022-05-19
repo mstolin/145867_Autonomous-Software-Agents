@@ -1,18 +1,17 @@
-var nextId = 0;
+
+var nextId = 0
 
 /**
  * @class Goal
  */
 class Goal {
-    /** @type {int} */
-    #id;
-    /** @type {any} */
-    #parameters;
 
-    constructor(parameters = {}) {
-        this.#id = nextId++;
-        this.#parameters = parameters;
+    constructor (parameters = {}) {
+        this.id = nextId++
 
+        /** @type {*} parameters */
+        this.parameters = parameters
+        
         // // [x, y] given parameters=['x','y']
         // if (Array.isArray(parameters))
         //     for (let i = 0; i < parameters.length; i++) {
@@ -24,18 +23,8 @@ class Goal {
         //     this.parameters = parameters
     }
 
-    get id() {
-        return this.#id;
-    }
-
-    get parameters() {
-        return this.#parameters;
-    }
-
     toString() {
-        return (
-            this.constructor.name + "#" + this.#id + this.#parameters.toString()
-        ); //+ this.effect.map(e=>'('+e+')').join('')
+        return this.constructor.name + '#'+this.id + this.parameters.toString() //+ this.effect.map(e=>'('+e+')').join('')
     }
 
     // get precondition () {
@@ -60,4 +49,6 @@ class Goal {
     // }
 }
 
-module.exports = Goal;
+
+
+module.exports = Goal

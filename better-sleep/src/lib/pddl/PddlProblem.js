@@ -1,49 +1,54 @@
-const fs = require("fs");
+const fs = require('fs')
+
+
 
 class PddlProblem {
-    constructor(name, objects = [], inits = [], goals = []) {
-        this.name = name;
+    
+    constructor (name, objects = [], inits = [], goals = []) {
+        this.name = name
 
-        this.objects = objects;
+        this.objects = objects
         this.objects.toPddlString = () => {
-            return this.objects.join(" ");
-        };
+            return this.objects.join(' ')
+        }
 
-        this.inits = inits;
+        this.inits = inits
         this.inits.toPddlString = () => {
-            return this.inits.map((e) => "(" + e + ")").join(" ");
-        };
+            return this.inits.map(e=>'('+e+')').join(' ')
+        }
 
-        this.goals = goals;
+        this.goals = goals
         this.goals.toPddlString = () => {
-            return (
-                "(and " + this.goals.map((e) => "(" + e + ")").join(" ") + ")"
-            );
-        };
+            return '(and ' + this.goals.map(e=>'('+e+')').join(' ') + ')'
+        }
     }
 
-    addObject(...object) {
-        this.objects.push(...object);
+    addObject ( ...object ) {
+        this.objects.push(...object)
     }
 
-    addInit(...init) {
-        this.inits.push(...init);
+    addInit (...init) {
+        this.inits.push(...init)
     }
 
-    addGoal(...goal) {
-        this.goals.push(...goal);
+    addGoal (...goal) {
+        this.goals.push(...goal)
     }
 
-    saveToFile() {
-        var path = "./tmp/problem-" + this.name + ".pddl";
+    saveToFile () {
+        var path = './tmp/problem-'+this.name+'.pddl'
+        
+        return new Promise( (res, rej) => {
 
-        return new Promise((res, rej) => {
-            fs.writeFile(path, this.content, (err) => {
-                if (err) rej(err);
-                // console.log("File written successfully");
-                else res(path);
-            });
-        });
+            fs.writeFile(path, this.content, err => {
+                if (err)
+                    rej(err)
+                else // console.log("File written successfully");
+                    res(path)
+            })
+
+        })
+
     }
 
     get content() {
@@ -55,9 +60,12 @@ class PddlProblem {
 	(:init ${this.inits.toPddlString()})
 	(:goal ${this.goals.toPddlString()})
 )
-`;
+`
     }
+
 }
+
+
 
 // var lightProblem = new PddlProblem('lights')
 // lightProblem.addObject(...['light1', 'light2'], 'light3')
@@ -65,4 +73,6 @@ class PddlProblem {
 // lightProblem.addGoal('switched-on light1')
 // lightProblem.saveToFile()
 
-module.exports = PddlProblem;
+
+
+module.exports = PddlProblem

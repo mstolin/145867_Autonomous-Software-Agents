@@ -14,7 +14,7 @@
  * Observable
  * @class Observable
  */
- class Observable {
+class Observable {
     #values;
     #observers;
 
@@ -36,6 +36,7 @@
      * @param {*} key
      */
     defineProperty (key) {
+
         if (!(key in this.#observers)) {
             this.#observers[key] = {}
         }
@@ -81,6 +82,10 @@
         return Object.entries(this.#values);
     }
 
+    /**
+     * 
+     * @param {observer} observer function(value, key, observable)
+     */
     observeAny (observer) {
         this.genericObservers.push( observer )
     }
@@ -124,11 +129,24 @@
      */
     async notifyChange (key, observerKey = null) {
         return new Promise( res => {
-            var tmpObs = (value, key, observerKey) => {
+            var tmpObs = (value, key, observer) => {
                 this.unobserve(key, tmpObs, observerKey)
                 res(value)
             }
             this.observe(key, tmpObs, observerKey)
+        })
+    }
+
+    /**
+     * 
+     * @returns {Promise} Promise that resolves when any among the observed values changes
+     */
+    async notifyAnyChange () {
+        return new Promise( res => {
+            var tmpObs = (value, key, observer) => {
+                res(value)
+            }
+            this.observeAny(tmpObs)
         })
     }
 

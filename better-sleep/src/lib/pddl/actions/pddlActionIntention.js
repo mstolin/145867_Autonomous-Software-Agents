@@ -1,6 +1,9 @@
-const Intention = require("../../bdi/Intention");
+const Intention =  require('../../bdi/Intention')
+
+
 
 class pddlActionIntention extends Intention {
+
     // Example LightOn:
     // static parameters = ['l']
     // static precondition = [ ['switched-off', 'l'] ]
@@ -16,45 +19,38 @@ class pddlActionIntention extends Intention {
 
     toString() {
         // return this.constructor.name + '#'+this.id + ' effect:' + this.effect
-        return (
-            "(" +
-            this.constructor.name +
-            " " +
-            Object.values(this.goal.parameters).join(" ") +
-            ")" +
-            " Effect: " +
-            this.effect
-        );
+        return '(' + this.constructor.name + ' ' + Object.values(this.goal.parameters).join(' ') + ')' + ' Effect: ' + this.effect
     }
 
-    get precondition() {
-        return pddlActionIntention.ground(
-            this.constructor.precondition,
-            this.goal.parameters
-        );
+
+
+    get precondition () {
+        return pddlActionIntention.ground(this.constructor.precondition, this.goal.parameters)
     }
 
-    checkPrecondition() {
+    checkPrecondition () {
         return this.agent.beliefs.check(...this.precondition);
     }
 
-    get effect() {
-        return pddlActionIntention.ground(
-            this.constructor.effect,
-            this.goal.parameters
-        );
+
+
+    get effect () {
+        return pddlActionIntention.ground(this.constructor.effect, this.goal.parameters)
     }
 
-    checkEffect() {
+    checkEffect () {
         return this.agent.beliefs.check(...this.effect);
     }
 
-    applyEffect() {
-        for (let b of this.effect) this.agent.beliefs.apply(b);
+    applyEffect () {
+        for ( let b of this.effect )
+            this.agent.beliefs.apply(b)
     }
 
+
+
     /**
-     *
+     * 
      * @param {Array<String>} parametrizedLiterals Array of parametrized literals;
      * e.g. [['on, 'l'], ['in_room', 'p', 'r']
      * @param {Object} parametersMap Map of parameters key->value;
@@ -62,15 +58,19 @@ class pddlActionIntention extends Intention {
      * @returns {Array<String>} Array of grounded literals;
      * e.g. ['on light1', 'in_room bob kitchen']
      */
-    static ground(parametrizedLiterals, parametersMap) {
-        return parametrizedLiterals.map((literal) => {
-            let possibly_negated_predicate = literal[0];
-            let vars = literal.slice(1);
-            let grounded = possibly_negated_predicate;
-            for (let v of vars) grounded = grounded + " " + parametersMap[v];
-            return grounded;
-        });
+    static ground (parametrizedLiterals, parametersMap) {
+        return parametrizedLiterals.map( (literal) => {
+            let possibly_negated_predicate = literal[0]
+            let vars = literal.slice(1)
+            let grounded = possibly_negated_predicate
+            for (let v of vars)
+                grounded = grounded + ' ' + parametersMap[v]
+            return grounded
+        })
     }
+    
 }
 
-module.exports = pddlActionIntention;
+
+
+module.exports = pddlActionIntention
