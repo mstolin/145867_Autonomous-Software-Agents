@@ -1,8 +1,8 @@
-const Intention = require('../../../../lib/bdi/Intention2')
-const Clock = require('../../../../lib/utils/Clock')
-const house = require('../../../world/House')
-const roomIds = require('../../../world/rooms/RoomIds')
-const {MorningLightGoal, MorningShuttersGoal} = require('./Goals')
+const Intention = require("../../../../lib/bdi/Intention");
+const Clock = require("../../../../lib/utils/Clock");
+const house = require("../../../world/House");
+const roomIds = require("../../../world/rooms/RoomIds");
+const { MorningLightGoal, MorningShuttersGoal } = require("./Goals");
 
 /*class TurnOnLightInTheMorning extends Intention {
     static applicable(goal) {
@@ -34,7 +34,7 @@ class OpenShutters extends Intention {
     }
 }*/
 
-class MorningIntention extends Intention {
+/*class MorningIntention extends Intention {
     static applicable(goal) {
         return goal instanceof MorningLightGoal || goal instanceof MorningShuttersGoal
     }
@@ -51,8 +51,8 @@ class MorningIntention extends Intention {
             }
         }
     }
-}
+}*/
 
-module.exports = [
+/*module.exports = [
     MorningIntention
-]
+]*/

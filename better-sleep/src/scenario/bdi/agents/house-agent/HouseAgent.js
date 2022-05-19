@@ -1,11 +1,11 @@
-const Agent = require('../../../../lib/bdi/Agent4')
-const intentions = require('./Intentions')
-const beliefs = require('./Beliefs')
+const Agent = require("../../../../lib/bdi/Agent");
+const intentions = require("./Intentions");
+const beliefs = require("./Beliefs");
 
-let houseAgent = new Agent('House Agent', beliefs)
+let houseAgent = new Agent("House Agent", beliefs);
 // add all intentions
-for(let intention of intentions) {
-    houseAgent.addIntention(intention)
+for (let intention of intentions) {
+    houseAgent.addIntention(intention);
 }
 
-module.exports = houseAgent
+module.exports = houseAgent;
