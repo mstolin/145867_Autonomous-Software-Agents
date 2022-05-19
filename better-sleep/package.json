@@ -9,6 +9,7 @@
   "author": "Marcel Pascal Stolin <marcelpascal.stolin@studenti.unitn.it>",
   "license": "MIT",
   "devDependencies": {
+    "autonode": "git://github.com/marcorobol/Autonode.js.git",
     "jest": "^28.0.1"
   },
   "dependencies": {
