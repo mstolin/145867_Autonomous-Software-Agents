@@ -1,60 +1,70 @@
-const Light = require('./Light')
+const Light = require("./Light");
+const LightSensor = require("./LightSensor");
+const Shutter = require("./Shutter");
 
 class Room {
-
     /** @type {string} */
-    #name
+    #name;
+    /** @type {LightSensor} */
+    #lightSensor;
     /** @type {Light} */
-    #mainLight = new Light('main-light')
+    #mainLight;
     /** @type {Array<string>} */
-    #doors = []
-    /** @type {{string: Shutter}} */
-    #shutters = {}
-    /** @type {{string: Light}} */
-    #smallLights = {}
+    #doors = [];
+    /** @type {Array<Shutter>} */
+    #shutters = [];
 
     /**
      * Constructs a new Room instance.
-     * 
-     * @param {string} name 
-     * @param {Array<string>} doors 
-     * @param {{string: Shutter}} shutters 
-     * @param {{string: Light}} smallLights 
+     *
+     * @param {string} name
+     * @param {Array<string>} doors
+     * @param {int} numOfShutters
      */
-    constructor(name, doors, shutters, smallLights) {
-        this.#name = name
-        this.#doors = doors
-        this.#shutters = shutters
-        this.#smallLights = smallLights
+    constructor(name, doors, numOfShutters) {
+        this.#name = `Room-${name}`;
+        this.#doors = doors;
+        this.#mainLight = new Light(`${this.#name}-MainLight`);
+        this.#lightSensor = new LightSensor(
+            `${this.#name}-LightSensor`,
+            this.#mainLight
+        );
+        this.#initShutters(numOfShutters);
+    }
+
+    #initShutters(num) {
+        for (const i = 0; i < num; i++) {
+            let index = i + 1;
+            this.#shutters.push(new Shutter(`${this.#name}-Shutter-${index}`));
+        }
     }
 
     get name() {
-        return this.#name
+        return this.#name;
     }
 
     get mainLight() {
-        return this.#mainLight
+        return this.#mainLight;
     }
 
     get shutters() {
-        return this.#shutters
+        return this.#shutters;
+    }
+
+    get LightSensor() {
+        return this.#lightSensor;
     }
 
     /**
      * Checks if the room has a direct path
      * to the given room.
-     * 
+     *
      * @param {string} roomId Destination room id
      * @returns {boolean} True if room has a direct path to the destination
      */
     hasPathToRoom(roomId) {
-        return this.#doors.includes(roomId)
+        return this.#doors.includes(roomId);
     }
-
-    getSmallLight(id) {
-        return this.#smallLights[id]
-    }
-
 }
 
-module.exports = Room
+module.exports = Room;
