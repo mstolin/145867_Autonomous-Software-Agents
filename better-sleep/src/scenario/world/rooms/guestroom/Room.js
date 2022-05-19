@@ -1,11 +1,4 @@
-const ids = require('../RoomIds')
-const Room = require('../../../../lib/world/Room')
-const lights = require('./Lights')
-const shutters = require('./Shutters')
+const ids = require("../RoomIds");
+const Room = require("../../../../lib/world/Room");
 
-module.exports = new Room(
-    'Guestroom',
-    [ids.ID_ROOM_SECOND_FLOOR],
-    shutters,
-    lights
-)
+module.exports = new Room("Guestroom", [ids.ID_ROOM_SECOND_FLOOR], 2);
