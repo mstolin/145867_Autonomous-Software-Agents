@@ -1,40 +1,63 @@
+var nextId = 0;
+
+/**
+ * @class Goal
+ */
 class Goal {
-
-    /** @type {string} */
-    #property
+    /** @type {int} */
+    #id;
     /** @type {any} */
-    #desiredState
+    #parameters;
 
-    /**
-     * Constructs a Goal instance
-     * 
-     * @param {string} property The goals property
-     * @param {any} desiredState The desired state, the goal represents
-     */
-    constructor(property, desiredState) {
-        this.#property = property
-        this.#desiredState = desiredState
+    constructor(parameters = {}) {
+        this.#id = nextId++;
+        this.#parameters = parameters;
+
+        // // [x, y] given parameters=['x','y']
+        // if (Array.isArray(parameters))
+        //     for (let i = 0; i < parameters.length; i++) {
+        //         const element = parameters[i];
+        //         this.parameters[this.constructor.parameters[i]] = parameters[i]
+        //     }
+        // // {'x': x, 'y': y}
+        // else
+        //     this.parameters = parameters
     }
 
-    get property() {
-        return this.#property
+    get id() {
+        return this.#id;
     }
 
-    get desiredState() {
-        return this.#desiredState
+    get parameters() {
+        return this.#parameters;
     }
 
-    /**
-     * Checks, given the current beliefs, if this
-     * Goal has already been achieved.
-     * 
-     * @param {BeliefSet} beliefs The current beliefs
-     * @returns {boolean} True if goal has already been achieved
-     */
-    hasAlreadyBeenAchieved(beliefs) {
-        return beliefs.getBelief(this.#property) == this.#desiredState
+    toString() {
+        return (
+            this.constructor.name + "#" + this.#id + this.#parameters.toString()
+        ); //+ this.effect.map(e=>'('+e+')').join('')
     }
 
+    // get precondition () {
+    //     return BeliefSet.ground(this.constructor.precondition, this.parameters)
+    // }
+
+    // checkPrecondition (beliefSet) {
+    //     return beliefSet.check(this.precondition);
+    // }
+
+    // get effect () {
+    //     return BeliefSet.ground(this.constructor.effect, this.parameters)
+    // }
+
+    // checkEffect (beliefSet) {
+    //     return beliefSet.check(this.effect);
+    // }
+
+    // applyEffect (beliefSet) {
+    //     for ( let b of this.effect )
+    //         beliefSet.apply(b)
+    // }
 }
 
-module.exports = Goal
+module.exports = Goal;

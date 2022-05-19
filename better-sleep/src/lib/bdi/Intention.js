@@ -1,67 +1,122 @@
-const Goal = require("./Goal")
+const Goal = require("./Goal");
+const Agent = require("./Agent");
 
+var nextId = 0;
+
+/**
+ * @class Intention
+ */
 class Intention {
- 
-    /**
-     * Checks if this Intention can be used to achieve the given goal
-     * (is applicable).
-     * 
-     * @param {Goal} goal 
-     * @returns {boolean} True of the given goal is applicable
-     */
-    static applicable(goal) {
-        return goal instanceof Goal
+    /** @type {int} */
+    #id;
+    /** @type {Agent} */
+    #agent;
+    /** @type {Goal} */
+    #goal;
+
+    constructor(agent, goal) {
+        this.#id = nextId++;
+        this.#agent = agent;
+        this.#goal = goal;
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    get agent() {
+        return this.#agent;
+    }
+
+    get goal() {
+        return this.#goal;
+    }
+
+    log(...args) {
+        console.log(
+            this.#agent.name +
+                ">" +
+                this.constructor.name +
+                "#" +
+                this.#id +
+                "\t",
+            ...args
+        ); //this.goal.constructor.name+'['+this.goal.id+']'+'>'
     }
 
     /**
-     * Executes a Plan to achieve the given Goal.
      * 
-     * @param {Goal} goal The goal to achieve
-     * @param {BeliefSet} beliefs The agents beliefs
-     * @returns {boolean} True if the intentions plan was successful
+
+     * @param {Goal} goal   goal, whatever it is
+     * @returns {boolean}   true if applicable
      */
-    async run(goal, beliefs) {
-        // Check the goals precondition
-        if(goal.hasAlreadyBeenAchieved(beliefs)) { // TODO This might become a problem when a new day rises
-            return false
+    static applicable(goal) {
+        if (goal instanceof Goal) {
+            return true;
+        } else {
+            return false;
         }
+    }
 
-        // get the plan
-        let iterator = this.exec()
-        var action = null
+    /**
+     * If microtasks continuously add more elements to microTasks queue,
+     * macroTasks will stall and won’t complete event loop in shorter time
+     * causing event loop delays.
+     * 
+     * Check this:
+     * - https://medium.com/dkatalis/eventloop-in-nodejs-macrotasks-and-microtasks-164417e619b9
+     * Similarly it is for javascript on browser-side:
+     * - https://medium.com/@idineshgarg/let-us-consider-an-example-a58bb1c11f55
+     * 
+     * await Promise.resolve(); // microtask, this would still block all timers and IO from being executed!!!
+     * await new Promise( res => setTimeout(res, 0)) // macrotask, queues together with other timers and IO
 
-        var failed = false
-        var done = false
+     * @returns {Boolean}   true if success, otherwise false
+     */
+    async run() {
+        var iterator = this.exec();
+        var yieldValue = null;
+        var failed = false;
+        var done = false;
 
-        // as long as the intention has not failed
-        // try to execute the plan to achieve
-        while(!failed && !done) {
+        while (!failed && !done) {
+            // TODO quit here if intention is no more valid
+            // if (this.contextConditions && !this.contextConditions())
+            //     return false;
+
             try {
-                // execute action defined in the plan
-                var {value: action, done: done} = iterator.next(await action)
+                // execute next step and passing a value or waiting for the promise to resolve into a value
+                var { value: yieldValue, done: done } = iterator.next(
+                    await yieldValue
+                );
 
-                if(action instanceof Promise) {
-                    action.catch(_ => {
-                        failed = true
-                        return false
-                    })
-                }
+                // attach immediately a catch callback to avoid getting a
+                // PromiseRejectionHandledWarning: Promise rejection was handled asynchronously
+                // https://javascript.tutorialink.com/why-do-i-get-an-unhandled-promise-rejection-with-await-promise-all/
+                if (yieldValue instanceof Promise)
+                    yieldValue.catch((err) => {
+                        console.error(err.stack || err);
+                        failed = true;
+                        return false;
+                    });
 
-                await new Promise(res => setTimeout(res, 0))
+                // Always wait for a timer to avoid stopping the event loop within microtask queue!
+                await new Promise((res) => setTimeout(res, 0));
+
+                // catch errors throwed by exec().next()
             } catch (err) {
-                failed = true
-                return false
+                console.error(err.stack || err);
+                failed = true;
+                return false;
             }
         }
 
-        if(done && !failed) {
-            return true
-        } else {
-            return false
+        if (done && !failed) return true;
+        else {
+            // failed
+            return false; // Since we are in an aync function, here we are rejecting the promise. We will need to catch this!
         }
-
     }
-
 }
 
-module.exports = Intention
+module.exports = Intention;

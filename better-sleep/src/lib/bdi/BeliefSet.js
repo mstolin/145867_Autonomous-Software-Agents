@@ -1,52 +1,133 @@
-class BeliefSet {
+const Observable = require("../utils/Observable");
 
-    /** @type {{string: any}} */
-    #predicates = {}
+/**
+ * @class BeliefSet
+ */
+class Beliefset extends Observable {
+    /** @type {{string: any}} objectsMap */
+    #objectsMap = {};
 
     /**
-     * Instantiates an instance of a BeliefSet
-     * 
-     * @param {{string: any}} predicates The actual beliefs
+     * Initiates an instance of BeliefSet
      */
-    constructor(predicates) {
-        this.#predicates = predicates        
+    constructor() {
+        super({});
     }
 
     /**
-     * Returns the internal state of the belief
-     * with the given predicate
-     * 
-     * @param {string} predicate the beliefs predicate
-     * @returns {any} The beliefs state 
+     * Adds a belief to the set.
+     *
+     * @param {string} obj
      */
-    getBelief(predicate) {
-        if(!this.#predicates.hasOwnProperty(predicate)) {
-            throw(`Predicate with name ${predicate} does not exist`)
+    addObject(obj) {
+        if (!(typeof obj === "string")) {
+            throw "String expected, got " + typeof obj + ": " + obj;
         }
-        return this.#predicates[predicate]
+        this.#objectsMap[obj] = obj;
     }
 
     /**
-     * Sets a new value for the belief.
-     *  
-     * @param {string} name The beliefs predicate
-     * @param {any} value The beliefs value
+     * Removes a belief.
+     *
+     * @param {string} obj
      */
-    setPredicate(name, value) {
-        this.#predicates[name] = value
+    removeObject(obj) {
+        if (!(typeof obj === "string")) {
+            throw "String expected, got " + typeof obj + ": " + obj;
+        }
+        delete this.#objectsMap[obj];
     }
 
     /**
-     * Checks if the BeliefSet includes a belief
-     * with the given predicate.
-     * 
-     * @param {string} predicate The beliefs predicate 
-     * @returns {boolean} True if predicate is included
+     * Returns all belief values.
+     *
+     * @return {any[]}
      */
-    includesPredicate(predicate) {
-        return Object.keys(this.#predicates).includes(predicate)
+    get objects() {
+        return Object.values(this.#objectsMap);
     }
 
+    /**
+     * call the declare method with false value
+     * @param {String} fact A fact is composed by a predicate and arguments e.g. 'person_in_room bob kitchen'
+     * @returns changed
+     */
+    undeclare(fact) {
+        return this.declare(fact, false);
+    }
+
+    /**
+     *
+     * @param {String} fact A fact is composed by a predicate and arguments e.g. 'person_in_room bob kitchen'
+     * @param {boolean} value Fact status, true or false. Default value is true
+     * @returns {boolean} true if changed otherwise false
+     */
+    declare(fact, value = true) {
+        if (!(typeof fact === "string")) {
+            throw "String expected, got " + typeof fact + ": " + fact;
+        }
+        if (fact.split(" ")[0] == "not") {
+            throw "Fact expected, got a negative literal: " + fact;
+        }
+
+        var changed = this.set(fact, value);
+        if (changed) {
+            for (let obj of fact.split(" ").splice(1)) {
+                this.addObject(obj);
+            }
+        }
+        return changed;
+    }
+
+    /**
+     * @return {Array<String>}    Return an Array of String literals (possibly negated facts) e.g. 'light_on kitchen_light' or 'not light_on kitchen_light'
+     */
+    get literals() {
+        return this.entries.map(([fact, value]) =>
+            value ? fact : "not (" + fact + ")"
+        );
+    }
+
+    /**
+     *
+     * @param {String} literal Possibly negated fact, e.g. 'not light_on'
+     */
+    apply(...literals) {
+        for (const literal of literals) {
+            var not = literal.split(" ")[0] == "not";
+            var fact = not ? literal.split(" ").splice(1).join(" ") : literal;
+            this.declare(fact, !not);
+        }
+    }
+
+    /**
+     * Closed World assumption; if i don't know about something then it is false!
+     *
+     * @param  {...String} literals Iterable of literals; intended as a conjunction of literals
+     * @returns {boolean} true if verified, otherwise false
+     */
+    check(...literals) {
+        for (const literal of literals) {
+            let not = literal.split(" ")[0] == "not";
+            let fact = not ? literal.split(" ").splice(1).join(" ") : literal;
+
+            if (this[fact]) {
+                if (not) {
+                    return false;
+                } else {
+                    continue;
+                }
+            } else {
+                // Closed World assumption; if i don't know about something then it is false
+                if (not) {
+                    continue;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
-module.exports = BeliefSet
+module.exports = Beliefset;
