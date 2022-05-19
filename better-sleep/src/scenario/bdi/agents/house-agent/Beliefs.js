@@ -1,4 +1,4 @@
-const BeliefSet = require("../../../../lib/bdi/BeliefSet");
+const BeliefSet = require("../../../../lib/bdi/Beliefset");
 const personIds = require("../../../world/persons/PersonIds");
 const roomIds = require("../../../world/rooms/RoomIds");
 
