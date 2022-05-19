@@ -32,7 +32,7 @@
         ;x has to be a person, y has to be a room
         ;x is not in y, light is on in y
         :precondition (and (PERSON ?x) (ROOM ?y)
-                           (not (in-room ?y ?x))
+                           (not (in-room ?x ?y))
                            (light-on ?y))
         
         ;Turn off light in y 
