@@ -47,7 +47,8 @@ class Light extends Device {
      * @param {number} brightness
      * @param {number} temperature
      */
-    turnOn(brightness, temperature) {
+    turnOn(brightness = 500, temperature = 1700) {
+        // TODO Use default values that make sense
         if (this.isOn) {
             throw `${this.name} is off`;
         }
