@@ -27,13 +27,13 @@ class Room {
         this.#mainLight = new Light(`${this.#name}-MainLight`);
         this.#lightSensor = new LightSensor(
             `${this.#name}-LightSensor`,
-            this.#mainLight
+            this
         );
         this.#initShutters(numOfShutters);
     }
 
     #initShutters(num) {
-        for (const i = 0; i < num; i++) {
+        for (let i = 0; i < num; i++) {
             let index = i + 1;
             this.#shutters.push(new Shutter(`${this.#name}-Shutter-${index}`));
         }
@@ -51,7 +51,7 @@ class Room {
         return this.#shutters;
     }
 
-    get LightSensor() {
+    get lightSensor() {
         return this.#lightSensor;
     }
 
