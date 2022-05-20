@@ -1,7 +1,7 @@
 const Agent = require("../../../../lib/bdi/Agent");
 const intentions = require("./Intentions");
 const roomIds = require("../../../world/rooms/RoomIds");
-const rooms = require("../../../world/rooms/Rooms");
+const rooms = require("../../../world/rooms");
 
 const initRoomAgent = (id, room) => { // TODO MAKE Custom class RoomAgent with room param
     let agent = new Agent(`Room-Agent-${id}`);
