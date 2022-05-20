@@ -2,12 +2,13 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const Clock = require("../../../../../lib/utils/Clock");
 const house = require("../../../../world/House");
 const roomIds = require("../../../../world/rooms/RoomIds");
+const roomAgents = require("../../room-agent");
 const { MorningGoal } = require("../Goals");
 
 /**
  * @class MorningIntention
- * 
- * This intention is responsible to turn on the 
+ *
+ * This intention is responsible to turn on the
  * light (only bedroom) and open all shutters
  * in the morning to wake up all residents.
  */
@@ -16,18 +17,42 @@ class MorningIntention extends Intention {
         return goal instanceof MorningGoal;
     }
 
+    /**
+     * Turns on the main light in the bedroom.
+     */
+    #turnOnBedroomLight() {
+        house.getRoom(roomIds.ID_ROOM_BEDROOM).mainLight.turnOn();
+    }
+
+    /**
+     * Opens all shutters of the house.
+     */
+    #openAllShutters() {
+        Object.keys(house.rooms).forEach((id) => {
+            let room = house.getRoom(id);
+            room.shutters.forEach((shutter) => shutter.open());
+        });
+    }
+
+    /**
+     * Update all room agents to belief that the daytime
+     * is morning.
+     */
+    #updateRoomAgentBeliefs() {
+        for (const roomAgent of Object.values(roomAgents)) {
+            roomAgent.beliefs.declare("MORNING time");
+        }
+    }
+
     *exec() {
         let hh = this.goal.parameters["hh"];
         let mm = this.goal.parameters["mm"];
         while (true) {
             yield;
             if (Clock.global.hh == hh && Clock.global.mm == mm) {
-                // Turn on main light in bedroom, and open all shutters
-                house.getRoom(roomIds.ID_ROOM_BEDROOM).mainLight.turnOn();
-                Object.keys(house.rooms).forEach((id) => {
-                    let room = house.getRoom(id);
-                    room.shutters.forEach((shutter) => shutter.open());
-                });
+                this.#turnOnBedroomLight();
+                this.#openAllShutters();
+                this.#updateRoomAgentBeliefs();
                 break;
             }
         }
