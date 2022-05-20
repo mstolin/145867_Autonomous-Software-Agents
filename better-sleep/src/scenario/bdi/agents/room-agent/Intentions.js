@@ -1,18 +1,6 @@
 const pddlActionIntention = require("../../../../lib/pddl/actions/pddlActionIntention");
 
-class FakeAction extends pddlActionIntention {
-    /**exec() {
-        console.log("##############################################");
-        console.log("EFFECT:", this.effect);
-        for (let b of this.effect) this.agent.beliefs.apply(b);
-        console.log("##############################################");
-        yield new Promise((res) => setTimeout(res, 100));
-        this.log("effects applied");
-        // this.log(this.agent.beliefs)
-    }*/
-}
-
-class TurnOn extends FakeAction {
+class TurnOn extends pddlActionIntention {
     static parameters = ["light"];
     static precondition = [
         ["LIGHT", "light"],
@@ -21,16 +9,19 @@ class TurnOn extends FakeAction {
     static effect = [["on", "light"]];
 
     *exec() {
-        //yield room.light.turnOnLight();
-        /*console.log("TURN ON THE LIGHT");
-        for(let belief of this.effect) {
-            this.log("#### BELIEF", belief);
+        let mainLight = this.agent.room.mainLight;
+        try {
+            for (let b of this.effect) this.agent.beliefs.apply(b);
+            yield mainLight.turnOn();
+        } catch(err) {
+            this.log(err);
         }
-        yield new Promise((res) => setTimeout(res, 100));*/
+        
+        //yield new Promise((res) => setTimeout(res, 100));
     }
 }
 
-class AdjustBrightnessMorning extends FakeAction {
+class AdjustBrightnessMorning extends pddlActionIntention {
     static parameters = ["light", "time"];
     static precondition = [
         ["LIGHT", "light"],
@@ -46,7 +37,7 @@ class AdjustBrightnessMorning extends FakeAction {
     }
 }
 
-class AdjustBrightnessAfternoon extends FakeAction {
+class AdjustBrightnessAfternoon extends pddlActionIntention {
     static parameters = ["light", "time"];
     static precondition = [
         ["LIGHT", "light"],
