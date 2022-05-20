@@ -2,7 +2,7 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal"); // TODO SHould come from extra file
 const { SenseMovementGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
-const Goal = require("../../../../../lib/bdi/Goal");
+const house = require("../../../../world/House");
 
 /**
  * @class
@@ -16,28 +16,33 @@ class SenseMovementIntention extends Intention {
         return goal instanceof SenseMovementGoal;
     }
 
-    #genRoomAgentPlanningGoal() {
+    #genRoomAgentPlanningGoal(mainLight) {
         return new PlanningGoal({
-            goal: ["on mainLight", "morning-brightness mainLight"],
+            goal: [`on ${mainLight}`, `morning-brightness ${mainLight}`],
         });
     }
 
     /**
      * Generates an async promise that is being
-     * used by the intention to dyanamically push 
+     * used by the intention to dyanamically push
      * a goal if a persons location has changed.
-     * 
-     * @param {Person} person 
-     * @returns {Promise} 
+     *
+     * @param {Person} person
+     * @returns {Promise}
      */
     #genPersonPromise(person) {
         let goalPromise = new Promise(async (_) => {
             while (true) {
                 let location = await person.notifyChange("location");
                 let roomAgent = roomAgents[location];
-                if (roomAgent !== null) {
+                let room = house.getRoom(location);
+                if (roomAgent !== null && room !== null) {
+                    // update agent beliefs
+                    roomAgent.beliefs.declare("in " + person.name);
                     // push goal
-                    roomAgent.postSubGoal(this.#genRoomAgentPlanningGoal())
+                    roomAgent.postSubGoal(
+                        this.#genRoomAgentPlanningGoal(room.mainLight.name)
+                    ); // TODO Maybe this is not necessary here, onlu update beliefs
                 }
             }
         });
