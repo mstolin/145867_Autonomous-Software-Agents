@@ -8,7 +8,7 @@
     (:init
         (LIGHT mainLight)
         (DAYTIME time)
-        (morning time)
+        (MORNING time)
     )
 
     ; Just turn light on
