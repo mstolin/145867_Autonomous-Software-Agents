@@ -21,7 +21,11 @@ class EveningIntention extends Intention {
      */
     #closeAllShutters(shutters) {
         for (const shutter of shutters) {
-            shutter.close();
+            try {
+                shutter.close();
+            } catch (err) {
+                this.log(err);
+            }
         }
     }
 
@@ -33,7 +37,11 @@ class EveningIntention extends Intention {
             if (Clock.global.hh == hh && Clock.global.mm == mm) {
                 for (const room of Object.values(house.rooms)) {
                     // turn of all lights
-                    room.mainLight.turnOff();
+                    try {
+                        room.mainLight.turnOff();
+                    } catch (err) {
+                        this.log(err);
+                    }
                     this.#closeAllShutters(room.shutters);
                 }
                 break;

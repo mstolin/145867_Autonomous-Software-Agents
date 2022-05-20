@@ -21,7 +21,11 @@ class MorningIntention extends Intention {
      * Turns on the main light in the bedroom.
      */
     #turnOnBedroomLight() {
-        house.getRoom(roomIds.ID_ROOM_BEDROOM).mainLight.turnOn();
+        try {
+            house.getRoom(roomIds.ID_ROOM_BEDROOM).mainLight.turnOn();
+        } catch (err) {
+            this.log(err);
+        }
     }
 
     /**
@@ -30,7 +34,13 @@ class MorningIntention extends Intention {
     #openAllShutters() {
         Object.keys(house.rooms).forEach((id) => {
             let room = house.getRoom(id);
-            room.shutters.forEach((shutter) => shutter.open());
+            room.shutters.forEach((shutter) => {
+                try {
+                    shutter.open();
+                } catch (err) {
+                    this.log(err);
+                }
+            });
         });
     }
 
