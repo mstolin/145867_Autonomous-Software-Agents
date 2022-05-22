@@ -1,6 +1,7 @@
 const Light = require("./Light");
 const LightSensor = require("./LightSensor");
 const Shutter = require("./Shutter");
+const MotionSensor = require("./MotionSensor");
 
 class Room {
     /** @type {string} */
@@ -13,6 +14,8 @@ class Room {
     #doors = [];
     /** @type {Array<Shutter>} */
     #shutters = [];
+    /** @type {MotionSensor} */
+    #motionSensor;
 
     /**
      * Constructs a new Room instance.
@@ -22,20 +25,18 @@ class Room {
      * @param {int} numOfShutters
      */
     constructor(name, doors, numOfShutters) {
-        this.#name = `Room-${name}`;
+        this.#name = name;
         this.#doors = doors;
-        this.#mainLight = new Light(`${this.#name}-MainLight`);
-        this.#lightSensor = new LightSensor(
-            `${this.#name}-LightSensor`,
-            this
-        );
+        this.#mainLight = new Light(`${this.#name}-main_light`);
+        this.#lightSensor = new LightSensor(`${this.#name}-light_sensor`, this);
+        this.#motionSensor = new MotionSensor(`${this.#name}-motion_sensor`);
         this.#initShutters(numOfShutters);
     }
 
     #initShutters(num) {
         for (let i = 0; i < num; i++) {
             let index = i + 1;
-            this.#shutters.push(new Shutter(`${this.#name}-Shutter-${index}`));
+            this.#shutters.push(new Shutter(`${this.#name}-shutter_${index}`));
         }
     }
 
@@ -55,6 +56,17 @@ class Room {
         return this.#lightSensor;
     }
 
+    get motionSensor() {
+        return this.#motionSensor;
+    }
+
+    /**
+     * True if some resident is in the room.
+     */
+    get isOccupied() {
+        return this.#motionSensor.get("isOccupied");
+    }
+
     /**
      * Checks if the room has a direct path
      * to the given room.
@@ -64,6 +76,14 @@ class Room {
      */
     hasPathToRoom(roomId) {
         return this.#doors.includes(roomId);
+    }
+
+    addResident(personId) {
+        this.#motionSensor.addResident(personId);
+    }
+
+    removeResident(personId) {
+        this.#motionSensor.removeResident(personId);
     }
 }
 
