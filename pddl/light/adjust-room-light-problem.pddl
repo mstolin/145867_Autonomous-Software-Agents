@@ -1,6 +1,6 @@
 ;; problem file
 
-(define (problem adjust-room-temperature)
+(define (problem adjust-room-light)
     (:domain room)
 
     (:objects mainLight time)
