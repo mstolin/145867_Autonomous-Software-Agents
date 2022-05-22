@@ -1,22 +1,22 @@
 const pddlActionIntention = require("../../../../../lib/pddl/actions/pddlActionIntention");
 
-class TurnOnIntention extends pddlActionIntention {
+class TurnOffIntention extends pddlActionIntention {
     static parameters = ["mainLight"];
     static precondition = [
         ["LIGHT", "mainLight"],
-        ["not on", "mainLight"],
+        ["on", "mainLight"],
     ];
-    static effect = [["on", "mainLight"]];
+    static effect = [["not on", "mainLight"]];
 
     *exec() {
         let mainLight = this.agent.room.mainLight;
         try {
             for (let b of this.effect) this.agent.beliefs.apply(b);
-            yield mainLight.turnOn();
+            yield mainLight.turnOff();
         } catch (err) {
             this.log(err);
         }
     }
 }
 
-module.exports = TurnOnIntention;
+module.exports = TurnOffIntention;
