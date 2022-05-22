@@ -10,6 +10,7 @@ const {
     MorningGoal,
     EveningGoal,
     SenseMovementGoal,
+    SenseDaytimeGoal,
 } = require("./bdi/agents/house-agent/Goals");
 // Utils
 const Clock = require("../lib/utils/Clock");
@@ -38,20 +39,8 @@ async function initEnvironment() {
         let roomAgent = roomAgents[roomId];
 
         roomAgent.beliefs.declare("LIGHT " + room.mainLight.name);
-        //roomAgent.beliefs.declare("LIGHT mainLight")
         roomAgent.beliefs.declare("DAYTIME time");
     }
-    /*for (const roomAgent of Object.values(roomAgents)) {
-        roomAgent.beliefs.declare("LIGHT mainLight"); // TODO This is not mainLight, either house.getRoom(x).mainLight.name
-        roomAgent.beliefs.declare("DAYTIME time");
-        roomAgent.beliefs.declare(
-            "PERSON " + house.getPerson(personIds.ID_PERSON_SANDRA).name
-        );
-        roomAgent.beliefs.declare(
-            "PERSON " + house.getPerson(personIds.ID_PERSON_BOB).name
-        );
-        // TODO Also add rooms
-    }*/
     // Set some test observers
     house
         .getPerson(personIds.ID_PERSON_SANDRA)
@@ -119,6 +108,7 @@ houseAgent.postSubGoal(
         ],
     })
 );
+houseAgent.postSubGoal(new SenseDaytimeGoal());
 
 /*
     ROUTINE
