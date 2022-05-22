@@ -1,5 +1,5 @@
 const Intention = require("../../../../../lib/bdi/Intention");
-const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal"); // TODO SHould come from extra file
+const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseMovementGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
 const house = require("../../../../world/House");
@@ -18,7 +18,7 @@ class SenseMovementIntention extends Intention {
 
     #genRoomAgentPlanningGoal(mainLight) {
         return new PlanningGoal({
-            goal: [`on ${mainLight}`, `morning-brightness ${mainLight}`],
+            goal: [`on mainLight`], // TODO not on all other rooms
         });
     }
 
@@ -37,12 +37,10 @@ class SenseMovementIntention extends Intention {
                 let roomAgent = roomAgents[location];
                 let room = house.getRoom(location);
                 if (roomAgent !== null && room !== null) {
-                    // update agent beliefs
-                    roomAgent.beliefs.declare("in " + person.name);
                     // push goal
                     roomAgent.postSubGoal(
                         this.#genRoomAgentPlanningGoal(room.mainLight.name)
-                    ); // TODO Maybe this is not necessary here, onlu update beliefs
+                    );
                 }
             }
         });
