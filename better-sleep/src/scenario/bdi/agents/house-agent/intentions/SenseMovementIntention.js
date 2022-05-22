@@ -9,37 +9,64 @@ const house = require("../../../../world/House");
  *
  * This intention works as a sensor.
  * It is supposed to tell a specific room
- * agent if a resident entered its room.
+ * agent if a resident entered or left
+ * the room.
+ * According to this info, it posts a subgoal
+ * to either turn on or off the light.
  */
 class SenseMovementIntention extends Intention {
     static applicable(goal) {
         return goal instanceof SenseMovementGoal;
     }
 
-    #genRoomAgentPlanningGoal(mainLight) {
+    /**
+     * Generates a planning goal that turns on the
+     * main light.
+     * @returns
+     */
+    #genTurnOnPlanningGoal() {
         return new PlanningGoal({
-            goal: [`on mainLight`], // TODO not on all other rooms
+            goal: [`on mainLight`],
         });
     }
 
     /**
-     * Generates an async promise that is being
-     * used by the intention to dyanamically push
-     * a goal if a persons location has changed.
-     *
-     * @param {Person} person
-     * @returns {Promise}
+     * Generates planning goal that turns off the main
+     * light.
+     * 
+     * @returns 
      */
-    #genPersonPromise(person) {
+    #genTurnOffPlanningGoal() {
+        return new PlanningGoal({
+            goal: [`not (on mainLight)`],
+        });
+    }
+
+    /**
+     * Generates an async promise that is being used by 
+     * this intention to turn on/off the main light of 
+     * a specific room by the room agent.
+     * 
+     * @param {Agent} roomAgent 
+     * @returns 
+     */
+    #genRoomPromise(roomAgent) {
         let goalPromise = new Promise(async (_) => {
             while (true) {
-                let location = await person.notifyChange("location");
-                let roomAgent = roomAgents[location];
-                let room = house.getRoom(location);
-                if (roomAgent !== null && room !== null) {
-                    // push goal
+                let room = roomAgent.room;
+                let isOccupied = await room.motionSensor.notifyChange(
+                    "isOccupied"
+                );
+
+                if(isOccupied) {
+                    // turn light on
                     roomAgent.postSubGoal(
-                        this.#genRoomAgentPlanningGoal(room.mainLight.name)
+                        this.#genTurnOnPlanningGoal()
+                    );
+                } else {
+                    // turn light off
+                    roomAgent.postSubGoal(
+                        this.#genTurnOffPlanningGoal()
                     );
                 }
             }
@@ -48,13 +75,12 @@ class SenseMovementIntention extends Intention {
     }
 
     *exec() {
-        let personGoals = [];
-        let persons = this.goal.parameters.persons;
-        for (const person of persons) {
-            let personGoalPromise = this.#genPersonPromise(person);
-            personGoals.push(personGoalPromise);
+        let roomGoals = [];
+        for (const agent of Object.values(roomAgents)) {
+            let goal = this.#genRoomPromise(agent);
+            roomGoals.push(goal);
         }
-        yield Promise.all(personGoals);
+        yield Promise.all(roomGoals);
     }
 }
 
