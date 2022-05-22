@@ -1,6 +1,6 @@
 ;; problem file
 
-(define (problem adjust-afternoon-light)
+(define (problem adjust-evening-light)
     (:domain room)
 
     (:objects mainLight time)
@@ -8,13 +8,13 @@
     (:init
         (LIGHT mainLight)
         (DAYTIME time)
-        (AFTERNOON time)
+        (EVENING time)
     )
 
     ; Just turn light on
     (:goal (and
         (on mainLight)
-        (cool-white-light-temp mainLight)
-        (afternoon-brightness mainLight)
+        (candlelight-temp mainLight)
+        (evening-brightness mainLight)
     ))
 )
