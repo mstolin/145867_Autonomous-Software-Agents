@@ -15,7 +15,7 @@
     ; Just turn light on
     (:goal (and
         (on mainLight)
-        (candlelight-temp mainLight)
+        (evening-temp mainLight)
         (evening-brightness mainLight)
     ))
 )

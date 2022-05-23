@@ -15,7 +15,7 @@
     ; Just turn light on
     (:goal (and
         (on mainLight)
-        (cool-white-light-temp mainLight)
+        (afternoon-temp mainLight)
         (afternoon-brightness mainLight)
     ))
 )

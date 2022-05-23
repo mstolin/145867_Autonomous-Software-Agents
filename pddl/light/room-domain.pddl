@@ -15,12 +15,9 @@
         (morning-brightness ?light) ;; Is brightness for morning?
         (afternoon-brightness ?light) ;; Is brightness for afternoon?
         (evening-brightness ?light) ;; Is brightness for evening?
-        (candlelight-temp ?light)
-        (incandescent-light-temp ?light)
-        (neutral-light-temp ?light)
-        (cool-white-light-temp ?light)
-        (bright-white-light-temp ?light)
-        (clear-sunlight-temp ?light)
+        (morning-temp ?light)
+        (afternoon-temp ?light)
+        (evening-temp ?light)
     )
 
     ;; Turn on light
@@ -69,11 +66,11 @@
             (DAYTIME ?time)
             (MORNING ?time)
             (on ?light)
-            (not (incandescent-light-temp ?light))
+            (not (morning-temp ?light))
             (not (free ?room))
         )
 
-        :effect (incandescent-light-temp ?light)
+        :effect (morning-temp ?light)
     )
 
     ;; Adjust temperature for the afternoon
@@ -90,11 +87,11 @@
             (DAYTIME ?time)
             (AFTERNOON ?time)
             (on ?light)
-            (not (cool-white-light-temp ?light))
+            (not (afternoon-temp ?light))
             (not (free ?room))
         )
 
-        :effect (cool-white-light-temp ?light)
+        :effect (afternoon-temp ?light)
     )
 
     ;; Adjust temperature for the evening
@@ -111,11 +108,11 @@
             (DAYTIME ?time)
             (EVENING ?time)
             (on ?light)
-            (not (candlelight-temp ?light))
+            (not (evening-temp ?light))
             (not (free ?room))
         )
 
-        :effect (candlelight-temp ?light)
+        :effect (evening-temp ?light)
     )
 
     ;; Adjust the brightness for the morning
