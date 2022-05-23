@@ -33,8 +33,8 @@ class SenseMovementIntention extends Intention {
     /**
      * Generates planning goal that turns off the main
      * light.
-     * 
-     * @returns 
+     *
+     * @returns
      */
     #genTurnOffPlanningGoal() {
         return new PlanningGoal({
@@ -43,12 +43,12 @@ class SenseMovementIntention extends Intention {
     }
 
     /**
-     * Generates an async promise that is being used by 
-     * this intention to turn on/off the main light of 
+     * Generates an async promise that is being used by
+     * this intention to turn on/off the main light of
      * a specific room by the room agent.
-     * 
-     * @param {Agent} roomAgent 
-     * @returns 
+     *
+     * @param {Agent} roomAgent
+     * @returns
      */
     #genRoomPromise(roomAgent) {
         let goalPromise = new Promise(async (_) => {
@@ -58,16 +58,16 @@ class SenseMovementIntention extends Intention {
                     "isOccupied"
                 );
 
-                if(isOccupied) {
+                if (isOccupied) {
+                    // update belief
+                    roomAgent.beliefs.undeclare("free thisRoom");
                     // turn light on
-                    roomAgent.postSubGoal(
-                        this.#genTurnOnPlanningGoal()
-                    );
+                    roomAgent.postSubGoal(this.#genTurnOnPlanningGoal());
                 } else {
+                    // update belief
+                    roomAgent.beliefs.declare("free thisRoom");
                     // turn light off
-                    roomAgent.postSubGoal(
-                        this.#genTurnOffPlanningGoal()
-                    );
+                    roomAgent.postSubGoal(this.#genTurnOffPlanningGoal());
                 }
             }
         });

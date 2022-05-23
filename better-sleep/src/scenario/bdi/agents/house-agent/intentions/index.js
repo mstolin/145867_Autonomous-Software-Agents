@@ -7,5 +7,5 @@ module.exports = [
     MorningIntention,
     EveningIntention,
     SenseMovementIntention,
-    //SenseDaytimeIntention,
+    SenseDaytimeIntention,
 ];
