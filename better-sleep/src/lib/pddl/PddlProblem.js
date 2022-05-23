@@ -14,7 +14,11 @@ class PddlProblem {
 
         this.inits = inits
         this.inits.toPddlString = () => {
-            return this.inits.map(e=>'('+e+')').join(' ')
+            return this.inits.map(e=>{
+                if(e.split(' ')[0] != 'not') {
+                    return '('+e+')'
+                }
+            }).join(' ')
         }
 
         this.goals = goals
