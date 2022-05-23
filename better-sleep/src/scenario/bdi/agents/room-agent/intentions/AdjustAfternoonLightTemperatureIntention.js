@@ -6,8 +6,10 @@ class AdjustAfternoonLightTemperatureIntention extends pddlActionIntention {
         ["LIGHT", "mainLight"],
         ["DAYTIME", "time"],
         ["AFTERNOON", "time"],
+        ["ROOM", "thisRoom"],
         ["on", "mainLight"],
         ["not afternoon-temp", "mainLight"],
+        ["not free", "thisRoom"],
     ];
     static effect = [["afternoon-temp", "mainLight"]];
 

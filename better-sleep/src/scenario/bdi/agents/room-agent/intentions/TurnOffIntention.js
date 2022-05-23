@@ -4,7 +4,9 @@ class TurnOffIntention extends pddlActionIntention {
     static parameters = ["mainLight"];
     static precondition = [
         ["LIGHT", "mainLight"],
+        ["ROOM", "thisRoom"],
         ["on", "mainLight"],
+        ["free", "thisRoom"],
     ];
     static effect = [["not on", "mainLight"]];
 

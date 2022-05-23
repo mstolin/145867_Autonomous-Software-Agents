@@ -35,11 +35,12 @@ async function initEnvironment() {
         .setLocation(roomIds.ID_ROOM_BEDROOM);
     // Set initial beliefs for all room agents
     for (const roomId of Object.keys(house.rooms)) {
-        let room = house.getRoom(roomId);
+        //let room = house.getRoom(roomId);
         let roomAgent = roomAgents[roomId];
 
-        roomAgent.beliefs.declare("LIGHT " + room.mainLight.name);
+        roomAgent.beliefs.declare("LIGHT mainLight");
         roomAgent.beliefs.declare("DAYTIME time");
+        roomAgent.beliefs.declare("ROOM thisRoom")
     }
     // Set some test observers
     house
