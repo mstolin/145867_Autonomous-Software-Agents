@@ -1,5 +1,4 @@
 const Intention = require("../../../../../lib/bdi/Intention");
-const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { SenseDaytimeGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
@@ -85,22 +84,6 @@ class SenseDaytimeIntention extends Intention {
         }
     }
 
-    #genRoomAgentPlanningGoal(daytime) {
-        let daytimeLower = daytime.toLowerCase();
-        return new PlanningGoal({
-            goal: [
-                `${daytimeLower}-temp mainLight`,
-                //`${daytimeLower}-brightness mainLight`,
-            ],
-        });
-    }
-
-    #postDaytimeSubGoal(daytime) {
-        for (const agent of Object.values(roomAgents)) {
-            agent.postSubGoal(this.#genRoomAgentPlanningGoal(daytime));
-        }
-    }
-
     /**
      * Generates a promise, used to observe the daytime
      * and update all room agents beliefs.
@@ -113,7 +96,6 @@ class SenseDaytimeIntention extends Intention {
                 let hour = await Clock.global.notifyChange("hh");
                 let daytime = this.#getDaytimeForTime(hour);
                 this.#updateDaytimeBeliefs(daytime);
-                this.#postDaytimeSubGoal(daytime);
             }
         });
         return goalPromise;

@@ -2,17 +2,21 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseMovementGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
-const house = require("../../../../world/House");
+const Clock = require("../../../../../lib/utils/Clock");
+
+const MORNING = "MORNING";
+const AFTERNOON = "AFTERNOON";
+const EVENING = "EVENING";
 
 /**
  * @class
  *
  * This intention works as a sensor.
- * It is supposed to tell a specific room
- * agent if a resident entered or left
- * the room.
- * According to this info, it posts a subgoal
- * to either turn on or off the light.
+ * It is supposed to tell a specific room agent if a resident 
+ * entered or left the room.
+ * According to this info, it posts a subgoal to either turn 
+ * on or off the light, and adjust the light according to the 
+ * current daytime.
  */
 class SenseMovementIntention extends Intention {
     static applicable(goal) {
@@ -20,13 +24,37 @@ class SenseMovementIntention extends Intention {
     }
 
     /**
+     * Returns the daytime string for the
+     * given hour of the current time.
+     *
+     * @param {int} hour
+     * @returns Daytime string
+     */
+    #getDaytimeForTime(hour) {
+        if (hour >= 1 && hour < 2) {
+            return MORNING;
+        } else if (hour >= 2 && hour < 4) {
+            return AFTERNOON;
+        } else {
+            return EVENING;
+        }
+    }
+
+    /**
      * Generates a planning goal that turns on the
      * main light.
+     * 
+     * @param {string} daytime Current daytime as string
      * @returns
      */
-    #genTurnOnPlanningGoal() {
+    #genTurnOnPlanningGoal(daytime) {
+        let daytimeLower = daytime.toLowerCase();
         return new PlanningGoal({
-            goal: [`on mainLight`],
+            goal: [
+                "on mainLight",
+                `${daytimeLower}-temp mainLight`,
+                //`${daytimeLower}-brightness mainLight`,
+            ],
         });
     }
 
@@ -38,7 +66,7 @@ class SenseMovementIntention extends Intention {
      */
     #genTurnOffPlanningGoal() {
         return new PlanningGoal({
-            goal: [`not (on mainLight)`],
+            goal: ["not (on mainLight)"],
         });
     }
 
@@ -57,12 +85,13 @@ class SenseMovementIntention extends Intention {
                 let isOccupied = await room.motionSensor.notifyChange(
                     "isOccupied"
                 );
+                let daytime = this.#getDaytimeForTime(Clock.global.hh);
 
                 if (isOccupied) {
                     // update belief
                     roomAgent.beliefs.undeclare("free thisRoom");
                     // turn light on
-                    roomAgent.postSubGoal(this.#genTurnOnPlanningGoal());
+                    roomAgent.postSubGoal(this.#genTurnOnPlanningGoal(daytime));
                 } else {
                     // update belief
                     roomAgent.beliefs.declare("free thisRoom");
