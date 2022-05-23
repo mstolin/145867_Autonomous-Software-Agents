@@ -1,7 +1,7 @@
 const pddlActionIntention = require("../../../../../lib/pddl/actions/pddlActionIntention");
 
 class TurnOnIntention extends pddlActionIntention {
-    static parameters = ["mainLight"];
+    static parameters = ["mainLight", "thisRoom"];
     static precondition = [
         ["LIGHT", "mainLight"],
         ["ROOM", "thisRoom"],

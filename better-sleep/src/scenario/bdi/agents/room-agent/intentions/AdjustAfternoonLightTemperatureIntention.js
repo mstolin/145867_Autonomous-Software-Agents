@@ -1,7 +1,7 @@
 const pddlActionIntention = require("../../../../../lib/pddl/actions/pddlActionIntention");
 
 class AdjustAfternoonLightTemperatureIntention extends pddlActionIntention {
-    static parameters = ["mainLight", "time"];
+    static parameters = ["mainLight", "time", "thisRoom"];
     static precondition = [
         ["LIGHT", "mainLight"],
         ["DAYTIME", "time"],
