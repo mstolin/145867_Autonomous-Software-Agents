@@ -1,11 +1,36 @@
+# ToDo
+
+* [] Create adjust brightness intention 
+* [] Somehow update room agent beliefs using the light sensor (brightness, temp) Probably a sense intention for each room agent
+
 # Better-Sleep
 
 This node.js project is an implemention of the proposol for a multi-agent system.
 The goal is to provide autonomous behaviour that adjusts and controls the light in
 a house to increase the quality of sleep, of its inhabitants.
 
-The project is influenced by https://github.com/marcorobol/Autonode.js and
-https://github.com/TimKam/JS-son.
+# Planning Problem
+
+A planning proble ist the light problem.
+Whenever a resident enters a room, the room light should turn on.
+Otherwise, if a resident leaves a room, the light should turn off.
+Additionally, the light of a room should be adjusted accordingly to
+the daytime.
+A more detailed description about the problem, the description of 
+the domain, and all necessary domains can be found at [../pddl/light/](../pddl/light/).
+
+All implementation files can be found at [./src/bdi/agents/](./src/bdi/agents/).
+There are two folders, `house-agent/` and `room-agent/`. The house-agent folder
+containes the implementation of the house folder with all its intentions and goals.
+The intentions of the house-agent are two sensors. One sensor is responsible to update
+the room-agent beliefs, if a resident has entered or left a room.
+The other sensor is responsible to update all room-agent beliefs if the daytime has changed
+between orning, afternoon, and evening. Moreover, the room-agent posts sub goals to the
+room-agent of a room, if a resident entered the room (turn on/off light, adjust temperature,
+adjust brightness).
+
+The room-agent folder containes the implementation of all room-agents. Its intentions are the
+implementation of the domain and problem available at [../pddl/light/](../pddl/light/).
 
 # Development
 

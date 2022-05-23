@@ -15,7 +15,7 @@ It does so by controlling all light bulbs of a room
 and opening/closing the outdoow window shutters
 to enable/prevent outside light in the house.
 
-Additionally, the warmth and brightness of the
+Additionally, the temperature and brightness of the
 artificial light is maintened in accordance to the 
 daytime. Meaning, during the day less warm and brighter
 light is needed to support high concentration. 
@@ -29,6 +29,9 @@ unoccupied room and only turn on lights if
 a resident enters a room.
 
 # Project Structure
+
+The folder [assignment-1/](assignment-1), contains the first
+assignment, the project/context/domain description.
 
 The folder [better-sleep/](better-sleep/) contains the
 implementation of the Multi-Agent System in JavaScript.
