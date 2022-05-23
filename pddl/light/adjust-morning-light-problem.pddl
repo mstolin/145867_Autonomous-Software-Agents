@@ -3,10 +3,11 @@
 (define (problem adjust-morning-light)
     (:domain room)
 
-    (:objects mainLight time)
+    (:objects mainLight time thisRoom)
 
     (:init
         (LIGHT mainLight)
+        (ROOM thisRoom)
         (DAYTIME time)
         (MORNING time)
     )
