@@ -1,5 +1,8 @@
 # Planning Domain
 
+**Note:** This planning domain was just a test and is not
+intended to be used in the better-sleep project.
+
 At the beginning of the day, Sandra and Bob are
 in the Bedroom, where light is turned on.
 Both residents want to go to the Guestroom.
