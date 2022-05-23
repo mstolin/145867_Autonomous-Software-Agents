@@ -9,6 +9,9 @@ This node.js project is an implemention of the proposol for a multi-agent system
 The goal is to provide autonomous behaviour that adjusts and controls the light in
 a house to increase the quality of sleep, of its inhabitants.
 
+A more detailed description of the whole project can be found at 
+[ASA_Assignment_1.pdf](../assignment-1/ASA_Assignment_1.pdf).
+
 # Planning Problem
 
 A planning proble ist the light problem.
