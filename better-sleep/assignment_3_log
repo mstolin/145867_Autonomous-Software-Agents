@@ -1,0 +1,1641 @@
+> better-sleep@0.0.1 scenario
+> node src/scenario/Scenario.js
+
+House Agent                    Trying to use intention MorningIntention to achieve goal MorningGoal#0[object Object]
+House Agent>MorningIntention#0 Intention started
+House Agent                    Trying to use intention EveningIntention to achieve goal EveningGoal#1[object Object]
+House Agent>EveningIntention#1 Intention started
+House Agent                    Trying to use intention SenseMovementIntention to achieve goal SenseMovementGoal#2[object Object]
+House Agent>SenseMovementIntention#2 Intention started
+House Agent                    Trying to use intention SenseDaytimeIntention to achieve goal SenseDaytimeGoal#3[object Object]
+House Agent>SenseDaytimeIntention#3 Intention started
+(0:00:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [FIRST_FLOOR-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [FIRST_FLOOR-SHUTTER_1] Has changed state to closed
+(0:00:00) [FIRST_FLOOR-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [FIRST_FLOOR-SHUTTER_2] Has changed state to closed
+(0:00:00) [KITCHEN-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [KITCHEN-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [KITCHEN-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [KITCHEN-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [KITCHEN-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [KITCHEN-SHUTTER_1] Has changed state to closed
+(0:00:00) [KITCHEN-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [KITCHEN-SHUTTER_2] Has changed state to closed
+(0:00:00) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [LIVING_ROOM-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [LIVING_ROOM-SHUTTER_1] Has changed state to closed
+(0:00:00) [LIVING_ROOM-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [LIVING_ROOM-SHUTTER_2] Has changed state to closed
+(0:00:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [SECOND_FLOOR-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [SECOND_FLOOR-SHUTTER_1] Has changed state to closed
+(0:00:00) [SECOND_FLOOR-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [SECOND_FLOOR-SHUTTER_2] Has changed state to closed
+(0:00:00) [BATHROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [BATHROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [BATHROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [BATHROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [BATHROOM-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [BATHROOM-SHUTTER_1] Has changed state to closed
+(0:00:00) [BATHROOM-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [BATHROOM-SHUTTER_2] Has changed state to closed
+(0:00:00) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [GUESTROOM-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [GUESTROOM-SHUTTER_1] Has changed state to closed
+(0:00:00) [GUESTROOM-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [GUESTROOM-SHUTTER_2] Has changed state to closed
+(0:00:00) [BEDROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:00:00) [BEDROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:00:00) [BEDROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:00:00) [BEDROOM-LIGHT_SENSOR] Illumince has changed to 0
+(0:00:00) [BEDROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:00:00) [BEDROOM-SHUTTER_1] Has changed deviceState to off
+(0:00:00) [BEDROOM-SHUTTER_1] Has changed state to closed
+(0:00:00) [BEDROOM-SHUTTER_2] Has changed deviceState to off
+(0:00:00) [BEDROOM-SHUTTER_2] Has changed state to closed
+(0:00:00) [SANDRA] Has entered bedroom
+(0:00:00) [BOB] Has entered bedroom
+Room-Agent-first_floor         Belief changed: LIGHT mainLight
+Room-Agent-first_floor         Belief changed: DAYTIME time
+Room-Agent-first_floor         Belief changed: ROOM thisRoom
+Room-Agent-kitchen             Belief changed: LIGHT mainLight
+Room-Agent-kitchen             Belief changed: DAYTIME time
+Room-Agent-kitchen             Belief changed: ROOM thisRoom
+Room-Agent-living_room         Belief changed: LIGHT mainLight
+Room-Agent-living_room         Belief changed: DAYTIME time
+Room-Agent-living_room         Belief changed: ROOM thisRoom
+Room-Agent-second_floor        Belief changed: LIGHT mainLight
+Room-Agent-second_floor        Belief changed: DAYTIME time
+Room-Agent-second_floor        Belief changed: ROOM thisRoom
+Room-Agent-bathroom            Belief changed: LIGHT mainLight
+Room-Agent-bathroom            Belief changed: DAYTIME time
+Room-Agent-bathroom            Belief changed: ROOM thisRoom
+Room-Agent-guestroom           Belief changed: LIGHT mainLight
+Room-Agent-guestroom           Belief changed: DAYTIME time
+Room-Agent-guestroom           Belief changed: ROOM thisRoom
+Room-Agent-bedroom             Belief changed: LIGHT mainLight
+Room-Agent-bedroom             Belief changed: DAYTIME time
+Room-Agent-bedroom             Belief changed: ROOM thisRoom
+(0:00:00) [FIRST_FLOOR-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [FIRST_FLOOR-SHUTTER_2] Has changed deviceState to on
+(0:00:00) [KITCHEN-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [KITCHEN-SHUTTER_2] Has changed deviceState to on
+(0:00:00) [LIVING_ROOM-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [LIVING_ROOM-SHUTTER_2] Has changed deviceState to on
+(0:00:00) [SECOND_FLOOR-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [SECOND_FLOOR-SHUTTER_2] Has changed deviceState to on
+(0:00:00) [BATHROOM-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [BATHROOM-SHUTTER_2] Has changed deviceState to on
+(0:00:00) [GUESTROOM-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [GUESTROOM-SHUTTER_2] Has changed deviceState to on
+(0:00:00) [BEDROOM-SHUTTER_1] Has changed deviceState to on
+(0:00:00) [BEDROOM-SHUTTER_2] Has changed deviceState to on
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#4 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#4 Intention started
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#5 goal:not (on mainLight)
+Room-Agent-living_room>PlanningIntention#5 Intention started
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#6 goal:not (on mainLight)
+Room-Agent-kitchen>PlanningIntention#6 Intention started
+Room-Agent-bedroom             Trying to use intention PlanningIntention to achieve goal PddlGoal#7 goal:not (on mainLight)
+Room-Agent-bedroom>PlanningIntention#7 Intention started
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#8 goal:not (on mainLight)
+Room-Agent-guestroom>PlanningIntention#8 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#9 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#9 Intention started
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#10 goal:not (on mainLight)
+Room-Agent-bathroom>PlanningIntention#10 Intention started
+Room-Agent-first_floor         Belief changed: free thisRoom
+Room-Agent-living_room         Belief changed: free thisRoom
+Room-Agent-kitchen             Belief changed: free thisRoom
+Room-Agent-bedroom             Belief changed: free thisRoom
+Room-Agent-guestroom           Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-bathroom            Belief changed: free thisRoom
+Room-Agent-first_floor         Belief changed: not AFTERNOON time
+Room-Agent-first_floor         Belief changed: EVENING time
+Room-Agent-living_room         Belief changed: not AFTERNOON time
+Room-Agent-living_room         Belief changed: EVENING time
+Room-Agent-kitchen             Belief changed: not AFTERNOON time
+Room-Agent-kitchen             Belief changed: EVENING time
+Room-Agent-bedroom             Belief changed: not AFTERNOON time
+Room-Agent-bedroom             Belief changed: EVENING time
+Room-Agent-guestroom           Belief changed: not AFTERNOON time
+Room-Agent-guestroom           Belief changed: EVENING time
+Room-Agent-second_floor        Belief changed: not AFTERNOON time
+Room-Agent-second_floor        Belief changed: EVENING time
+Room-Agent-bathroom            Belief changed: not AFTERNOON time
+Room-Agent-bathroom            Belief changed: EVENING time
+Room-Agent-kitchen>PlanningIntention#6 Plan found:
+Room-Agent-second_floor>PlanningIntention#9 Plan found:
+Room-Agent-guestroom>PlanningIntention#8 Plan found:
+Room-Agent-bathroom>PlanningIntention#10 Plan found:
+Room-Agent-first_floor>PlanningIntention#4 Plan found:
+Room-Agent-bedroom>PlanningIntention#7 Plan found:
+Room-Agent-living_room>PlanningIntention#5 Plan found:
+Room-Agent-kitchen>PlanningIntention#6 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#6 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#9 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#9 goal:not (on mainLight)
+Room-Agent-guestroom>PlanningIntention#8 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#8 goal:not (on mainLight)
+Room-Agent-bathroom>PlanningIntention#10 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#10 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#4 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#4 goal:not (on mainLight)
+Room-Agent-bedroom>PlanningIntention#7 Intention success
+Room-Agent-bedroom             Succesfully used intention PlanningIntention to achieve goal PddlGoal#7 goal:not (on mainLight)
+Room-Agent-living_room>PlanningIntention#5 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#5 goal:not (on mainLight)
+0:06:00 Room-Agent-first_floor         Belief changed: not EVENING time
+Room-Agent-first_floor         Belief changed: MORNING time
+Room-Agent-living_room         Belief changed: not EVENING time
+Room-Agent-living_room         Belief changed: MORNING time
+Room-Agent-kitchen             Belief changed: not EVENING time
+Room-Agent-kitchen             Belief changed: MORNING time
+Room-Agent-bedroom             Belief changed: not EVENING time
+Room-Agent-bedroom             Belief changed: MORNING time
+Room-Agent-guestroom           Belief changed: not EVENING time
+Room-Agent-guestroom           Belief changed: MORNING time
+Room-Agent-second_floor        Belief changed: not EVENING time
+Room-Agent-second_floor        Belief changed: MORNING time
+Room-Agent-bathroom            Belief changed: not EVENING time
+Room-Agent-bathroom            Belief changed: MORNING time
+0:07:00 (0:07:00) [SANDRA] Has entered second_floor
+(0:07:00) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+(0:07:00) [BOB] Has entered second_floor
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#11 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#11 Intention started
+Room-Agent-second_floor        Belief changed: not free thisRoom
+(0:07:00) [BEDROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:07:00) [BEDROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:07:00) [BEDROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:00) [FIRST_FLOOR-SHUTTER_1] Has changed state to open
+(0:07:00) [FIRST_FLOOR-SHUTTER_2] Has changed state to open
+(0:07:00) [KITCHEN-SHUTTER_1] Has changed state to open
+(0:07:00) [KITCHEN-SHUTTER_2] Has changed state to open
+(0:07:00) [LIVING_ROOM-SHUTTER_1] Has changed state to open
+(0:07:00) [LIVING_ROOM-SHUTTER_2] Has changed state to open
+(0:07:00) [SECOND_FLOOR-SHUTTER_1] Has changed state to open
+(0:07:00) [SECOND_FLOOR-SHUTTER_2] Has changed state to open
+(0:07:00) [BATHROOM-SHUTTER_1] Has changed state to open
+(0:07:00) [BATHROOM-SHUTTER_2] Has changed state to open
+(0:07:00) [GUESTROOM-SHUTTER_1] Has changed state to open
+(0:07:00) [GUESTROOM-SHUTTER_2] Has changed state to open
+(0:07:00) [BEDROOM-SHUTTER_1] Has changed state to open
+(0:07:00) [BEDROOM-SHUTTER_2] Has changed state to open
+(0:07:00) [BEDROOM-LIGHT_SENSOR] Illumince has changed to 500
+House Agent>MorningIntention#0 Intention success
+House Agent                    Succesfully used intention MorningIntention to achieve goal MorningGoal#0[object Object]
+Room-Agent-second_floor>PlanningIntention#11 Plan found:
+Room-Agent-second_floor>PlanningIntention#11 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#11 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#11 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#11 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#12 Intention started
+(0:07:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:07:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:07:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-second_floor>TurnOnIntention#12 Intention success
+Room-Agent-second_floor>PlanningIntention#11 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#13 Intention started
+(0:07:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor        Belief changed: not evening-brightness mainlight
+Room-Agent-second_floor        Belief changed: morning-brightness mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#13 Intention success
+Room-Agent-second_floor>PlanningIntention#11 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#14 Intention started
+(0:07:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-second_floor        Belief changed: not evening-temp mainlight
+Room-Agent-second_floor        Belief changed: morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#14 Intention success
+Room-Agent-second_floor>PlanningIntention#11 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#11 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:1  (0:07:1) [SANDRA] Has entered bathroom
+(0:07:1) [BATHROOM-MOTION_SENSOR] Occupied status has changed to true
+(0:07:1) [BOB] Has entered first_floor
+(0:07:1) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:07:1) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#15 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-bathroom>PlanningIntention#15 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#16 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#16 Intention started
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#17 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-first_floor>PlanningIntention#17 Intention started
+Room-Agent-bathroom            Belief changed: not free thisRoom
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-first_floor         Belief changed: not free thisRoom
+Room-Agent-first_floor>PlanningIntention#17 Plan found:
+Room-Agent-first_floor>PlanningIntention#17 1 (turnonintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#17 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-first_floor>PlanningIntention#17 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#15 Plan found:
+Room-Agent-bathroom>PlanningIntention#15 1 (turnonintention mainlight thisroom)
+Room-Agent-bathroom>PlanningIntention#15 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#15 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-first_floor>PlanningIntention#17 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-first_floor>TurnOnIntention#18 Intention started
+(0:07:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:07:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:07:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:1) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-bathroom>PlanningIntention#15 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-bathroom>TurnOnIntention#21 Intention started
+(0:07:1) [BATHROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:07:1) [BATHROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:07:1) [BATHROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:1) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor>PlanningIntention#16 Plan found:
+Room-Agent-second_floor>PlanningIntention#16 1 (turnoffintention mainlight thisroom)
+Room-Agent-first_floor         Belief changed: on mainlight
+Room-Agent-bathroom            Belief changed: on mainlight
+Room-Agent-first_floor>TurnOnIntention#18 Intention success
+Room-Agent-bathroom>TurnOnIntention#21 Intention success
+Room-Agent-second_floor>PlanningIntention#16 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#24 Intention started
+(0:07:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:07:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:07:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:07:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-first_floor>PlanningIntention#17 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-first_floor>AdjustMorningLightBrightnessIntention#19 Intention started
+(0:07:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:1) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-bathroom>PlanningIntention#15 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-bathroom>AdjustMorningLightBrightnessIntention#22 Intention started
+(0:07:1) [BATHROOM-MAIN_LIGHT] Has changed brightness to 200
+(0:07:1) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not morning-brightness mainlight
+Room-Agent-second_floor        Belief changed: not morning-temp mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-brightness mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-temp mainlight
+Room-Agent-first_floor         Belief changed: not evening-brightness mainlight
+Room-Agent-first_floor         Belief changed: morning-brightness mainlight
+Room-Agent-bathroom            Belief changed: not evening-brightness mainlight
+Room-Agent-bathroom            Belief changed: morning-brightness mainlight
+Room-Agent-second_floor>TurnOffIntention#24 Intention success
+Room-Agent-first_floor>AdjustMorningLightBrightnessIntention#19 Intention success
+Room-Agent-bathroom>AdjustMorningLightBrightnessIntention#22 Intention success
+Room-Agent-first_floor>PlanningIntention#17 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-first_floor>AdjustMorningLightTemperatureIntention#20 Intention started
+(0:07:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-bathroom>PlanningIntention#15 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-bathroom>AdjustMorningLightTemperatureIntention#23 Intention started
+(0:07:1) [BATHROOM-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-second_floor>PlanningIntention#16 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#16 goal:not (on mainLight)
+Room-Agent-first_floor         Belief changed: not evening-temp mainlight
+Room-Agent-first_floor         Belief changed: morning-temp mainlight
+Room-Agent-bathroom            Belief changed: not evening-temp mainlight
+Room-Agent-bathroom            Belief changed: morning-temp mainlight
+Room-Agent-first_floor>AdjustMorningLightTemperatureIntention#20 Intention success
+Room-Agent-bathroom>AdjustMorningLightTemperatureIntention#23 Intention success
+Room-Agent-first_floor>PlanningIntention#17 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#17 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-bathroom>PlanningIntention#15 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#15 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:2  (0:07:2) [BOB] Has entered kitchen
+(0:07:2) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:07:2) [KITCHEN-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#25 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#25 Intention started
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#26 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-kitchen>PlanningIntention#26 Intention started
+Room-Agent-first_floor         Belief changed: free thisRoom
+Room-Agent-kitchen             Belief changed: not free thisRoom
+Room-Agent-kitchen>PlanningIntention#26 Plan found:
+Room-Agent-kitchen>PlanningIntention#26 1 (turnonintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#26 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#26 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#26 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-kitchen>TurnOnIntention#27 Intention started
+(0:07:2) [KITCHEN-MAIN_LIGHT] Has changed deviceState to on
+(0:07:2) [KITCHEN-MAIN_LIGHT] Has changed brightness to 500
+(0:07:2) [KITCHEN-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:2) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-first_floor>PlanningIntention#25 Plan found:
+Room-Agent-first_floor>PlanningIntention#25 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen             Belief changed: on mainlight
+Room-Agent-kitchen>TurnOnIntention#27 Intention success
+Room-Agent-first_floor>PlanningIntention#25 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-first_floor>TurnOffIntention#30 Intention started
+(0:07:2) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:07:2) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:07:2) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:07:2) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-kitchen>PlanningIntention#26 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-kitchen>AdjustMorningLightBrightnessIntention#28 Intention started
+(0:07:2) [KITCHEN-MAIN_LIGHT] Has changed brightness to 200
+(0:07:2) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-first_floor         Belief changed: not on mainlight
+Room-Agent-first_floor         Belief changed: not morning-brightness mainlight
+Room-Agent-first_floor         Belief changed: not morning-temp mainlight
+Room-Agent-first_floor         Belief changed: not afternoon-brightness mainlight
+Room-Agent-first_floor         Belief changed: not afternoon-temp mainlight
+Room-Agent-kitchen             Belief changed: not evening-brightness mainlight
+Room-Agent-kitchen             Belief changed: morning-brightness mainlight
+Room-Agent-first_floor>TurnOffIntention#30 Intention success
+Room-Agent-kitchen>AdjustMorningLightBrightnessIntention#28 Intention success
+Room-Agent-kitchen>PlanningIntention#26 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-kitchen>AdjustMorningLightTemperatureIntention#29 Intention started
+(0:07:2) [KITCHEN-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-first_floor>PlanningIntention#25 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#25 goal:not (on mainLight)
+Room-Agent-kitchen             Belief changed: not evening-temp mainlight
+Room-Agent-kitchen             Belief changed: morning-temp mainlight
+Room-Agent-kitchen>AdjustMorningLightTemperatureIntention#29 Intention success
+Room-Agent-kitchen>PlanningIntention#26 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#26 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:15 (0:07:15) [SANDRA] Has entered second_floor
+(0:07:15) [BATHROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:07:15) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+(0:07:15) [BOB] Has entered living_room
+(0:07:15) [KITCHEN-MOTION_SENSOR] Occupied status has changed to false
+(0:07:15) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#31 goal:not (on mainLight)
+Room-Agent-bathroom>PlanningIntention#31 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#32 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#32 Intention started
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#33 goal:not (on mainLight)
+Room-Agent-kitchen>PlanningIntention#33 Intention started
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#34 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-living_room>PlanningIntention#34 Intention started
+Room-Agent-bathroom            Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-kitchen             Belief changed: free thisRoom
+Room-Agent-living_room         Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#32 Plan found:
+Room-Agent-second_floor>PlanningIntention#32 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#32 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#32 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#31 Plan found:
+Room-Agent-bathroom>PlanningIntention#31 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#33 Plan found:
+Room-Agent-kitchen>PlanningIntention#33 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#32 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#35 Intention started
+(0:07:15) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:07:15) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:07:15) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:15) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-bathroom>PlanningIntention#31 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-bathroom>TurnOffIntention#38 Intention started
+(0:07:15) [BATHROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:07:15) [BATHROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:07:15) [BATHROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:07:15) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-living_room>PlanningIntention#34 Plan found:
+Room-Agent-living_room>PlanningIntention#34 1 (turnonintention mainlight thisroom)
+Room-Agent-living_room>PlanningIntention#34 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-living_room>PlanningIntention#34 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#33 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-kitchen>TurnOffIntention#39 Intention started
+(0:07:15) [KITCHEN-MAIN_LIGHT] Has changed deviceState to off
+(0:07:15) [KITCHEN-MAIN_LIGHT] Has changed brightness to 0
+(0:07:15) [KITCHEN-MAIN_LIGHT] Has changed temperature to 0
+(0:07:15) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-bathroom            Belief changed: not on mainlight
+Room-Agent-bathroom            Belief changed: not morning-brightness mainlight
+Room-Agent-bathroom            Belief changed: not morning-temp mainlight
+Room-Agent-bathroom            Belief changed: not afternoon-brightness mainlight
+Room-Agent-bathroom            Belief changed: not afternoon-temp mainlight
+Room-Agent-kitchen             Belief changed: not on mainlight
+Room-Agent-kitchen             Belief changed: not morning-brightness mainlight
+Room-Agent-kitchen             Belief changed: not morning-temp mainlight
+Room-Agent-kitchen             Belief changed: not afternoon-brightness mainlight
+Room-Agent-kitchen             Belief changed: not afternoon-temp mainlight
+Room-Agent-second_floor>TurnOnIntention#35 Intention success
+Room-Agent-bathroom>TurnOffIntention#38 Intention success
+Room-Agent-living_room>PlanningIntention#34 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-living_room>TurnOnIntention#40 Intention started
+(0:07:15) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:07:15) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:07:15) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:15) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-kitchen>TurnOffIntention#39 Intention success
+Room-Agent-second_floor>PlanningIntention#32 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#36 Intention started
+(0:07:15) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:15) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-living_room         Belief changed: on mainlight
+Room-Agent-second_floor        Belief changed: morning-brightness mainlight
+Room-Agent-bathroom>PlanningIntention#31 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#31 goal:not (on mainLight)
+Room-Agent-living_room>TurnOnIntention#40 Intention success
+Room-Agent-kitchen>PlanningIntention#33 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#33 goal:not (on mainLight)
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#36 Intention success
+Room-Agent-living_room>PlanningIntention#34 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-living_room>AdjustMorningLightBrightnessIntention#41 Intention started
+(0:07:15) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 200
+(0:07:15) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor>PlanningIntention#32 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#37 Intention started
+(0:07:15) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-living_room         Belief changed: not evening-brightness mainlight
+Room-Agent-living_room         Belief changed: morning-brightness mainlight
+Room-Agent-second_floor        Belief changed: morning-temp mainlight
+Room-Agent-living_room>AdjustMorningLightBrightnessIntention#41 Intention success
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#37 Intention success
+Room-Agent-living_room>PlanningIntention#34 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-living_room>AdjustMorningLightTemperatureIntention#42 Intention started
+(0:07:15) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-living_room         Belief changed: not evening-temp mainlight
+Room-Agent-living_room         Belief changed: morning-temp mainlight
+Room-Agent-second_floor>PlanningIntention#32 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#32 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-living_room>AdjustMorningLightTemperatureIntention#42 Intention success
+Room-Agent-living_room>PlanningIntention#34 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#34 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:16 (0:07:16) [SANDRA] Has entered first_floor
+(0:07:16) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:07:16) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#43 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#43 Intention started
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#44 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-first_floor>PlanningIntention#44 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-first_floor         Belief changed: not free thisRoom
+Room-Agent-first_floor>PlanningIntention#44 Plan found:
+Room-Agent-first_floor>PlanningIntention#44 1 (turnonintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#44 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-first_floor>PlanningIntention#44 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#43 Plan found:
+Room-Agent-second_floor>PlanningIntention#43 1 (turnoffintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#44 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-first_floor>TurnOnIntention#45 Intention started
+(0:07:16) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:07:16) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:07:16) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:16) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-first_floor         Belief changed: on mainlight
+Room-Agent-second_floor>PlanningIntention#43 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#48 Intention started
+(0:07:16) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:07:16) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:07:16) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:07:16) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-first_floor>TurnOnIntention#45 Intention success
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not morning-brightness mainlight
+Room-Agent-second_floor        Belief changed: not morning-temp mainlight
+Room-Agent-first_floor>PlanningIntention#44 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-first_floor>AdjustMorningLightBrightnessIntention#46 Intention started
+(0:07:16) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:16) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor>TurnOffIntention#48 Intention success
+Room-Agent-first_floor         Belief changed: morning-brightness mainlight
+Room-Agent-first_floor>AdjustMorningLightBrightnessIntention#46 Intention success
+Room-Agent-second_floor>PlanningIntention#43 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#43 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#44 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-first_floor>AdjustMorningLightTemperatureIntention#47 Intention started
+(0:07:16) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-first_floor         Belief changed: morning-temp mainlight
+Room-Agent-first_floor>AdjustMorningLightTemperatureIntention#47 Intention success
+Room-Agent-first_floor>PlanningIntention#44 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#44 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:17 (0:07:17) [SANDRA] Has entered living_room
+(0:07:17) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#49 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#49 Intention started
+Room-Agent-first_floor         Belief changed: free thisRoom
+Room-Agent-first_floor>PlanningIntention#49 Plan found:
+Room-Agent-first_floor>PlanningIntention#49 1 (turnoffintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#49 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-first_floor>TurnOffIntention#50 Intention started
+(0:07:17) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:07:17) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:07:17) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:07:17) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-first_floor         Belief changed: not on mainlight
+Room-Agent-first_floor         Belief changed: not morning-brightness mainlight
+Room-Agent-first_floor         Belief changed: not morning-temp mainlight
+Room-Agent-first_floor>TurnOffIntention#50 Intention success
+Room-Agent-first_floor>PlanningIntention#49 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#49 goal:not (on mainLight)
+0:07:45 (0:07:45) [SANDRA] Has entered first_floor
+(0:07:45) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+(0:07:45) [BOB] Has entered first_floor
+(0:07:45) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#51 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-first_floor>PlanningIntention#51 Intention started
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#52 goal:not (on mainLight)
+Room-Agent-living_room>PlanningIntention#52 Intention started
+Room-Agent-first_floor         Belief changed: not free thisRoom
+Room-Agent-living_room         Belief changed: free thisRoom
+Room-Agent-first_floor>PlanningIntention#51 Plan found:
+Room-Agent-first_floor>PlanningIntention#51 1 (turnonintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#51 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-first_floor>PlanningIntention#51 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-living_room>PlanningIntention#52 Plan found:
+Room-Agent-living_room>PlanningIntention#52 1 (turnoffintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#51 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-first_floor>TurnOnIntention#53 Intention started
+(0:07:45) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:07:45) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:07:45) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:45) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-first_floor         Belief changed: on mainlight
+Room-Agent-living_room>PlanningIntention#52 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-living_room>TurnOffIntention#56 Intention started
+(0:07:45) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:07:45) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:07:45) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:07:45) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-first_floor>TurnOnIntention#53 Intention success
+Room-Agent-living_room         Belief changed: not on mainlight
+Room-Agent-living_room         Belief changed: not morning-brightness mainlight
+Room-Agent-living_room         Belief changed: not morning-temp mainlight
+Room-Agent-living_room         Belief changed: not afternoon-brightness mainlight
+Room-Agent-living_room         Belief changed: not afternoon-temp mainlight
+Room-Agent-first_floor>PlanningIntention#51 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-first_floor>AdjustMorningLightBrightnessIntention#54 Intention started
+(0:07:45) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:45) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-living_room>TurnOffIntention#56 Intention success
+Room-Agent-first_floor         Belief changed: morning-brightness mainlight
+Room-Agent-first_floor>AdjustMorningLightBrightnessIntention#54 Intention success
+Room-Agent-living_room>PlanningIntention#52 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#52 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#51 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-first_floor>AdjustMorningLightTemperatureIntention#55 Intention started
+(0:07:45) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-first_floor         Belief changed: morning-temp mainlight
+Room-Agent-first_floor>AdjustMorningLightTemperatureIntention#55 Intention success
+Room-Agent-first_floor>PlanningIntention#51 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#51 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:46 (0:07:46) [BOB] Has entered second_floor
+(0:07:46) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#57 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#57 Intention started
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#57 Plan found:
+Room-Agent-second_floor>PlanningIntention#57 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#57 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#57 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#57 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#58 Intention started
+(0:07:46) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:07:46) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:07:46) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:46) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-second_floor>TurnOnIntention#58 Intention success
+Room-Agent-second_floor>PlanningIntention#57 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#59 Intention started
+(0:07:46) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:46) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor        Belief changed: morning-brightness mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#59 Intention success
+Room-Agent-second_floor>PlanningIntention#57 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#60 Intention started
+(0:07:46) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-second_floor        Belief changed: morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#60 Intention success
+Room-Agent-second_floor>PlanningIntention#57 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#57 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:07:47 (0:07:47) [BOB] Has entered bathroom
+(0:07:47) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:07:47) [BATHROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#61 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#61 Intention started
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#62 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-bathroom>PlanningIntention#62 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-bathroom            Belief changed: not free thisRoom
+Room-Agent-bathroom>PlanningIntention#62 Plan found:
+Room-Agent-bathroom>PlanningIntention#62 1 (turnonintention mainlight thisroom)
+Room-Agent-bathroom>PlanningIntention#62 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#62 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#62 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-bathroom>TurnOnIntention#63 Intention started
+(0:07:47) [BATHROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:07:47) [BATHROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:07:47) [BATHROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:07:47) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor>PlanningIntention#61 Plan found:
+Room-Agent-second_floor>PlanningIntention#61 1 (turnoffintention mainlight thisroom)
+Room-Agent-bathroom            Belief changed: on mainlight
+Room-Agent-bathroom>TurnOnIntention#63 Intention success
+Room-Agent-second_floor>PlanningIntention#61 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#66 Intention started
+(0:07:47) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:07:47) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:07:47) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:07:47) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-bathroom>PlanningIntention#62 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-bathroom>AdjustMorningLightBrightnessIntention#64 Intention started
+(0:07:47) [BATHROOM-MAIN_LIGHT] Has changed brightness to 200
+(0:07:47) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not morning-brightness mainlight
+Room-Agent-second_floor        Belief changed: not morning-temp mainlight
+Room-Agent-bathroom            Belief changed: morning-brightness mainlight
+Room-Agent-second_floor>TurnOffIntention#66 Intention success
+Room-Agent-bathroom>AdjustMorningLightBrightnessIntention#64 Intention success
+Room-Agent-bathroom>PlanningIntention#62 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-bathroom>AdjustMorningLightTemperatureIntention#65 Intention started
+(0:07:47) [BATHROOM-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-second_floor>PlanningIntention#61 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#61 goal:not (on mainLight)
+Room-Agent-bathroom            Belief changed: morning-temp mainlight
+Room-Agent-bathroom>AdjustMorningLightTemperatureIntention#65 Intention success
+Room-Agent-bathroom>PlanningIntention#62 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#62 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:08:00 (0:08:00) [BOB] Has entered second_floor
+(0:08:00) [BATHROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:08:00) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#67 goal:not (on mainLight)
+Room-Agent-bathroom>PlanningIntention#67 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#68 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#68 Intention started
+Room-Agent-bathroom            Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#68 Plan found:
+Room-Agent-second_floor>PlanningIntention#68 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#68 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#68 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#68 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#69 Intention started
+(0:08:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:08:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:08:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:08:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-bathroom>PlanningIntention#67 Plan found:
+Room-Agent-bathroom>PlanningIntention#67 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>TurnOnIntention#69 Intention success
+Room-Agent-second_floor>PlanningIntention#68 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#70 Intention started
+(0:08:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:08:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-bathroom>PlanningIntention#67 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-bathroom>TurnOffIntention#72 Intention started
+(0:08:00) [BATHROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:08:00) [BATHROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:08:00) [BATHROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:08:00) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: morning-brightness mainlight
+Room-Agent-bathroom            Belief changed: not on mainlight
+Room-Agent-bathroom            Belief changed: not morning-brightness mainlight
+Room-Agent-bathroom            Belief changed: not morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightBrightnessIntention#70 Intention success
+Room-Agent-bathroom>TurnOffIntention#72 Intention success
+Room-Agent-second_floor>PlanningIntention#68 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#71 Intention started
+(0:08:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-second_floor        Belief changed: morning-temp mainlight
+Room-Agent-bathroom>PlanningIntention#67 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#67 goal:not (on mainLight)
+Room-Agent-second_floor>AdjustMorningLightTemperatureIntention#71 Intention success
+Room-Agent-second_floor>PlanningIntention#68 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#68 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:08:1  (0:08:1) [BOB] Has entered guestroom
+(0:08:1) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:08:1) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#73 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#73 Intention started
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#74 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+Room-Agent-guestroom>PlanningIntention#74 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-guestroom           Belief changed: not free thisRoom
+Room-Agent-guestroom>PlanningIntention#74 Plan found:
+Room-Agent-guestroom>PlanningIntention#74 1 (turnonintention mainlight thisroom)
+Room-Agent-guestroom>PlanningIntention#74 2 (adjustmorninglightbrightnessintention mainlight time thisroom)
+Room-Agent-guestroom>PlanningIntention#74 2 (adjustmorninglighttemperatureintention mainlight time thisroom)
+Room-Agent-guestroom>PlanningIntention#74 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-guestroom>TurnOnIntention#75 Intention started
+(0:08:1) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:08:1) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:08:1) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:08:1) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor>PlanningIntention#73 Plan found:
+Room-Agent-second_floor>PlanningIntention#73 1 (turnoffintention mainlight thisroom)
+Room-Agent-guestroom           Belief changed: on mainlight
+Room-Agent-guestroom>TurnOnIntention#75 Intention success
+Room-Agent-second_floor>PlanningIntention#73 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#78 Intention started
+(0:08:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:08:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:08:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:08:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-guestroom>PlanningIntention#74 Starting sequential step with Intention: (AdjustMorningLightBrightnessIntention mainlight time thisroom) Effect: not evening-brightness mainlight,morning-brightness mainlight
+Room-Agent-guestroom>AdjustMorningLightBrightnessIntention#76 Intention started
+(0:08:1) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 200
+(0:08:1) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 200
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not morning-brightness mainlight
+Room-Agent-second_floor        Belief changed: not morning-temp mainlight
+Room-Agent-guestroom           Belief changed: not evening-brightness mainlight
+Room-Agent-guestroom           Belief changed: morning-brightness mainlight
+Room-Agent-second_floor>TurnOffIntention#78 Intention success
+Room-Agent-guestroom>AdjustMorningLightBrightnessIntention#76 Intention success
+Room-Agent-guestroom>PlanningIntention#74 Starting sequential step with Intention: (AdjustMorningLightTemperatureIntention mainlight time thisroom) Effect: not evening-temp mainlight,morning-temp mainlight
+Room-Agent-guestroom>AdjustMorningLightTemperatureIntention#77 Intention started
+(0:08:1) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 2000
+Room-Agent-second_floor>PlanningIntention#73 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#73 goal:not (on mainLight)
+Room-Agent-guestroom           Belief changed: not evening-temp mainlight
+Room-Agent-guestroom           Belief changed: morning-temp mainlight
+Room-Agent-guestroom>AdjustMorningLightTemperatureIntention#77 Intention success
+Room-Agent-guestroom>PlanningIntention#74 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#74 goal:on mainLight,morning-temp mainLight,morning-brightness mainLight
+0:12:00 (0:12:00) [BOB] Has entered second_floor
+(0:12:00) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:12:00) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-first_floor         Belief changed: not MORNING time
+Room-Agent-first_floor         Belief changed: AFTERNOON time
+Room-Agent-living_room         Belief changed: not MORNING time
+Room-Agent-living_room         Belief changed: AFTERNOON time
+Room-Agent-kitchen             Belief changed: not MORNING time
+Room-Agent-kitchen             Belief changed: AFTERNOON time
+Room-Agent-bedroom             Belief changed: not MORNING time
+Room-Agent-bedroom             Belief changed: AFTERNOON time
+Room-Agent-guestroom           Belief changed: not MORNING time
+Room-Agent-guestroom           Belief changed: AFTERNOON time
+Room-Agent-second_floor        Belief changed: not MORNING time
+Room-Agent-second_floor        Belief changed: AFTERNOON time
+Room-Agent-bathroom            Belief changed: not MORNING time
+Room-Agent-bathroom            Belief changed: AFTERNOON time
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#79 goal:not (on mainLight)
+Room-Agent-guestroom>PlanningIntention#79 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#80 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#80 Intention started
+Room-Agent-guestroom           Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#80 Plan found:
+Room-Agent-second_floor>PlanningIntention#80 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#80 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#80 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#80 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#81 Intention started
+(0:12:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:12:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:12:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:12:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-guestroom>PlanningIntention#79 Plan found:
+Room-Agent-guestroom>PlanningIntention#79 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-second_floor>TurnOnIntention#81 Intention success
+Room-Agent-guestroom>PlanningIntention#79 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-guestroom>TurnOffIntention#84 Intention started
+(0:12:00) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:12:00) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:12:00) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:12:00) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor>PlanningIntention#80 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#82 Intention started
+(0:12:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-guestroom           Belief changed: not on mainlight
+Room-Agent-guestroom           Belief changed: not morning-brightness mainlight
+Room-Agent-guestroom           Belief changed: not morning-temp mainlight
+Room-Agent-guestroom           Belief changed: not afternoon-brightness mainlight
+Room-Agent-guestroom           Belief changed: not afternoon-temp mainlight
+Room-Agent-second_floor        Belief changed: afternoon-temp mainlight
+Room-Agent-guestroom>TurnOffIntention#84 Intention success
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#82 Intention success
+Room-Agent-second_floor>PlanningIntention#80 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#83 Intention started
+Room-Agent-guestroom>PlanningIntention#79 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#79 goal:not (on mainLight)
+Room-Agent-second_floor        Belief changed: afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#83 Intention success
+Room-Agent-second_floor>PlanningIntention#80 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#80 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:12:1  (0:12:1) [BOB] Has entered first_floor
+(0:12:1) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#85 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#85 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-second_floor>PlanningIntention#85 Plan found:
+Room-Agent-second_floor>PlanningIntention#85 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#85 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#86 Intention started
+(0:12:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:12:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:12:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:12:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-brightness mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#86 Intention success
+Room-Agent-second_floor>PlanningIntention#85 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#85 goal:not (on mainLight)
+0:12:2  (0:12:2) [BOB] Has entered kitchen
+(0:12:2) [KITCHEN-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#87 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-kitchen>PlanningIntention#87 Intention started
+Room-Agent-kitchen             Belief changed: not free thisRoom
+Room-Agent-kitchen>PlanningIntention#87 Plan found:
+Room-Agent-kitchen>PlanningIntention#87 1 (turnonintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#87 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#87 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#87 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-kitchen>TurnOnIntention#88 Intention started
+(0:12:2) [KITCHEN-MAIN_LIGHT] Has changed deviceState to on
+(0:12:2) [KITCHEN-MAIN_LIGHT] Has changed brightness to 500
+(0:12:2) [KITCHEN-MAIN_LIGHT] Has changed temperature to 1700
+(0:12:2) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-kitchen             Belief changed: on mainlight
+Room-Agent-kitchen>TurnOnIntention#88 Intention success
+Room-Agent-kitchen>PlanningIntention#87 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-kitchen>AdjustAfternoonLightTemperatureIntention#89 Intention started
+(0:12:2) [KITCHEN-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-kitchen             Belief changed: afternoon-temp mainlight
+Room-Agent-kitchen>AdjustAfternoonLightTemperatureIntention#89 Intention success
+Room-Agent-kitchen>PlanningIntention#87 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-kitchen>AdjustAfternoonLightBrightnessIntention#90 Intention started
+Room-Agent-kitchen             Belief changed: afternoon-brightness mainlight
+Room-Agent-kitchen>AdjustAfternoonLightBrightnessIntention#90 Intention success
+Room-Agent-kitchen>PlanningIntention#87 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#87 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:12:10 (0:12:10) [BOB] Has entered living_room
+(0:12:10) [KITCHEN-MOTION_SENSOR] Occupied status has changed to false
+(0:12:10) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#91 goal:not (on mainLight)
+Room-Agent-kitchen>PlanningIntention#91 Intention started
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#92 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-living_room>PlanningIntention#92 Intention started
+Room-Agent-kitchen             Belief changed: free thisRoom
+Room-Agent-living_room         Belief changed: not free thisRoom
+Room-Agent-kitchen>PlanningIntention#91 Plan found:
+Room-Agent-kitchen>PlanningIntention#91 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#91 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-kitchen>TurnOffIntention#93 Intention started
+(0:12:10) [KITCHEN-MAIN_LIGHT] Has changed deviceState to off
+(0:12:10) [KITCHEN-MAIN_LIGHT] Has changed brightness to 0
+(0:12:10) [KITCHEN-MAIN_LIGHT] Has changed temperature to 0
+(0:12:10) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-kitchen             Belief changed: not on mainlight
+Room-Agent-kitchen             Belief changed: not afternoon-brightness mainlight
+Room-Agent-kitchen             Belief changed: not afternoon-temp mainlight
+Room-Agent-living_room>PlanningIntention#92 Plan found:
+Room-Agent-living_room>PlanningIntention#92 1 (turnonintention mainlight thisroom)
+Room-Agent-living_room>PlanningIntention#92 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-living_room>PlanningIntention#92 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-kitchen>TurnOffIntention#93 Intention success
+Room-Agent-living_room>PlanningIntention#92 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-living_room>TurnOnIntention#94 Intention started
+(0:12:10) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:12:10) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:12:10) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:12:10) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-kitchen>PlanningIntention#91 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#91 goal:not (on mainLight)
+Room-Agent-living_room         Belief changed: on mainlight
+Room-Agent-living_room>TurnOnIntention#94 Intention success
+Room-Agent-living_room>PlanningIntention#92 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-living_room>AdjustAfternoonLightTemperatureIntention#95 Intention started
+(0:12:10) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-living_room         Belief changed: afternoon-temp mainlight
+Room-Agent-living_room>AdjustAfternoonLightTemperatureIntention#95 Intention success
+Room-Agent-living_room>PlanningIntention#92 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-living_room>AdjustAfternoonLightBrightnessIntention#96 Intention started
+Room-Agent-living_room         Belief changed: afternoon-brightness mainlight
+Room-Agent-living_room>AdjustAfternoonLightBrightnessIntention#96 Intention success
+Room-Agent-living_room>PlanningIntention#92 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#92 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:12:50 (0:12:50) [BOB] Has entered kitchen
+(0:12:50) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:12:50) [KITCHEN-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#97 goal:not (on mainLight)
+Room-Agent-living_room>PlanningIntention#97 Intention started
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#98 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-kitchen>PlanningIntention#98 Intention started
+Room-Agent-living_room         Belief changed: free thisRoom
+Room-Agent-kitchen             Belief changed: not free thisRoom
+Room-Agent-kitchen>PlanningIntention#98 Plan found:
+Room-Agent-kitchen>PlanningIntention#98 1 (turnonintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#98 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#98 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#98 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-kitchen>TurnOnIntention#99 Intention started
+(0:12:50) [KITCHEN-MAIN_LIGHT] Has changed deviceState to on
+(0:12:50) [KITCHEN-MAIN_LIGHT] Has changed brightness to 500
+(0:12:50) [KITCHEN-MAIN_LIGHT] Has changed temperature to 1700
+(0:12:50) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-living_room>PlanningIntention#97 Plan found:
+Room-Agent-living_room>PlanningIntention#97 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen             Belief changed: on mainlight
+Room-Agent-kitchen>TurnOnIntention#99 Intention success
+Room-Agent-living_room>PlanningIntention#97 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-living_room>TurnOffIntention#102 Intention started
+(0:12:50) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:12:50) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:12:50) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:12:50) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-kitchen>PlanningIntention#98 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-kitchen>AdjustAfternoonLightTemperatureIntention#100 Intention started
+(0:12:50) [KITCHEN-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-living_room         Belief changed: not on mainlight
+Room-Agent-living_room         Belief changed: not afternoon-brightness mainlight
+Room-Agent-living_room         Belief changed: not afternoon-temp mainlight
+Room-Agent-kitchen             Belief changed: afternoon-temp mainlight
+Room-Agent-living_room>TurnOffIntention#102 Intention success
+Room-Agent-kitchen>AdjustAfternoonLightTemperatureIntention#100 Intention success
+Room-Agent-kitchen>PlanningIntention#98 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-kitchen>AdjustAfternoonLightBrightnessIntention#101 Intention started
+Room-Agent-living_room>PlanningIntention#97 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#97 goal:not (on mainLight)
+Room-Agent-kitchen             Belief changed: afternoon-brightness mainlight
+Room-Agent-kitchen>AdjustAfternoonLightBrightnessIntention#101 Intention success
+Room-Agent-kitchen>PlanningIntention#98 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#98 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:12:55 (0:12:55) [BOB] Has entered first_floor
+(0:12:55) [KITCHEN-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#103 goal:not (on mainLight)
+Room-Agent-kitchen>PlanningIntention#103 Intention started
+Room-Agent-kitchen             Belief changed: free thisRoom
+Room-Agent-kitchen>PlanningIntention#103 Plan found:
+Room-Agent-kitchen>PlanningIntention#103 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#103 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-kitchen>TurnOffIntention#104 Intention started
+(0:12:55) [KITCHEN-MAIN_LIGHT] Has changed deviceState to off
+(0:12:55) [KITCHEN-MAIN_LIGHT] Has changed brightness to 0
+(0:12:55) [KITCHEN-MAIN_LIGHT] Has changed temperature to 0
+(0:12:55) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-kitchen             Belief changed: not on mainlight
+Room-Agent-kitchen             Belief changed: not afternoon-brightness mainlight
+Room-Agent-kitchen             Belief changed: not afternoon-temp mainlight
+Room-Agent-kitchen>TurnOffIntention#104 Intention success
+Room-Agent-kitchen>PlanningIntention#103 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#103 goal:not (on mainLight)
+0:12:56 (0:12:56) [BOB] Has entered second_floor
+(0:12:56) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#105 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#105 Intention started
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#105 Plan found:
+Room-Agent-second_floor>PlanningIntention#105 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#105 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#105 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#105 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#106 Intention started
+(0:12:56) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:12:56) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:12:56) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:12:56) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-second_floor>TurnOnIntention#106 Intention success
+Room-Agent-second_floor>PlanningIntention#105 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#107 Intention started
+(0:12:56) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-second_floor        Belief changed: afternoon-temp mainlight
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#107 Intention success
+Room-Agent-second_floor>PlanningIntention#105 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#108 Intention started
+Room-Agent-second_floor        Belief changed: afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#108 Intention success
+Room-Agent-second_floor>PlanningIntention#105 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#105 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:12:58 (0:12:58) [BOB] Has entered guestroom
+(0:12:58) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:12:58) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#109 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#109 Intention started
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#110 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-guestroom>PlanningIntention#110 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-guestroom           Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#109 Plan found:
+Room-Agent-second_floor>PlanningIntention#109 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#109 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#111 Intention started
+(0:12:58) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:12:58) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:12:58) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:12:58) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-brightness mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-temp mainlight
+Room-Agent-guestroom>PlanningIntention#110 Plan found:
+Room-Agent-guestroom>PlanningIntention#110 1 (turnonintention mainlight thisroom)
+Room-Agent-guestroom>PlanningIntention#110 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-guestroom>PlanningIntention#110 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>TurnOffIntention#111 Intention success
+Room-Agent-guestroom>PlanningIntention#110 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-guestroom>TurnOnIntention#112 Intention started
+(0:12:58) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:12:58) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:12:58) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:12:58) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor>PlanningIntention#109 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#109 goal:not (on mainLight)
+Room-Agent-guestroom           Belief changed: on mainlight
+Room-Agent-guestroom>TurnOnIntention#112 Intention success
+Room-Agent-guestroom>PlanningIntention#110 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-guestroom>AdjustAfternoonLightTemperatureIntention#113 Intention started
+(0:12:58) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-guestroom           Belief changed: afternoon-temp mainlight
+Room-Agent-guestroom>AdjustAfternoonLightTemperatureIntention#113 Intention success
+Room-Agent-guestroom>PlanningIntention#110 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-guestroom>AdjustAfternoonLightBrightnessIntention#114 Intention started
+Room-Agent-guestroom           Belief changed: afternoon-brightness mainlight
+Room-Agent-guestroom>AdjustAfternoonLightBrightnessIntention#114 Intention success
+Room-Agent-guestroom>PlanningIntention#110 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#110 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:14:00 (0:14:00) [BOB] Has entered second_floor
+(0:14:00) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:14:00) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#115 goal:not (on mainLight)
+Room-Agent-guestroom>PlanningIntention#115 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#116 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#116 Intention started
+Room-Agent-guestroom           Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#116 Plan found:
+Room-Agent-second_floor>PlanningIntention#116 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#116 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#116 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#116 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#117 Intention started
+(0:14:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:14:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:14:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:14:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-guestroom>PlanningIntention#115 Plan found:
+Room-Agent-guestroom>PlanningIntention#115 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-second_floor>TurnOnIntention#117 Intention success
+Room-Agent-guestroom>PlanningIntention#115 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-guestroom>TurnOffIntention#120 Intention started
+(0:14:00) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:14:00) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:14:00) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:14:00) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor>PlanningIntention#116 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#118 Intention started
+(0:14:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-guestroom           Belief changed: not on mainlight
+Room-Agent-guestroom           Belief changed: not afternoon-brightness mainlight
+Room-Agent-guestroom           Belief changed: not afternoon-temp mainlight
+Room-Agent-second_floor        Belief changed: afternoon-temp mainlight
+Room-Agent-guestroom>TurnOffIntention#120 Intention success
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#118 Intention success
+Room-Agent-second_floor>PlanningIntention#116 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#119 Intention started
+Room-Agent-guestroom>PlanningIntention#115 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#115 goal:not (on mainLight)
+Room-Agent-second_floor        Belief changed: afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#119 Intention success
+Room-Agent-second_floor>PlanningIntention#116 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#116 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:14:1  (0:14:1) [BOB] Has entered bathroom
+(0:14:1) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:14:1) [BATHROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#121 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#121 Intention started
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#122 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-bathroom>PlanningIntention#122 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-bathroom            Belief changed: not free thisRoom
+Room-Agent-bathroom>PlanningIntention#122 Plan found:
+Room-Agent-bathroom>PlanningIntention#122 1 (turnonintention mainlight thisroom)
+Room-Agent-bathroom>PlanningIntention#122 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#122 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-bathroom>PlanningIntention#122 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-bathroom>TurnOnIntention#123 Intention started
+(0:14:1) [BATHROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:14:1) [BATHROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:14:1) [BATHROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:14:1) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-bathroom            Belief changed: on mainlight
+Room-Agent-second_floor>PlanningIntention#121 Plan found:
+Room-Agent-second_floor>PlanningIntention#121 1 (turnoffintention mainlight thisroom)
+Room-Agent-bathroom>TurnOnIntention#123 Intention success
+Room-Agent-bathroom>PlanningIntention#122 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-bathroom>AdjustAfternoonLightTemperatureIntention#124 Intention started
+(0:14:1) [BATHROOM-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-second_floor>PlanningIntention#121 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#126 Intention started
+(0:14:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:14:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:14:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:14:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-bathroom            Belief changed: afternoon-temp mainlight
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-brightness mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-temp mainlight
+Room-Agent-bathroom>AdjustAfternoonLightTemperatureIntention#124 Intention success
+Room-Agent-second_floor>TurnOffIntention#126 Intention success
+Room-Agent-bathroom>PlanningIntention#122 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-bathroom>AdjustAfternoonLightBrightnessIntention#125 Intention started
+Room-Agent-bathroom            Belief changed: afternoon-brightness mainlight
+Room-Agent-second_floor>PlanningIntention#121 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#121 goal:not (on mainLight)
+Room-Agent-bathroom>AdjustAfternoonLightBrightnessIntention#125 Intention success
+Room-Agent-bathroom>PlanningIntention#122 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#122 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:14:10 (0:14:10) [BOB] Has entered second_floor
+(0:14:10) [BATHROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:14:10) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-bathroom            Trying to use intention PlanningIntention to achieve goal PddlGoal#127 goal:not (on mainLight)
+Room-Agent-bathroom>PlanningIntention#127 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#128 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#128 Intention started
+Room-Agent-bathroom            Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-bathroom>PlanningIntention#127 Plan found:
+Room-Agent-bathroom>PlanningIntention#127 1 (turnoffintention mainlight thisroom)
+Room-Agent-bathroom>PlanningIntention#127 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-bathroom>TurnOffIntention#129 Intention started
+(0:14:10) [BATHROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:14:10) [BATHROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:14:10) [BATHROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:14:10) [BATHROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-bathroom            Belief changed: not on mainlight
+Room-Agent-bathroom            Belief changed: not afternoon-brightness mainlight
+Room-Agent-bathroom            Belief changed: not afternoon-temp mainlight
+Room-Agent-second_floor>PlanningIntention#128 Plan found:
+Room-Agent-second_floor>PlanningIntention#128 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#128 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#128 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-bathroom>TurnOffIntention#129 Intention success
+Room-Agent-second_floor>PlanningIntention#128 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#130 Intention started
+(0:14:10) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:14:10) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:14:10) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:14:10) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-bathroom>PlanningIntention#127 Intention success
+Room-Agent-bathroom            Succesfully used intention PlanningIntention to achieve goal PddlGoal#127 goal:not (on mainLight)
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-second_floor>TurnOnIntention#130 Intention success
+Room-Agent-second_floor>PlanningIntention#128 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#131 Intention started
+(0:14:10) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-second_floor        Belief changed: afternoon-temp mainlight
+Room-Agent-second_floor>AdjustAfternoonLightTemperatureIntention#131 Intention success
+Room-Agent-second_floor>PlanningIntention#128 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#132 Intention started
+Room-Agent-second_floor        Belief changed: afternoon-brightness mainlight
+Room-Agent-second_floor>AdjustAfternoonLightBrightnessIntention#132 Intention success
+Room-Agent-second_floor>PlanningIntention#128 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#128 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:14:11 (0:14:11) [BOB] Has entered guestroom
+(0:14:11) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:14:11) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#133 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#133 Intention started
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#134 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+Room-Agent-guestroom>PlanningIntention#134 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-guestroom           Belief changed: not free thisRoom
+Room-Agent-guestroom>PlanningIntention#134 Plan found:
+Room-Agent-guestroom>PlanningIntention#134 1 (turnonintention mainlight thisroom)
+Room-Agent-guestroom>PlanningIntention#134 2 (adjustafternoonlighttemperatureintention mainlight time thisroom)
+Room-Agent-guestroom>PlanningIntention#134 2 (adjustafternoonlightbrightnessintention mainlight time thisroom)
+Room-Agent-guestroom>PlanningIntention#134 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-guestroom>TurnOnIntention#135 Intention started
+(0:14:11) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:14:11) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:14:11) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:14:11) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-guestroom           Belief changed: on mainlight
+Room-Agent-second_floor>PlanningIntention#133 Plan found:
+Room-Agent-second_floor>PlanningIntention#133 1 (turnoffintention mainlight thisroom)
+Room-Agent-guestroom>TurnOnIntention#135 Intention success
+Room-Agent-guestroom>PlanningIntention#134 Starting sequential step with Intention: (AdjustAfternoonLightTemperatureIntention mainlight time thisroom) Effect: not morning-temp mainlight,afternoon-temp mainlight
+Room-Agent-guestroom>AdjustAfternoonLightTemperatureIntention#136 Intention started
+(0:14:11) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 4000
+Room-Agent-second_floor>PlanningIntention#133 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#138 Intention started
+(0:14:11) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:14:11) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:14:11) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:14:11) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-guestroom           Belief changed: afternoon-temp mainlight
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-brightness mainlight
+Room-Agent-second_floor        Belief changed: not afternoon-temp mainlight
+Room-Agent-guestroom>AdjustAfternoonLightTemperatureIntention#136 Intention success
+Room-Agent-second_floor>TurnOffIntention#138 Intention success
+Room-Agent-guestroom>PlanningIntention#134 Starting sequential step with Intention: (AdjustAfternoonLightBrightnessIntention mainlight time thisroom) Effect: not morning-brightness mainlight,afternoon-brightness mainlight
+Room-Agent-guestroom>AdjustAfternoonLightBrightnessIntention#137 Intention started
+Room-Agent-guestroom           Belief changed: afternoon-brightness mainlight
+Room-Agent-second_floor>PlanningIntention#133 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#133 goal:not (on mainLight)
+Room-Agent-guestroom>AdjustAfternoonLightBrightnessIntention#137 Intention success
+Room-Agent-guestroom>PlanningIntention#134 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#134 goal:on mainLight,afternoon-temp mainLight,afternoon-brightness mainLight
+0:18:00 (0:18:00) [SANDRA] Has entered living_room
+(0:18:00) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:18:00) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to true
+(0:18:00) [BOB] Has entered second_floor
+(0:18:00) [GUESTROOM-MOTION_SENSOR] Occupied status has changed to false
+(0:18:00) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-first_floor         Belief changed: not AFTERNOON time
+Room-Agent-first_floor         Belief changed: EVENING time
+Room-Agent-living_room         Belief changed: not AFTERNOON time
+Room-Agent-living_room         Belief changed: EVENING time
+Room-Agent-kitchen             Belief changed: not AFTERNOON time
+Room-Agent-kitchen             Belief changed: EVENING time
+Room-Agent-bedroom             Belief changed: not AFTERNOON time
+Room-Agent-bedroom             Belief changed: EVENING time
+Room-Agent-guestroom           Belief changed: not AFTERNOON time
+Room-Agent-guestroom           Belief changed: EVENING time
+Room-Agent-second_floor        Belief changed: not AFTERNOON time
+Room-Agent-second_floor        Belief changed: EVENING time
+Room-Agent-bathroom            Belief changed: not AFTERNOON time
+Room-Agent-bathroom            Belief changed: EVENING time
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#139 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#139 Intention started
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#140 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-living_room>PlanningIntention#140 Intention started
+Room-Agent-guestroom           Trying to use intention PlanningIntention to achieve goal PddlGoal#141 goal:not (on mainLight)
+Room-Agent-guestroom>PlanningIntention#141 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#142 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#142 Intention started
+Room-Agent-first_floor         Belief changed: free thisRoom
+Room-Agent-living_room         Belief changed: not free thisRoom
+Room-Agent-guestroom           Belief changed: free thisRoom
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-guestroom>PlanningIntention#141 Plan found:
+Room-Agent-guestroom>PlanningIntention#141 1 (turnoffintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#139 Plan found:
+Room-Agent-first_floor>PlanningIntention#139 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#142 Plan found:
+Room-Agent-second_floor>PlanningIntention#142 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#142 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#142 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-guestroom>PlanningIntention#141 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-guestroom>TurnOffIntention#143 Intention started
+(0:18:00) [GUESTROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:18:00) [GUESTROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:18:00) [GUESTROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:18:00) [GUESTROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-first_floor>PlanningIntention#139 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-first_floor>TurnOffIntention#144 Intention started
+(0:18:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:18:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:18:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:18:00) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor>PlanningIntention#142 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#145 Intention started
+(0:18:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:18:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:18:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:18:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-guestroom           Belief changed: not on mainlight
+Room-Agent-guestroom           Belief changed: not afternoon-brightness mainlight
+Room-Agent-guestroom           Belief changed: not afternoon-temp mainlight
+Room-Agent-first_floor         Belief changed: not on mainlight
+Room-Agent-first_floor         Belief changed: not morning-brightness mainlight
+Room-Agent-first_floor         Belief changed: not morning-temp mainlight
+Room-Agent-living_room>PlanningIntention#140 Plan found:
+Room-Agent-living_room>PlanningIntention#140 1 (turnonintention mainlight thisroom)
+Room-Agent-living_room>PlanningIntention#140 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-living_room>PlanningIntention#140 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-guestroom>TurnOffIntention#143 Intention success
+Room-Agent-first_floor>TurnOffIntention#144 Intention success
+Room-Agent-second_floor>TurnOnIntention#145 Intention success
+Room-Agent-living_room>PlanningIntention#140 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-living_room>TurnOnIntention#148 Intention started
+(0:18:00) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to on
+(0:18:00) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 500
+(0:18:00) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 1700
+(0:18:00) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor>PlanningIntention#142 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-second_floor>AdjustEveningLightBrightnessIntention#146 Intention started
+(0:18:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 300
+(0:18:00) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-guestroom>PlanningIntention#141 Intention success
+Room-Agent-guestroom           Succesfully used intention PlanningIntention to achieve goal PddlGoal#141 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#139 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#139 goal:not (on mainLight)
+Room-Agent-living_room         Belief changed: on mainlight
+Room-Agent-second_floor        Belief changed: evening-brightness mainlight
+Room-Agent-living_room>TurnOnIntention#148 Intention success
+Room-Agent-second_floor>AdjustEveningLightBrightnessIntention#146 Intention success
+Room-Agent-living_room>PlanningIntention#140 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-living_room>AdjustEveningLightBrightnessIntention#149 Intention started
+(0:18:00) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 300
+(0:18:00) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-second_floor>PlanningIntention#142 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-second_floor>AdjustEveningLightTemperatureIntention#147 Intention started
+(0:18:00) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-living_room         Belief changed: evening-brightness mainlight
+Room-Agent-second_floor        Belief changed: evening-temp mainlight
+Room-Agent-living_room>AdjustEveningLightBrightnessIntention#149 Intention success
+Room-Agent-second_floor>AdjustEveningLightTemperatureIntention#147 Intention success
+Room-Agent-living_room>PlanningIntention#140 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-living_room>AdjustEveningLightTemperatureIntention#150 Intention started
+(0:18:00) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-living_room         Belief changed: evening-temp mainlight
+Room-Agent-second_floor>PlanningIntention#142 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#142 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-living_room>AdjustEveningLightTemperatureIntention#150 Intention success
+Room-Agent-living_room>PlanningIntention#140 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#140 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+0:18:1  (0:18:1) [BOB] Has entered first_floor
+(0:18:1) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:18:1) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#151 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#151 Intention started
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#152 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-first_floor>PlanningIntention#152 Intention started
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-first_floor         Belief changed: not free thisRoom
+Room-Agent-second_floor>PlanningIntention#151 Plan found:
+Room-Agent-second_floor>PlanningIntention#151 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#151 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#153 Intention started
+(0:18:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:18:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:18:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:18:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not evening-brightness mainlight
+Room-Agent-second_floor        Belief changed: not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#153 Intention success
+Room-Agent-first_floor>PlanningIntention#152 Plan found:
+Room-Agent-first_floor>PlanningIntention#152 1 (turnonintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#152 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-first_floor>PlanningIntention#152 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#151 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#151 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#152 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-first_floor>TurnOnIntention#154 Intention started
+(0:18:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:18:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:18:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:18:1) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-first_floor         Belief changed: on mainlight
+Room-Agent-first_floor>TurnOnIntention#154 Intention success
+Room-Agent-first_floor>PlanningIntention#152 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-first_floor>AdjustEveningLightBrightnessIntention#155 Intention started
+(0:18:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 300
+(0:18:1) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-first_floor         Belief changed: evening-brightness mainlight
+Room-Agent-first_floor>AdjustEveningLightBrightnessIntention#155 Intention success
+Room-Agent-first_floor>PlanningIntention#152 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-first_floor>AdjustEveningLightTemperatureIntention#156 Intention started
+(0:18:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-first_floor         Belief changed: evening-temp mainlight
+Room-Agent-first_floor>AdjustEveningLightTemperatureIntention#156 Intention success
+Room-Agent-first_floor>PlanningIntention#152 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#152 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+0:18:2  (0:18:2) [BOB] Has entered kitchen
+(0:18:2) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:18:2) [KITCHEN-MOTION_SENSOR] Occupied status has changed to true
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#157 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#157 Intention started
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#158 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-kitchen>PlanningIntention#158 Intention started
+Room-Agent-first_floor         Belief changed: free thisRoom
+Room-Agent-kitchen             Belief changed: not free thisRoom
+Room-Agent-kitchen>PlanningIntention#158 Plan found:
+Room-Agent-kitchen>PlanningIntention#158 1 (turnonintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#158 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#158 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-kitchen>PlanningIntention#158 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-kitchen>TurnOnIntention#159 Intention started
+(0:18:2) [KITCHEN-MAIN_LIGHT] Has changed deviceState to on
+(0:18:2) [KITCHEN-MAIN_LIGHT] Has changed brightness to 500
+(0:18:2) [KITCHEN-MAIN_LIGHT] Has changed temperature to 1700
+(0:18:2) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-first_floor>PlanningIntention#157 Plan found:
+Room-Agent-first_floor>PlanningIntention#157 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen             Belief changed: on mainlight
+Room-Agent-kitchen>TurnOnIntention#159 Intention success
+Room-Agent-first_floor>PlanningIntention#157 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-first_floor>TurnOffIntention#162 Intention started
+(0:18:2) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:18:2) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:18:2) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:18:2) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-kitchen>PlanningIntention#158 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-kitchen>AdjustEveningLightBrightnessIntention#160 Intention started
+(0:18:2) [KITCHEN-MAIN_LIGHT] Has changed brightness to 300
+(0:18:2) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-first_floor         Belief changed: not on mainlight
+Room-Agent-first_floor         Belief changed: not evening-brightness mainlight
+Room-Agent-first_floor         Belief changed: not evening-temp mainlight
+Room-Agent-kitchen             Belief changed: evening-brightness mainlight
+Room-Agent-first_floor>TurnOffIntention#162 Intention success
+Room-Agent-kitchen>AdjustEveningLightBrightnessIntention#160 Intention success
+Room-Agent-kitchen>PlanningIntention#158 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-kitchen>AdjustEveningLightTemperatureIntention#161 Intention started
+(0:18:2) [KITCHEN-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-first_floor>PlanningIntention#157 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#157 goal:not (on mainLight)
+Room-Agent-kitchen             Belief changed: evening-temp mainlight
+Room-Agent-kitchen>AdjustEveningLightTemperatureIntention#161 Intention success
+Room-Agent-kitchen>PlanningIntention#158 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#158 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+0:18:30 (0:18:30) [BOB] Has entered living_room
+(0:18:30) [KITCHEN-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-kitchen             Trying to use intention PlanningIntention to achieve goal PddlGoal#163 goal:not (on mainLight)
+Room-Agent-kitchen>PlanningIntention#163 Intention started
+Room-Agent-kitchen             Belief changed: free thisRoom
+Room-Agent-kitchen>PlanningIntention#163 Plan found:
+Room-Agent-kitchen>PlanningIntention#163 1 (turnoffintention mainlight thisroom)
+Room-Agent-kitchen>PlanningIntention#163 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-kitchen>TurnOffIntention#164 Intention started
+(0:18:30) [KITCHEN-MAIN_LIGHT] Has changed deviceState to off
+(0:18:30) [KITCHEN-MAIN_LIGHT] Has changed brightness to 0
+(0:18:30) [KITCHEN-MAIN_LIGHT] Has changed temperature to 0
+(0:18:30) [KITCHEN-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-kitchen             Belief changed: not on mainlight
+Room-Agent-kitchen             Belief changed: not evening-brightness mainlight
+Room-Agent-kitchen             Belief changed: not evening-temp mainlight
+Room-Agent-kitchen>TurnOffIntention#164 Intention success
+Room-Agent-kitchen>PlanningIntention#163 Intention success
+Room-Agent-kitchen             Succesfully used intention PlanningIntention to achieve goal PddlGoal#163 goal:not (on mainLight)
+0:22:00 (0:22:00) [SANDRA] Has entered first_floor
+(0:22:00) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+(0:22:00) [BOB] Has entered first_floor
+(0:22:00) [LIVING_ROOM-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#165 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-first_floor>PlanningIntention#165 Intention started
+Room-Agent-living_room         Trying to use intention PlanningIntention to achieve goal PddlGoal#166 goal:not (on mainLight)
+Room-Agent-living_room>PlanningIntention#166 Intention started
+Room-Agent-first_floor         Belief changed: not free thisRoom
+Room-Agent-living_room         Belief changed: free thisRoom
+Room-Agent-first_floor>PlanningIntention#165 Plan found:
+Room-Agent-first_floor>PlanningIntention#165 1 (turnonintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#165 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-first_floor>PlanningIntention#165 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-living_room>PlanningIntention#166 Plan found:
+Room-Agent-living_room>PlanningIntention#166 1 (turnoffintention mainlight thisroom)
+Room-Agent-first_floor>PlanningIntention#165 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-first_floor>TurnOnIntention#167 Intention started
+(0:22:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:22:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:22:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:22:00) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-first_floor         Belief changed: on mainlight
+Room-Agent-living_room>PlanningIntention#166 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-living_room>TurnOffIntention#170 Intention started
+(0:22:00) [LIVING_ROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:22:00) [LIVING_ROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:22:00) [LIVING_ROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:22:00) [LIVING_ROOM-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-first_floor>TurnOnIntention#167 Intention success
+Room-Agent-living_room         Belief changed: not on mainlight
+Room-Agent-living_room         Belief changed: not evening-brightness mainlight
+Room-Agent-living_room         Belief changed: not evening-temp mainlight
+Room-Agent-first_floor>PlanningIntention#165 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-first_floor>AdjustEveningLightBrightnessIntention#168 Intention started
+(0:22:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 300
+(0:22:00) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-living_room>TurnOffIntention#170 Intention success
+Room-Agent-first_floor         Belief changed: evening-brightness mainlight
+Room-Agent-first_floor>AdjustEveningLightBrightnessIntention#168 Intention success
+Room-Agent-living_room>PlanningIntention#166 Intention success
+Room-Agent-living_room         Succesfully used intention PlanningIntention to achieve goal PddlGoal#166 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#165 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-first_floor>AdjustEveningLightTemperatureIntention#169 Intention started
+(0:22:00) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-first_floor         Belief changed: evening-temp mainlight
+Room-Agent-first_floor>AdjustEveningLightTemperatureIntention#169 Intention success
+Room-Agent-first_floor>PlanningIntention#165 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#165 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+0:22:1  (0:22:1) [SANDRA] Has entered second_floor
+(0:22:1) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+(0:22:1) [BOB] Has entered second_floor
+(0:22:1) [FIRST_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#171 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-second_floor>PlanningIntention#171 Intention started
+Room-Agent-first_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#172 goal:not (on mainLight)
+Room-Agent-first_floor>PlanningIntention#172 Intention started
+Room-Agent-second_floor        Belief changed: not free thisRoom
+Room-Agent-first_floor         Belief changed: free thisRoom
+Room-Agent-second_floor>PlanningIntention#171 Plan found:
+Room-Agent-second_floor>PlanningIntention#171 1 (turnonintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#171 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#171 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>PlanningIntention#171 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-second_floor>TurnOnIntention#173 Intention started
+(0:22:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to on
+(0:22:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 500
+(0:22:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1700
+(0:22:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 500
+Room-Agent-second_floor        Belief changed: on mainlight
+Room-Agent-first_floor>PlanningIntention#172 Plan found:
+Room-Agent-first_floor>PlanningIntention#172 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>TurnOnIntention#173 Intention success
+Room-Agent-second_floor>PlanningIntention#171 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-second_floor>AdjustEveningLightBrightnessIntention#174 Intention started
+(0:22:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 300
+(0:22:1) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-first_floor>PlanningIntention#172 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-first_floor>TurnOffIntention#176 Intention started
+(0:22:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:22:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:22:1) [FIRST_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:22:1) [FIRST_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: evening-brightness mainlight
+Room-Agent-first_floor         Belief changed: not on mainlight
+Room-Agent-first_floor         Belief changed: not evening-brightness mainlight
+Room-Agent-first_floor         Belief changed: not evening-temp mainlight
+Room-Agent-second_floor>AdjustEveningLightBrightnessIntention#174 Intention success
+Room-Agent-first_floor>TurnOffIntention#176 Intention success
+Room-Agent-second_floor>PlanningIntention#171 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-second_floor>AdjustEveningLightTemperatureIntention#175 Intention started
+(0:22:1) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-second_floor        Belief changed: evening-temp mainlight
+Room-Agent-first_floor>PlanningIntention#172 Intention success
+Room-Agent-first_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#172 goal:not (on mainLight)
+Room-Agent-second_floor>AdjustEveningLightTemperatureIntention#175 Intention success
+Room-Agent-second_floor>PlanningIntention#171 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#171 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+0:22:2  (0:22:2) [SANDRA] Has entered bedroom
+(0:22:2) [BEDROOM-MOTION_SENSOR] Occupied status has changed to true
+(0:22:2) [BOB] Has entered bedroom
+(0:22:2) [SECOND_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+Room-Agent-bedroom             Trying to use intention PlanningIntention to achieve goal PddlGoal#177 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+Room-Agent-bedroom>PlanningIntention#177 Intention started
+Room-Agent-second_floor        Trying to use intention PlanningIntention to achieve goal PddlGoal#178 goal:not (on mainLight)
+Room-Agent-second_floor>PlanningIntention#178 Intention started
+Room-Agent-bedroom             Belief changed: not free thisRoom
+Room-Agent-second_floor        Belief changed: free thisRoom
+Room-Agent-second_floor>PlanningIntention#178 Plan found:
+Room-Agent-second_floor>PlanningIntention#178 1 (turnoffintention mainlight thisroom)
+Room-Agent-second_floor>PlanningIntention#178 Starting sequential step with Intention: (TurnOffIntention mainlight thisroom) Effect: not on mainlight,not morning-brightness mainlight,not morning-temp mainlight,not afternoon-brightness mainlight,not afternoon-temp mainlight,not evening-brightness mainlight,not evening-temp mainlight
+Room-Agent-second_floor>TurnOffIntention#179 Intention started
+(0:22:2) [SECOND_FLOOR-MAIN_LIGHT] Has changed deviceState to off
+(0:22:2) [SECOND_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+(0:22:2) [SECOND_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:22:2) [SECOND_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+Room-Agent-second_floor        Belief changed: not on mainlight
+Room-Agent-second_floor        Belief changed: not evening-brightness mainlight
+Room-Agent-second_floor        Belief changed: not evening-temp mainlight
+Room-Agent-bedroom>PlanningIntention#177 Plan found:
+Room-Agent-bedroom>PlanningIntention#177 1 (turnonintention mainlight thisroom)
+Room-Agent-bedroom>PlanningIntention#177 2 (adjusteveninglightbrightnessintention mainlight time thisroom)
+Room-Agent-bedroom>PlanningIntention#177 2 (adjusteveninglighttemperatureintention mainlight time thisroom)
+Room-Agent-second_floor>TurnOffIntention#179 Intention success
+Room-Agent-bedroom>PlanningIntention#177 Starting sequential step with Intention: (TurnOnIntention mainlight thisroom) Effect: on mainlight
+Room-Agent-bedroom>TurnOnIntention#180 Intention started
+Room-Agent-bedroom>TurnOnIntention#180 bedroom-main_light is off
+Room-Agent-second_floor>PlanningIntention#178 Intention success
+Room-Agent-second_floor        Succesfully used intention PlanningIntention to achieve goal PddlGoal#178 goal:not (on mainLight)
+Room-Agent-bedroom>TurnOnIntention#180 Intention success
+Room-Agent-bedroom>PlanningIntention#177 Starting sequential step with Intention: (AdjustEveningLightBrightnessIntention mainlight time thisroom) Effect: not afternoon-brightness mainlight,evening-brightness mainlight
+Room-Agent-bedroom>AdjustEveningLightBrightnessIntention#181 Intention started
+(0:22:2) [BEDROOM-MAIN_LIGHT] Has changed brightness to 300
+(0:22:2) [BEDROOM-LIGHT_SENSOR] Illumince has changed to 300
+Room-Agent-bedroom             Belief changed: not afternoon-brightness mainlight
+Room-Agent-bedroom             Belief changed: evening-brightness mainlight
+Room-Agent-bedroom>AdjustEveningLightBrightnessIntention#181 Intention success
+Room-Agent-bedroom>PlanningIntention#177 Starting sequential step with Intention: (AdjustEveningLightTemperatureIntention mainlight time thisroom) Effect: not afternoon-temp mainlight,evening-temp mainlight
+Room-Agent-bedroom>AdjustEveningLightTemperatureIntention#182 Intention started
+(0:22:2) [BEDROOM-MAIN_LIGHT] Has changed temperature to 1900
+Room-Agent-bedroom             Belief changed: not afternoon-temp mainlight
+Room-Agent-bedroom             Belief changed: evening-temp mainlight
+Room-Agent-bedroom>AdjustEveningLightTemperatureIntention#182 Intention success
+Room-Agent-bedroom>PlanningIntention#177 Intention success
+Room-Agent-bedroom             Succesfully used intention PlanningIntention to achieve goal PddlGoal#177 goal:on mainLight,evening-temp mainLight,evening-brightness mainLight
+0:23:00 House Agent>EveningIntention#1 first_floor-main_light is already off
+House Agent>EveningIntention#1 kitchen-main_light is already off
+House Agent>EveningIntention#1 living_room-main_light is already off
+House Agent>EveningIntention#1 second_floor-main_light is already off
+House Agent>EveningIntention#1 bathroom-main_light is already off
+House Agent>EveningIntention#1 guestroom-main_light is already off
+(0:23:00) [FIRST_FLOOR-SHUTTER_1] Has changed state to closed
+(0:23:00) [FIRST_FLOOR-SHUTTER_2] Has changed state to closed
+(0:23:00) [KITCHEN-SHUTTER_1] Has changed state to closed
+(0:23:00) [KITCHEN-SHUTTER_2] Has changed state to closed
+(0:23:00) [LIVING_ROOM-SHUTTER_1] Has changed state to closed
+(0:23:00) [LIVING_ROOM-SHUTTER_2] Has changed state to closed
+(0:23:00) [SECOND_FLOOR-SHUTTER_1] Has changed state to closed
+(0:23:00) [SECOND_FLOOR-SHUTTER_2] Has changed state to closed
+(0:23:00) [BATHROOM-SHUTTER_1] Has changed state to closed
+(0:23:00) [BATHROOM-SHUTTER_2] Has changed state to closed
+(0:23:00) [GUESTROOM-SHUTTER_1] Has changed state to closed
+(0:23:00) [GUESTROOM-SHUTTER_2] Has changed state to closed
+(0:23:00) [BEDROOM-MAIN_LIGHT] Has changed deviceState to off
+(0:23:00) [BEDROOM-MAIN_LIGHT] Has changed brightness to 0
+(0:23:00) [BEDROOM-MAIN_LIGHT] Has changed temperature to 0
+(0:23:00) [BEDROOM-SHUTTER_1] Has changed state to closed
+(0:23:00) [BEDROOM-SHUTTER_2] Has changed state to closed
+(0:23:00) [BEDROOM-LIGHT_SENSOR] Illumince has changed to 0
+House Agent>EveningIntention#1 Intention success
+House Agent                    Succesfully used intention EveningIntention to achieve goal EveningGoal#1[object Object]
+0:23:27 ^C
