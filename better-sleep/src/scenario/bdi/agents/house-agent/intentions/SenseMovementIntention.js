@@ -31,9 +31,9 @@ class SenseMovementIntention extends Intention {
      * @returns Daytime string
      */
     #getDaytimeForTime(hour) {
-        if (hour >= 1 && hour < 2) {
+        if (hour >= 6 && hour < 12) {
             return MORNING;
-        } else if (hour >= 2 && hour < 4) {
+        } else if (hour >= 12 && hour < 18) {
             return AFTERNOON;
         } else {
             return EVENING;

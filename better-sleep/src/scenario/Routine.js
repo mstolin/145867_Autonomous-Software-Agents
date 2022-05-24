@@ -16,7 +16,7 @@ function startRoutine(time, house) {
      * 6. Bob walks into the guest room to start working
      */
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 0) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 0) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_BEDROOM,
@@ -29,7 +29,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 1) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 1) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -42,7 +42,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 2) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 2) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_FIRST_FLOOR,
@@ -50,7 +50,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 15) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 15) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_BATHROOM,
@@ -64,7 +64,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 00 && time.hh == 1 && time.mm == 16) {
+    if (time.dd == 00 && time.hh == 7 && time.mm == 16) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -72,7 +72,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 00 && time.hh == 1 && time.mm == 17) {
+    if (time.dd == 00 && time.hh == 7 && time.mm == 17) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_FIRST_FLOOR,
@@ -80,7 +80,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 45) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 45) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_LIVING_ROOM,
@@ -93,7 +93,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 46) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 46) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_FIRST_FLOOR,
@@ -101,7 +101,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 1 && time.mm == 47) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 47) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -109,7 +109,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 2 && time.mm == 0) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 0) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_BATHROOM,
@@ -117,7 +117,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 2 && time.mm == 1) {
+    if (time.dd == 0 && time.hh == 7 && time.mm == 1) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_SECOND_FLOOR,

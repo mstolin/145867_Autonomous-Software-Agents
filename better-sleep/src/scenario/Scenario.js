@@ -30,8 +30,8 @@ observeAllPersons();
 /*
     AGENTS, INTENTIONS, AND GOALS
 */
-houseAgent.postSubGoal(new MorningGoal({ hh: 1, mm: 0 }));
-houseAgent.postSubGoal(new EveningGoal({ hh: 4, mm: 0 }));
+houseAgent.postSubGoal(new MorningGoal({ hh: 7, mm: 0 }));
+houseAgent.postSubGoal(new EveningGoal({ hh: 23, mm: 0 }));
 houseAgent.postSubGoal(
     new SenseMovementGoal({
         persons: [
