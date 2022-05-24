@@ -58,7 +58,15 @@ brightness of the light according to the daytime.
 
 # ⚙️ Development
 
-## Install Dependencies
+## Add Blackbox Executable
+
+First you have to add the blackbox executable into `./bin`.
+This project is developed on Linux, therefore, the path to the executable has
+been altered at [./src/lib/pddl/Blackbox.js:37](./src/lib/pddl/Blackbox.js#L37).
+If you want to tun the scenario on windows, include the `.exe` at `./bin` 
+instead, and fix the path at `Blackbox.js`.
+
+## Install NPM Dependencies
 
 To run the scenario/tests, it is required to install all dependencies first:
 
