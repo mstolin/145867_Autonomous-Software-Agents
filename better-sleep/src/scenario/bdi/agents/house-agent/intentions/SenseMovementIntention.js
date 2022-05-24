@@ -12,10 +12,10 @@ const EVENING = "EVENING";
  * @class
  *
  * This intention works as a sensor.
- * It is supposed to tell a specific room agent if a resident 
+ * It is supposed to tell a specific room agent if a resident
  * entered or left the room.
- * According to this info, it posts a subgoal to either turn 
- * on or off the light, and adjust the light according to the 
+ * According to this info, it posts a subgoal to either turn
+ * on or off the light, and adjust the light according to the
  * current daytime.
  */
 class SenseMovementIntention extends Intention {
@@ -43,7 +43,7 @@ class SenseMovementIntention extends Intention {
     /**
      * Generates a planning goal that turns on the
      * main light.
-     * 
+     *
      * @param {string} daytime Current daytime as string
      * @returns
      */
@@ -53,7 +53,7 @@ class SenseMovementIntention extends Intention {
             goal: [
                 "on mainLight",
                 `${daytimeLower}-temp mainLight`,
-                //`${daytimeLower}-brightness mainLight`,
+                `${daytimeLower}-brightness mainLight`,
             ],
         });
     }
