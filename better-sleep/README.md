@@ -3,7 +3,8 @@
 -   [] Create adjust brightness intention
 -   [] Somehow update room agent beliefs using the light sensor (brightness, temp) Probably a sense intention for each room agent
 -   [] Maybe its better to have a single room-agent/light-agent instead of many for each single room
--   [] Maybe its even better to have one agent to only adjust the brightness and one for the temperature 
+-   [] Maybe its even better to have one agent to only adjust the brightness and one for the temperature
+-   [] Even if its doesnt make sense, more delay between the people actions in routine.js, because of the http request 
 
 # 🛏 Better-Sleep
 
