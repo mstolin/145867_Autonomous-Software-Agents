@@ -2,6 +2,7 @@
 
 * [] Create adjust brightness intention 
 * [] Somehow update room agent beliefs using the light sensor (brightness, temp) Probably a sense intention for each room agent
+* [] Maybe its better to have a single room-agent/light-agent instead of many for each single room
 
 # Better-Sleep
 
@@ -22,7 +23,7 @@ the daytime.
 A more detailed description about the problem, the description of 
 the domain, and all necessary domains can be found at [../pddl/light/](../pddl/light/).
 
-All implementation files can be found at [./src/bdi/agents/](./src/bdi/agents/).
+All implementation files can be found at [./src/scenario/bdi/agents/](./src/bdi/agents/).
 There are two folders, `house-agent/` and `room-agent/`. The house-agent folder
 containes the implementation of the house folder with all its intentions and goals.
 The intentions of the house-agent are two sensors. One sensor is responsible to update
@@ -45,14 +46,6 @@ To run the scenario/tests, it is required to install all dependencies first:
 $ npm install
 ```
 
-## Run Tests
-
-Run the unit tests using the following command:
-
-```
-$ npm run tests
-```
-
 ## Start the Scenario
 
 In the root directory (where `package.json` is located) execute
@@ -67,40 +60,76 @@ $ npm run scenario
 This section provides an overall description of the project structure.
 The implemention details can be found in the corresponding files.
 
+The project consists of the following two main directories:
+
+* `src/lib` - Includes the library used to implement the scenario. Mostly 
+copied from Autonode.js.
+* `src/scenario` - Contains all the implementation used to create a scenario.
+
 ## `src/lib/bdi`
 
-This directory includes all `.js` files to provide an BDI agent.
-It includes:
+This directory incldues all `.js` files used to create a BDI agent, intentions,
+goals, and beliefs.
+It is copied from Autonode.js.
 
-* `Agent.js` - The implemention of an agent.
-* `BeliefSet.js` - The implemention of beliefs that are used by an agent.
-* `Goal.js` - The implemention of an goal, that an agent tries to achieve.
-* `Intention.js` - The implemention of an intention. It is used by an agent to achieve a goal.
+## `src/lib/pddl`
+
+Includes all `.js` files, needed run pddl domains/problems to create plans
+for an agent.
+Copied from Autonode.js.
 
 ## `src/lib/utils`
 
-Includes the implemention of all utilities:
-
-* `Clock.js` - An implemention of a clock.
-* `Observable.js` - Observables are used to observe the state of an entity.
-* `Logger.js` - A very minimal implementation of a Logger.
+Includes the implementation of utils like observer. The files are copied from
+Autonode.js, except for `Logger.js` which is a very minimal implementation
+of a Logger.
 
 ## `src/lib/world`
 
-Includes the implemention of all entities that are present in the environment/world.
+Includes the implemention of all entities that are present in the 
+environment/world.
 
+* `Device.js` - Parent class of a device. Mostly an `Observable`.
 * `House.js` - An implementation of a house.
-* `Light.js` - An implemention of a light. This is an `Observable`.
+* `Light.js` - An implemention of a light. Extends from `Device`.
+* `LightSensor.js` - Implementation if sensor that observes the illuminance of
+a room. Extends from `Device`.
+* `MotionSensor.js` - Implementation of a motion sensor, that observes of a 
+resident has entered/left a room. Extends `Device`.
 * `Person.js` - An implementation of a person.
 * `Room.js` - An implemention of a room.
-* `Shutter.js` - An implemention of a shutter as an `Observable`.
+* `Shutter.js` - An implemention of a shutter. Extends `Device`.
 
 ## `src/scenario`
 
-Includes the implementation of the scenario, routine, and the definitio of the world.
+Includes the implementation of the scenario, routine, and the definitio of the 
+world.
 
-* `Scenario.js` - The implemention of the whole scenario.
+* `Environment.js` - Initializesthe environment, including initial beleifs and 
+devices.
 * `Routine.js` - The routine of the persons.
+* `Scenario.js` - The implemention of the whole scenario.
+
+## `src/scenario/bdi/agents/house-agent`
+
+The definition of the house-agent, its definitions, beliefs, and goals.
+
+* `Beliefs.js` - The house-agents' initial beliefs.
+* `Goals.js` - Goals the house-agent has to achieve.
+* `HouseAgent.js` - Definition of the house-agent.
+* `intentions/` - All intentions used to achieve the goals.
+
+## `src/scenario/bdi/agents/room-agent`
+
+The definition of the house-agent, its definitions, beliefs, and goals.
+
+* `index.js` - Generates an agent for each room.
+* `intentions/` - All `pddlActionsIntention` implementation for the room agents.
+
+## `src/scenario/observers`
+
+* `persons.js` - Observers for all persons in the environment.
+* `rooms.js` - Observers for all rooms of the house.
 
 ## `src/scenario/world`
 
@@ -120,11 +149,9 @@ All files needed to define the actors in the environment.
 ## `src/scenario/world/rooms`
 
 All rooms of the environment. 
-Each room is defined by the following files:
-
-* `Lights.js` - Defines all lights that are located in the room.
-* `Room.js` - The overall definition of the room, including lights and shutters.
-* `Shutters.js` - The collection of all shutters of the room.
+Each room is defined by its on `.js` file.
+By default, each room has one main light and 2 shutters.
+Additionaly the paths to other rooms are defined.
 
 The following rooms are available:
 
@@ -135,12 +162,3 @@ The following rooms are available:
 * Kitchen
 * Living Room
 * Second Floor
-
-## `src/scenario/bdi/agents/house-agent`
-
-The definition of the house-agent, its definitions, beliefs, and goals.
-
-* `Beliefs.js` - The house-agents' initial beliefs.
-* `Goals.js` - Goals the house-agent has to achieve.
-* `HouseAgent.js` - Definition of the house-agent.
-* `Intentions.js` - All intentions used to achieve the goals.
