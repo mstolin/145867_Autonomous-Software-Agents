@@ -287,7 +287,7 @@ End plan
 ### Execution
 
 ```
-$ blackblox -o room-domain.pddl -f adjust-afternoon-light-problem.pddl
+$ blackbox -o room-domain.pddl -f adjust-afternoon-light-problem.pddl
 ```
 
 ```
@@ -344,7 +344,7 @@ End plan
 ### Execution
 
 ```
-$ blackblox -o room-domain.pddl -f adjust-evening-light-problem.pddl
+$ blackbox -o room-domain.pddl -f adjust-evening-light-problem.pddl
 ```
 
 ```
