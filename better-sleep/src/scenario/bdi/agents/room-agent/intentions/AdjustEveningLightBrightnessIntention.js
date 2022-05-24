@@ -11,12 +11,14 @@ class AdjustEveningLightBrightnessIntention extends pddlActionIntention {
         ["not evening-brightness", "mainLight"],
         ["not free", "thisRoom"],
     ];
-    static effect = [["evening-brightness", "mainLight"]];
+    static effect = [
+        ["not afternoon-brightness", "mainLight"],
+        ["evening-brightness", "mainLight"],
+    ];
 
     *exec() {
         let mainLight = this.agent.room.mainLight;
         try {
-            
             yield mainLight.setBrightness(300); // TODO A meaningful value
             for (let b of this.effect) this.agent.beliefs.apply(b);
         } catch (err) {

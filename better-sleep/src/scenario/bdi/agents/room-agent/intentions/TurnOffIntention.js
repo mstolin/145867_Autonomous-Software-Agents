@@ -8,13 +8,21 @@ class TurnOffIntention extends pddlActionIntention {
         ["on", "mainLight"],
         ["free", "thisRoom"],
     ];
-    static effect = [["not on", "mainLight"]];
+    static effect = [
+        ["not on", "mainLight"],
+        ["not morning-brightness", "mainLight"],
+        ["not morning-temp", "mainLight"],
+        ["not afternoon-brightness", "mainLight"],
+        ["not afternoon-temp", "mainLight"],
+        ["not evening-brightness", "mainLight"],
+        ["not evening-temp", "mainLight"],
+    ];
 
     *exec() {
         let mainLight = this.agent.room.mainLight;
         try {
-            for (let b of this.effect) this.agent.beliefs.apply(b);
             yield mainLight.turnOff();
+            for (let b of this.effect) this.agent.beliefs.apply(b);
         } catch (err) {
             this.log(err);
         }

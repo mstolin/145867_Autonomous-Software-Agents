@@ -11,13 +11,16 @@ class AdjustEveningLightTemperatureIntention extends pddlActionIntention {
         ["not evening-temp", "mainLight"],
         ["not free", "thisRoom"],
     ];
-    static effect = [["evening-temp", "mainLight"]];
+    static effect = [
+        ["not afternoon-temp", "mainLight"],
+        ["evening-temp", "mainLight"],
+    ];
 
     *exec() {
         let mainLight = this.agent.room.mainLight;
         try {
-            for (let b of this.effect) this.agent.beliefs.apply(b);
             yield mainLight.setTemperature(1900);
+            for (let b of this.effect) this.agent.beliefs.apply(b);
         } catch (err) {
             this.log(err);
         }

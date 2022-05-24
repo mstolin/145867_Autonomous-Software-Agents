@@ -13,8 +13,8 @@ class TurnOnIntention extends pddlActionIntention {
     *exec() {
         let mainLight = this.agent.room.mainLight;
         try {
-            for (let b of this.effect) this.agent.beliefs.apply(b);
             yield mainLight.turnOn();
+            for (let b of this.effect) this.agent.beliefs.apply(b);
         } catch (err) {
             this.log(err);
         }
