@@ -27,11 +27,13 @@ class LightSensor extends Device {
 
     #calculateRoomIlluminence() {
         let mainLightbrightness = this.#room.mainLight.brightness;
-        let openShutters = this.#room.shutters.filter(
+        // TODO Find a way to calculate the illumnance using the outside light
+        /*let openShutters = this.#room.shutters.filter(
             (shutter) => shutter.isOpen
-        ).length;
-        let shutterBrightness = openShutters * 500;
-        return mainLightbrightness + shutterBrightness;
+        ).length;*/
+        //let shutterBrightness = openShutters * 500;
+        //return mainLightbrightness + shutterBrightness;
+        return mainLightbrightness;
     }
 }
 
