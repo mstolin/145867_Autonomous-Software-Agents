@@ -1,18 +1,17 @@
 {
-  "name": "better-sleep",
-  "version": "0.0.1",
-  "description": "",
-  "scripts": {
-    "scenario": "node src/scenario/Scenario.js",
-    "test": "jest"
-  },
-  "author": "Marcel Pascal Stolin <marcelpascal.stolin@studenti.unitn.it>",
-  "license": "MIT",
-  "devDependencies": {
-    "autonode": "git://github.com/marcorobol/Autonode.js.git",
-    "jest": "^28.0.1"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+    "name": "better-sleep",
+    "version": "0.0.1",
+    "description": "",
+    "scripts": {
+        "scenario": "node src/scenario/Scenario.js",
+        "test": "jest"
+    },
+    "author": "Marcel Pascal Stolin <marcelpascal.stolin@studenti.unitn.it>",
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^28.0.1"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21"
+    }
 }
