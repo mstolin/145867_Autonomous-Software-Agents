@@ -109,7 +109,7 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 7 && time.mm == 0) {
+    if (time.dd == 0 && time.hh == 8 && time.mm == 0) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_BATHROOM,
@@ -117,7 +117,71 @@ function startRoutine(time, house) {
         );
     }
 
-    if (time.dd == 0 && time.hh == 7 && time.mm == 1) {
+    if (time.dd == 0 && time.hh == 8 && time.mm == 1) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_GUESTROOM
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 0) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_GUESTROOM,
+            roomIds.ID_ROOM_SECOND_FLOOR
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 1) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_FIRST_FLOOR
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 2) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_KITCHEN
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 10) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_KITCHEN,
+            roomIds.ID_ROOM_LIVING_ROOM
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 50) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_LIVING_ROOM,
+            roomIds.ID_ROOM_KITCHEN
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 55) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_KITCHEN,
+            roomIds.ID_ROOM_FIRST_FLOOR
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 56) {
+        house.movePersonTo(
+            personIds.ID_PERSON_BOB,
+            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_SECOND_FLOOR
+        );
+    }
+
+    if (time.dd == 0 && time.hh == 12 && time.mm == 58) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_SECOND_FLOOR,
