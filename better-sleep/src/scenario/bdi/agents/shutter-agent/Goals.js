@@ -1,10 +1,10 @@
 const Goal = require("../../../../lib/bdi/Goal");
 
-class MorningGoal extends Goal {}
+class OpenShuttersMorningGoal extends Goal {}
 
-class EveningGoal extends Goal {}
+class CloseShuttersEveningGoal extends Goal {}
 
 module.exports = {
-    MorningGoal,
-    EveningGoal
+    OpenShuttersMorningGoal,
+    CloseShuttersEveningGoal
 };

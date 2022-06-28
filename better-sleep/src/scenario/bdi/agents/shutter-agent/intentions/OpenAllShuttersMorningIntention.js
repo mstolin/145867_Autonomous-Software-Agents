@@ -1,6 +1,6 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const Clock = require("../../../../../lib/utils/Clock");
-const { MorningGoal } = require("../Goals");
+const { OpenShuttersMorningGoal } = require("../Goals");
 
 /**
  * @class OpenAllShuttersMorningIntention
@@ -11,7 +11,7 @@ const { MorningGoal } = require("../Goals");
 class OpenAllShuttersMorningIntention extends Intention {
 
     static applicable(goal) {
-        return goal instanceof MorningGoal;
+        return goal instanceof OpenShuttersMorningGoal;
     }
 
     /**
