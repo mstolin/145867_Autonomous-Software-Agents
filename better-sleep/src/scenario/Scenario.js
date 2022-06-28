@@ -1,19 +1,28 @@
 /*
     IMPORTS
 */
-// BDI
-const houseAgent = require("./bdi/agents/house-agent/HouseAgent");
-const {
-    MorningGoal,
-    EveningGoal,
-    SenseMovementGoal,
-    SenseDaytimeGoal,
-} = require("./bdi/agents/house-agent/Goals");
-// Utils
-const Clock = require("../lib/utils/Clock");
 // World
 const house = require("./world/House");
 const personIds = require("./world/persons/PersonIds");
+const roomIds = require("./world/rooms/RoomIds");
+// BDI
+const houseAgent = require("./bdi/agents/house-agent/HouseAgent");
+const shutterAgents = require("./bdi/agents/shutter-agent");
+const bedroomAgent = require("./bdi/agents/room-agent")[roomIds.ID_ROOM_BEDROOM];
+const {
+    SenseMovementGoal,
+    SenseDaytimeGoal,
+} = require("./bdi/agents/house-agent/Goals");
+const {
+    OpenShuttersMorningGoal,
+    CloseShuttersEveningGoal
+} = require("./bdi/agents/shutter-agent/Goals");
+const {
+    WakeUpGoal,
+    SleepGoal
+} = require("./bdi/agents/room-agent/Goals");
+// Utils
+const Clock = require("../lib/utils/Clock");
 // Scenario
 const startRoutine = require("./Routine");
 // Observers
@@ -30,8 +39,12 @@ observeAllPersons();
 /*
     AGENTS, INTENTIONS, AND GOALS
 */
-houseAgent.postSubGoal(new MorningGoal({ hh: 7, mm: 0 }));
-houseAgent.postSubGoal(new EveningGoal({ hh: 23, mm: 0 }));
+for (const shutterAgent of Object.values(shutterAgents)) {
+    shutterAgent.postSubGoal(new OpenShuttersMorningGoal({ hh: 7, mm: 0 }));
+    shutterAgent.postSubGoal(new CloseShuttersEveningGoal({ hh: 23, mm: 0 }));
+}
+bedroomAgent.postSubGoal(new WakeUpGoal({ hh: 7, mm: 0 }));
+bedroomAgent.postSubGoal(new SleepGoal({ hh: 23, mm: 0 }));
 houseAgent.postSubGoal(
     new SenseMovementGoal({
         persons: [
