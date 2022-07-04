@@ -1,8 +1,12 @@
+const IlluminanceSensor = require("./IlluminanceSensor");
+
 class House {
     /** @type {object} */
     #people;
     /** @type {object} */
     #rooms;
+    /** @type {IlluminanceSensor} */
+    #illuminanceSensor;
 
     /**
      * Constructs a new House instance.
@@ -13,6 +17,7 @@ class House {
     constructor(people, rooms) {
         this.#people = people;
         this.#rooms = rooms;
+        this.#illuminanceSensor = new IlluminanceSensor("house-illuminance-sensor");
     }
 
     get people() {
@@ -21,6 +26,10 @@ class House {
 
     get rooms() {
         return this.#rooms;
+    }
+
+    get illuminanceSensor() {
+        return this.#illuminanceSensor;
     }
 
     /**
