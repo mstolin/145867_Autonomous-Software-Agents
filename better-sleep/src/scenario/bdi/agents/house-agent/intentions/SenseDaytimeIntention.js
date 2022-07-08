@@ -1,8 +1,10 @@
 const Intention = require("../../../../../lib/bdi/Intention");
+const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { SenseDaytimeGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
+const shutterAgents = require("../../shutter-agent");
 
 const MORNING = "MORNING";
 const AFTERNOON = "AFTERNOON";
@@ -55,16 +57,15 @@ class SenseDaytimeIntention extends Intention {
      * to the current daytime.
      *
      * @param {string} daytime
+     * @param {Agent} agent
      */
-    #updateDaytimeBeliefs(daytime) {
-        for (const agent of Object.values(roomAgents)) {
-            if (daytime === MORNING) {
-                this.#declareMorning(agent);
-            } else if (daytime === AFTERNOON) {
-                this.#declareAfternoon(agent);
-            } else if (daytime === EVENING) {
-                this.#declareEvening(agent);
-            }
+    #updateDaytimeBeliefs(daytime, agent) {
+        if (daytime === MORNING) {
+            this.#declareMorning(agent);
+        } else if (daytime === AFTERNOON) {
+            this.#declareAfternoon(agent);
+        } else if (daytime === EVENING) {
+            this.#declareEvening(agent);
         }
     }
 
@@ -110,12 +111,17 @@ class SenseDaytimeIntention extends Intention {
      * @returns Promise to update all room agent beliefs
      */
     #genClockPromise() {
+        let agents = [...Object.values(roomAgents), ...Object.values(shutterAgents)];
+
         let goalPromise = new Promise(async (_) => {
             while (true) {
                 let hour = await Clock.global.notifyChange("hh");
                 let daytime = this.#getDaytimeForTime(hour);
-                this.#updateDaytimeBeliefs(daytime);
-                //this.#postSubGoals(daytime); TODO See above
+
+                for (const agent of agents) {
+                    this.#updateDaytimeBeliefs(daytime, agent);
+                    //this.#postSubGoals(daytime); TODO See above
+                }
             }
         });
         return goalPromise;
