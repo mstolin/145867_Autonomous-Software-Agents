@@ -2,6 +2,11 @@ const house = require("../world/House");
 const Logger = require("../../lib/utils/Logger");
 
 const observeAllRooms = () => {
+    house.illuminanceSensor.observe("illuminence", (v, _) => {
+        Logger.prefix(house.illuminanceSensor.name).log(
+            `Outdoor illuminence has changed to ${v}`
+        );
+    });
     Object.keys(house.rooms).forEach((id) => {
         let room = house.getRoom(id);
         // shutters
