@@ -12,6 +12,7 @@ const bedroomAgent = require("./bdi/agents/room-agent")[roomIds.ID_ROOM_BEDROOM]
 const {
     SenseMovementGoal,
     SenseDaytimeGoal,
+    SenseIlluminanceGoal
 } = require("./bdi/agents/house-agent/Goals");
 const {
     OpenShuttersMorningGoal,
@@ -54,6 +55,7 @@ houseAgent.postSubGoal(
     })
 );
 houseAgent.postSubGoal(new SenseDaytimeGoal());
+houseAgent.postSubGoal(new SenseIlluminanceGoal());
 
 /*
     ROUTINE
