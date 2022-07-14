@@ -1,6 +1,7 @@
 const Device = require("./Device");
 
 const STATE_SHUTTER_OPEN = "open";
+const STATE_SHUTTER_HALFWAYOPEN = "halfwayOpen";
 const STATE_SHUTTER_CLOSED = "closed";
 
 class Shutter extends Device {
@@ -13,18 +14,32 @@ class Shutter extends Device {
         return this.state == STATE_SHUTTER_OPEN;
     }
 
+    get isHalfwayOpen() {
+        return this.state == STATE_SHUTTER_HALFWAYOPEN;
+    }
+
     get isClosed() {
         return this.state == STATE_SHUTTER_CLOSED;
     }
 
     /**
-     * Opens the shutter by setting the state to STATE_SHUTTER_OPEN.
+     * Opens the shutter by setting the state to STATE_SHUTTER_FULLYOPEN.
      */
     open() {
-        if (this.state == STATE_SHUTTER_OPEN) {
+        if (this.isOpen) {
             throw `${this.name} is already in state ${STATE_SHUTTER_OPEN}`;
         }
         this.set("state", STATE_SHUTTER_OPEN);
+    }
+
+    /**
+     * Opens the shutter by setting the state to STATE_SHUTTER_HALFWAYOPEN.
+     */
+     halfwayOpen() {
+        if (this.isHalfwayOpen) {
+            throw `${this.name} is already in state ${STATE_SHUTTER_HALFWAYOPEN}`;
+        }
+        this.set("state", STATE_SHUTTER_HALFWAYOPEN);
     }
 
     /**
