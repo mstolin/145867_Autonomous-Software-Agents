@@ -15,8 +15,8 @@ const {
     SenseIlluminanceGoal
 } = require("./bdi/agents/house-agent/Goals");
 const {
-    OpenShuttersMorningGoal,
-    CloseShuttersEveningGoal
+    TurnOnShuttersGoal,
+    TurnOffShuttersGoal
 } = require("./bdi/agents/shutter-agent/Goals");
 const {
     WakeUpGoal,
@@ -41,8 +41,8 @@ observeAllPersons();
     AGENTS, INTENTIONS, AND GOALS
 */
 for (const shutterAgent of Object.values(shutterAgents)) {
-    shutterAgent.postSubGoal(new OpenShuttersMorningGoal({ hh: 7, mm: 0 }));
-    shutterAgent.postSubGoal(new CloseShuttersEveningGoal({ hh: 23, mm: 0 }));
+    shutterAgent.postSubGoal(new TurnOnShuttersGoal({ hh: 7, mm: 0 }));
+    shutterAgent.postSubGoal(new TurnOffShuttersGoal({ hh: 23, mm: 0 }));
 }
 bedroomAgent.postSubGoal(new WakeUpGoal({ hh: 7, mm: 0 }));
 bedroomAgent.postSubGoal(new SleepGoal({ hh: 23, mm: 0 }));

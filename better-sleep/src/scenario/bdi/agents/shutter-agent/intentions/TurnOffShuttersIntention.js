@@ -1,36 +1,30 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const Clock = require("../../../../../lib/utils/Clock");
-const { CloseShuttersEveningGoal } = require("../Goals");
+const { TurnOffShuttersGoal } = require("../Goals");
 
 /**
- * @class CloseAllShuttersEveningIntention
+ * @class TurnOffShuttersIntention
  *
- * This intention is responsible to close all shutters
+ * This intention is responsible to turn off all shutters
  * in the evening at the given hour by the goal.
  */
-class CloseAllShuttersEveningIntention extends Intention {
+class TurnOffShuttersIntention extends Intention {
     static applicable(goal) {
-        return goal instanceof CloseShuttersEveningGoal;
+        return goal instanceof TurnOffShuttersGoal;
     }
 
     /**
-     * Closes all shutters of the room.
+     * Turns all shutters off.
      */
-    #closeAllShutters() {
+    #turnOffShutters() {
         this.agent.room.shutters.forEach((shutter) => {
             try {
-              shutter.close();
+              shutter.turnOff();
+              this.agent.beliefs.undeclare("on shutters");
             } catch (err) {
               this.log(err);
             }
         });
-    }
-
-    /**
-     * Update the agents beliefs.
-     */
-    #updateAgentBeliefs() {
-        this.agent.beliefs.undeclare("open shutters");
     }
 
     *exec() {
@@ -39,12 +33,11 @@ class CloseAllShuttersEveningIntention extends Intention {
         while (true) {
             yield;
             if (Clock.global.hh == hh && Clock.global.mm == mm) {
-                this.#closeAllShutters();
-                this.#updateAgentBeliefs();
+                this.#turnOffShutters();
                 break;
             }
         }
     }
 }
 
-module.exports = CloseAllShuttersEveningIntention;
+module.exports = TurnOffShuttersIntention;
