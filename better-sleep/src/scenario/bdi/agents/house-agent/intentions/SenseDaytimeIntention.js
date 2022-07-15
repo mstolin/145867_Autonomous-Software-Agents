@@ -11,7 +11,7 @@ const AFTERNOON = "AFTERNOON";
 const EVENING = "EVENING";
 
 /**
- * @class
+ * @class SenseDaytimeIntention
  *
  * This intention works as a sensor.
  * It is supposed to tell a specific room
@@ -120,7 +120,6 @@ class SenseDaytimeIntention extends Intention {
 
                 for (const agent of agents) {
                     this.#updateDaytimeBeliefs(daytime, agent);
-                    //this.#postSubGoals(daytime); TODO See above
                 }
             }
         });
