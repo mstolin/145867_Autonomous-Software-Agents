@@ -3,14 +3,9 @@ const Clock = require("../utils/Clock");
 
 class IlluminanceSensor extends Device {
 
-  constructor(name) {
-    super(name);
-
-    // calculate room illuminence on init
-    this.set(
-      "illuminence",
-      this.#determineOutdoorIlluminence(Clock.global["hh"])
-    );
+  turnOn() {
+    super.turnOn();
+    this.set("illuminence", this.#determineOutdoorIlluminence(Clock.global["hh"]));
     Clock.global.observe("hh", (hour) => {
       this.set("illuminence", this.#determineOutdoorIlluminence(hour));
     });
