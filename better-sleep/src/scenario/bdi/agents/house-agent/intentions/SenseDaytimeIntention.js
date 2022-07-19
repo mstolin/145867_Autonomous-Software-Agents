@@ -69,24 +69,6 @@ class SenseDaytimeIntention extends Intention {
         }
     }
 
-    #genPlanningGoal(daytime) {
-        let daytimeLower = daytime.toLowerCase();
-        return new PlanningGoal({
-            goal: [
-                `${daytimeLower}-temp mainLight`,
-                `${daytimeLower}-brightness mainLight`,
-            ],
-        });
-    }
-
-    #postSubGoals(daytime) {
-        let goal = this.#genPlanningGoal(daytime);
-        for (const agent of Object.values(roomAgents)) {
-            // TODO Need to chekc if mainlight is on, otherwise no plan will be found
-            agent.postSubGoal(goal);
-        }
-    }
-
     /**
      * Returns the daytime string for the
      * given hour of the current time.
@@ -111,13 +93,15 @@ class SenseDaytimeIntention extends Intention {
      * @returns Promise to update all room agent beliefs
      */
     #genClockPromise() {
-        let agents = [...Object.values(roomAgents), ...Object.values(shutterAgents)];
+        let agents = [
+            ...Object.values(roomAgents),
+            ...Object.values(shutterAgents),
+        ];
 
         let goalPromise = new Promise(async (_) => {
             while (true) {
                 let hour = await Clock.global.notifyChange("hh");
                 let daytime = this.#getDaytimeForTime(hour);
-
                 for (const agent of agents) {
                     this.#updateDaytimeBeliefs(daytime, agent);
                 }
