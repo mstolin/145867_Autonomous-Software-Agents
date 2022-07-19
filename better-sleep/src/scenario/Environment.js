@@ -26,18 +26,20 @@ const initEnvironment = async () => {
     }
 };
 
-const turnOnAllDevices = () =>
+const turnOnSensors = () => {
+    // House specific sensors
+    house.illuminanceSensor.turnOn();
+    // Room specific sensors
     Object.keys(house.rooms).forEach((id) => {
         let room = house.getRoom(id);
         // turn all light sensors on
         room.lightSensor.turnOn();
-        // turn all shutters on
-        room.shutters.forEach((shutter) => shutter.turnOn());
         // turn all motion sensors on
         room.motionSensor.turnOn();
     });
+}
 
 module.exports = {
     initEnvironment,
-    turnOnAllDevices,
+    turnOnSensors,
 };
