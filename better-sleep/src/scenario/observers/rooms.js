@@ -2,11 +2,6 @@ const house = require("../world/House");
 const Logger = require("../../lib/utils/Logger");
 
 const observeAllRooms = () => {
-    house.illuminanceSensor.observe("illuminence", (v, _) => {
-        Logger.prefix(house.illuminanceSensor.name).log(
-            `Outdoor illuminence has changed to ${v}`
-        );
-    });
     Object.keys(house.rooms).forEach((id) => {
         let room = house.getRoom(id);
         // shutters
@@ -21,34 +16,44 @@ const observeAllRooms = () => {
             );
         });
         // main lights
-        room.mainLight.observe("deviceState", (v, _) => {
+        room.mainLight.observe("deviceState", (v, _) =>
             Logger.prefix(room.mainLight.name).log(
                 `Has changed deviceState to ${v}`
-            );
-        });
-        room.mainLight.observe("brightness", (v, _) => {
+            )
+        );
+        room.mainLight.observe("brightness", (v, _) =>
             Logger.prefix(room.mainLight.name).log(
                 `Has changed brightness to ${v}`
-            );
-        });
-        room.mainLight.observe("temperature", (v, _) => {
+            )
+        );
+        room.mainLight.observe("temperature", (v, _) =>
             Logger.prefix(room.mainLight.name).log(
                 `Has changed temperature to ${v}`
-            );
-        });
+            )
+        );
         // light sensor
+        room.lightSensor.observe("deviceState", (v, _) =>
+            Logger.prefix(room.lightSensor.name).log(
+                `Has changed deviceState to ${v}`
+            )
+        );
         room.lightSensor.observe("roomIlluminence", (v, _) =>
             Logger.prefix(room.lightSensor.name).log(
                 `Illumince has changed to ${v}`
             )
         );
         // motion sensor
-        room.motionSensor.observe("isOccupied", (v, _) => {
+        room.motionSensor.observe("deviceState", (v, _) =>
+            Logger.prefix(room.motionSensor.name).log(
+                `Has changed deviceState to ${v}`
+            )
+        );
+        room.motionSensor.observe("isOccupied", (v, _) =>
             Logger.prefix(room.motionSensor.name).log(
                 `Occupied status has changed to ${v}`
-            );
-        });
+            )
+        );
     });
 };
 
-module.exports = observeAllRooms;
+module.exports = { observeAllRooms };

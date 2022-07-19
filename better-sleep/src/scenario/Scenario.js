@@ -27,25 +27,21 @@ const Clock = require("../lib/utils/Clock");
 // Scenario
 const startRoutine = require("./Routine");
 // Observers
-const { observeAllRooms, observeAllPersons } = require("./observers");
+const { observeAllRooms, observeAllPersons, observeHouseSensors } = require("./observers");
 // Environment
-const { initEnvironment, turnOnAllDevices } = require("./Environment");
+const { initEnvironment, turnOnSensors } = require("./Environment");
 
 /*
     OBSERVERS
+    For debugging purposes.
 */
 observeAllRooms();
 observeAllPersons();
+observeHouseSensors();
 
 /*
     AGENTS, INTENTIONS, AND GOALS
 */
-for (const shutterAgent of Object.values(shutterAgents)) {
-    shutterAgent.postSubGoal(new TurnOnShuttersGoal({ hh: 7, mm: 0 }));
-    shutterAgent.postSubGoal(new TurnOffShuttersGoal({ hh: 23, mm: 0 }));
-}
-bedroomAgent.postSubGoal(new WakeUpGoal({ hh: 7, mm: 0 }));
-bedroomAgent.postSubGoal(new SleepGoal({ hh: 23, mm: 0 }));
 houseAgent.postSubGoal(
     new SenseMovementGoal({
         persons: [
@@ -66,9 +62,28 @@ Clock.global.observe("mm", () => {
     startRoutine(time, house);
 });
 
+Clock.global.observe("dd", () => {
+    /* Goal is to turn on light in the morning to wake up everyone in the bedroom
+    and to turn in it off when they are going to sleep. To adjust brightness and
+    temp, PDDL intentions are supposed to handle this.
+    */
+    bedroomAgent.postSubGoal(new WakeUpGoal({ hh: 7, mm: 0 }));
+    bedroomAgent.postSubGoal(new SleepGoal({ hh: 23, mm: 0 }));
+
+    for (const shutterAgent of Object.values(shutterAgents)) {
+        /* The goal is to tun on the shutters in morning, when everybody
+        wakes up and to turn them off in the evening when they are going
+        to sleep. We only need to turn the devices on or off. PDDL intentions
+        will open them according to the outdoor illuminance automaticcaly. 
+        */
+        shutterAgent.postSubGoal(new TurnOnShuttersGoal({ hh: 7, mm: 0 }));
+        shutterAgent.postSubGoal(new TurnOffShuttersGoal({ hh: 23, mm: 0 }));
+    }
+});
+
 initEnvironment()
     .then((_) => {
-        turnOnAllDevices();
+        turnOnSensors();
     })
     .then((_) => {
         // Start the clock

@@ -3,6 +3,7 @@ const personIds = require("../world/persons/PersonIds");
 const Logger = require("../../lib/utils/Logger");
 
 const observeAllPersons = () => {
+    // TODO Rename to observePersonsLocations
     // Observe the locations
     house
         .getPerson(personIds.ID_PERSON_SANDRA)
@@ -16,4 +17,4 @@ const observeAllPersons = () => {
         );
 };
 
-module.exports = observeAllPersons;
+module.exports = { observeAllPersons };
