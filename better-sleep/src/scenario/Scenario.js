@@ -94,4 +94,9 @@ initEnvironment()
     .then((_) => {
         // Start the clock
         Clock.startTimer(1);
+        // trigger motion sensor for inital locations
+        for (personId of Object.keys(personIds)) {
+            console.log("#$%#$%#$%", personId)
+            house.getRoom(roomIds.ID_ROOM_BEDROOM).motionSensor.addResident(personId);
+        }
     });
