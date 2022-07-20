@@ -1,35 +1,27 @@
 const Intention = require("../../../../../lib/bdi/Intention");
+const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { WakeUpGoal } = require("../Goals");
 
 /**
  * @class WakeUpIntention
- * 
+ *
  * This intention is responsible to turn on the light
  * at a given time, when the residents want to wake up.
  */
 class WakeUpIntention extends Intention {
-
     static applicable(goal) {
         return goal instanceof WakeUpGoal;
     }
 
-    /**
-     * Turns on the main light.
-     */
-    #turnOnMainLight() {
-        try {
-            this.agent.room.mainLight.turnOn();
-        } catch (err) {
-            this.log(err);
-        }
-    }
-
-    /**
-     * Update the agents beliefs.
-     */
-     #updateAgentBeliefs() {
-        this.agent.beliefs.declare("on mainLight");
+    #genWakeUpPlanningGoal() {
+        return new PlanningGoal({
+            goal: [
+                "on mainLight",
+                "morning-temp mainLight",
+                "morning-brightness mainLight",
+            ],
+        });
     }
 
     *exec() {
@@ -38,13 +30,11 @@ class WakeUpIntention extends Intention {
         while (true) {
             yield;
             if (Clock.global.hh == hh && Clock.global.mm == mm) {
-                this.#turnOnMainLight();
-                this.#updateAgentBeliefs();
-                break;
+                this.agent.postSubGoal(this.#genWakeUpPlanningGoal());
+                break; // TODO maybe remove this to make it recurrent
             }
         }
     }
-
 }
 
 module.exports = WakeUpIntention;
