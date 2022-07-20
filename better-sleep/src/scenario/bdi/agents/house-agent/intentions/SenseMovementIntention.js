@@ -90,9 +90,17 @@ class SenseMovementIntention extends Intention {
                 if (isOccupied) {
                     // update belief
                     roomAgent.beliefs.undeclare("free thisRoom");
-                    if (!roomAgent.beliefs.check("on mainLight")) {
+                    /* Do not turn on light if its either on already,
+                    or evening.
+                    */
+                    if (
+                        !roomAgent.beliefs.check("on mainLight") &&
+                        !roomAgent.beliefs.check("EVENING time")
+                    ) {
                         // turn light on
-                        roomAgent.postSubGoal(this.#genTurnOnPlanningGoal(daytime));
+                        roomAgent.postSubGoal(
+                            this.#genTurnOnPlanningGoal(daytime)
+                        );
                     }
                 } else {
                     // update belief
