@@ -1,10 +1,10 @@
 const Intention = require("../../../../../lib/bdi/Intention");
-const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { SenseDaytimeGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
-const roomIds = require("../../../../world/rooms/RoomIds");
+const { TurnLightOnGoal, TurnLightOffGoal } = require("../../room-agent/Goals");
 const shutterAgents = require("../../shutter-agent");
+const RoomAgent = require("../../../../../lib/bdi/RoomAgent");
 
 const MORNING = "MORNING";
 const AFTERNOON = "AFTERNOON";
@@ -87,29 +87,19 @@ class SenseDaytimeIntention extends Intention {
     }
 
     #turnOffMainLight(agent) {
-        try {
-            agent.room.mainLight.turnOff();
-            agent.beliefs.undeclare("on mainLight");
-        } catch(err) {
-            this.log(err);
-        }
+        agent.postSubGoal(new TurnLightOffGoal());
     }
 
-    #genWakeUpPlanningGoal() {
-        return new PlanningGoal({
-            goal: [
-                "on mainLight",
-                "morning-temp mainLight",
-                "morning-brightness mainLight",
-            ],
-        });
+    #turnOnMainLight(agent) {
+        agent.postSubGoal(new TurnLightOnGoal());
     }
 
-    #pushSleepGoalsIfNeeded(agent) {
+    #postLightGoalsIfNeeded(agent) {
         let time = Clock.global;
         if (time.hh == 7 && time.mm == 0) {
             // Time to wake up
-            agent.postSubGoal(this.#genWakeUpPlanningGoal());
+            // TODO Adjust for morning
+            this.#turnOnMainLight(agent);
         } else if (time.hh == 23 && time.mm == 0) {
             // Time to sleep, no need for a PDDL intention here
             this.#turnOffMainLight(agent);
@@ -130,9 +120,9 @@ class SenseDaytimeIntention extends Intention {
                 for (const agent of agents) {
                     // 1. Update belief
                     this.#updateDaytimeBeliefs(daytime, agent);
-                    // 2. Only for bedroom agent, push sleep goal
-                    if (agent == roomAgents[roomIds.ID_ROOM_BEDROOM]) {
-                        this.#pushSleepGoalsIfNeeded(agent);
+                    // 2. Turn on all lights
+                    if (agent instanceof RoomAgent) {
+                        this.#postLightGoalsIfNeeded(agent);
                     }
                 }
             }
@@ -146,7 +136,7 @@ class SenseDaytimeIntention extends Intention {
             ...Object.values(shutterAgents),
         ];
         let clockGoal = this.#genClockSensor(agents);
-        yield Promise.resolve(genClockSensor);
+        yield Promise.resolve(clockGoal);
     }
 }
 
