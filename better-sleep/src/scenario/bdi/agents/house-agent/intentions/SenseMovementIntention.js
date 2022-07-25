@@ -2,6 +2,7 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseMovementGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
+const { AdjustLightOffGoal } = require("../../room-agent/Goals");
 const Clock = require("../../../../../lib/utils/Clock");
 
 const MORNING = "MORNING";
@@ -47,26 +48,13 @@ class SenseMovementIntention extends Intention {
      * @param {string} daytime Current daytime as string
      * @returns
      */
-    #genTurnOnPlanningGoal(daytime) {
+    #genAdjustGoal(daytime) {
         let daytimeLower = daytime.toLowerCase();
         return new PlanningGoal({
             goal: [
-                "on mainLight",
                 `${daytimeLower}-temp mainLight`,
                 `${daytimeLower}-brightness mainLight`,
             ],
-        });
-    }
-
-    /**
-     * Generates planning goal that turns off the main
-     * light.
-     *
-     * @returns
-     */
-    #genTurnOffPlanningGoal() {
-        return new PlanningGoal({
-            goal: ["not (on mainLight)"],
         });
     }
 
@@ -86,28 +74,13 @@ class SenseMovementIntention extends Intention {
                     "isOccupied"
                 );
                 let daytime = this.#getDaytimeForTime(Clock.global.hh);
-
-                if (isOccupied) {
-                    // update belief
-                    roomAgent.beliefs.undeclare("free thisRoom");
-                    /* Do not turn on light if its either on already,
-                    or evening.
-                    */
-                    if (
-                        !roomAgent.beliefs.check("on mainLight") &&
-                        !roomAgent.beliefs.check("EVENING time")
-                    ) {
-                        // turn light on
-                        roomAgent.postSubGoal(
-                            this.#genTurnOnPlanningGoal(daytime)
-                        );
-                    }
-                } else {
-                    // update belief
-                    roomAgent.beliefs.declare("free thisRoom");
-                    if (roomAgent.beliefs.check("on mainLight")) {
-                        // turn light off
-                        roomAgent.postSubGoal(this.#genTurnOffPlanningGoal());
+                if (roomAgent.beliefs.check("on mainLight")) {
+                    if (isOccupied) {
+                        roomAgent.beliefs.undeclare("free thisRoom");
+                        roomAgent.postSubGoal(this.#genAdjustGoal(daytime));
+                    } else {
+                        roomAgent.beliefs.declare("free thisRoom");
+                        roomAgent.postSubGoal(new AdjustLightOffGoal());
                     }
                 }
             }
