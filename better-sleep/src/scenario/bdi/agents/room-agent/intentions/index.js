@@ -1,5 +1,6 @@
-const TurnOnIntention = require("./TurnOnIntention");
-const TurnOffIntention = require("./TurnOffIntention");
+const TurnLightOnIntention = require("./TurnLightOnIntention");
+const TurnLightOffIntention = require("./TurnLightOffIntention");
+const AdjustLightOffIntention = require("./AdjustLightOffIntention");
 const AdjustMorningLightTemperatureIntention = require("./AdjustMorningLightTemperatureIntention");
 const AdjustAfternoonLightTemperatureIntention = require("./AdjustAfternoonLightTemperatureIntention");
 const AdjustEveningLightTemperatureIntention = require("./AdjustEveningLightTemperatureIntention");
@@ -8,8 +9,6 @@ const AdjustAfternoonLightBrightnessIntention = require("./AdjustAfternoonLightB
 const AdjustEveningLightBrightnessIntention = require("./AdjustEveningLightBrightnessIntention");
 
 let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
-    TurnOnIntention,
-    TurnOffIntention,
     AdjustMorningLightTemperatureIntention,
     AdjustAfternoonLightTemperatureIntention,
     AdjustEveningLightTemperatureIntention,
@@ -19,5 +18,8 @@ let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
 ]);
 
 module.exports = [
+    AdjustLightOffIntention,
+    TurnLightOffIntention,
+    TurnLightOnIntention,
     PlanningIntention,
 ];
