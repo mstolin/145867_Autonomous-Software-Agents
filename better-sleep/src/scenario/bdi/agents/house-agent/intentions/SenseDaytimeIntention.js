@@ -1,7 +1,9 @@
 const Intention = require("../../../../../lib/bdi/Intention");
+const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { SenseDaytimeGoal } = require("../Goals");
 const roomAgents = require("../../room-agent");
+const roomIds = require("../../../../world/rooms/RoomIds");
 const { TurnLightOnGoal, TurnLightOffGoal } = require("../../room-agent/Goals");
 const shutterAgents = require("../../shutter-agent");
 const RoomAgent = require("../../../../../lib/bdi/RoomAgent");
@@ -86,20 +88,47 @@ class SenseDaytimeIntention extends Intention {
         }
     }
 
+    /**
+     * Post goal to the room agent to turn off
+     * the main light.
+     *
+     * @param {RoomAgent} agent
+     * @returns {Promise<boolean>}
+     */
     #turnOffMainLight(agent) {
-        agent.postSubGoal(new TurnLightOffGoal());
+        return agent.postSubGoal(new TurnLightOffGoal());
     }
 
+    /**
+     * Post goal to the room agent to turn on
+     * the main light.
+     *
+     * @param {RoomAgent} agent
+     * @returns {Promise<boolean>}
+     */
     #turnOnMainLight(agent) {
-        agent.postSubGoal(new TurnLightOnGoal());
+        return agent.postSubGoal(new TurnLightOnGoal());
+    }
+
+    #genAdjustMorningGoal() {
+        return new PlanningGoal({
+            goal: [
+                "morning-temp mainLight",
+                "morning-brightness mainLight",
+            ],
+        });
     }
 
     #postLightGoalsIfNeeded(agent) {
         let time = Clock.global;
         if (time.hh == 7 && time.mm == 0) {
             // Time to wake up
-            // TODO Adjust for morning
-            this.#turnOnMainLight(agent);
+            this.#turnOnMainLight(agent).then((_) => {
+                if (agent == roomAgents[roomIds.ID_ROOM_BEDROOM]) {
+                    // Adjust light only if bedroom agent
+                    agent.postSubGoal(this.#genAdjustMorningGoal());
+                }
+            });
         } else if (time.hh == 23 && time.mm == 0) {
             // Time to sleep, no need for a PDDL intention here
             this.#turnOffMainLight(agent);
