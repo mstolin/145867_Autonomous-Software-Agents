@@ -1,10 +1,8 @@
 const pddlActionIntention = require("../../../../../lib/pddl/actions/pddlActionIntention");
 
-class OpenAllShuttersHalfwayIntention extends pddlActionIntention {
-    static parameters = ["time", "shutters"];
+class OpenShuttersHalfwayIntention extends pddlActionIntention {
+    static parameters = ["shutters"];
     static precondition = [
-        ["DAYTIME", "time"],
-        ["MORNING", "time"],
         ["SHUTTER", "shutters"],
         ["on", "shutters"],
         ["not openHalf", "shutters"],
@@ -12,26 +10,23 @@ class OpenAllShuttersHalfwayIntention extends pddlActionIntention {
     static effect = [
         ["openHalf", "shutters"],
         ["not openFull", "shutters"],
+        ["not closed", "shutters"],
     ];
 
-    #openAllShuttersHalfway() {
+    #openShuttersHalf() {
         this.agent.room.shutters.forEach((shutter) => {
-            try {
-                shutter.halfwayOpen();
-            } catch (err) {
-                this.log(err);
-            }
+            shutter.halfwayOpen();
         });
     }
 
     *exec() {
-        while (true) {
-            yield;
-            this.#openAllShuttersHalfway();
+        try {
+            this.#openShuttersHalf();
             for (let b of this.effect) this.agent.beliefs.apply(b);
-            break;
+        } catch (err) {
+            this.log(err);
         }
     }
 }
 
-module.exports = OpenAllShuttersHalfwayIntention;
+module.exports = OpenShuttersHalfwayIntention;
