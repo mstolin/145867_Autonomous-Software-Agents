@@ -7,6 +7,8 @@ const roomIds = require("../../../../world/rooms/RoomIds");
 const { TurnLightOnGoal, TurnLightOffGoal } = require("../../room-agent/Goals");
 const shutterAgents = require("../../shutter-agent");
 const RoomAgent = require("../../../../../lib/bdi/RoomAgent");
+const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
+const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent/Goals");
 
 const MORNING = "MORNING";
 const AFTERNOON = "AFTERNOON";
@@ -110,7 +112,13 @@ class SenseDaytimeIntention extends Intention {
         return agent.postSubGoal(new TurnLightOnGoal());
     }
 
-    #genAdjustMorningGoal() {
+    /**
+     * Generates a PDDL planning goal that adjusts
+     * the temperature and brightness for the morning.
+     * 
+     * @returns {PlanningGoal}
+     */
+    #genAdjustLightMorningGoal() {
         return new PlanningGoal({
             goal: [
                 "morning-temp mainLight",
@@ -126,12 +134,43 @@ class SenseDaytimeIntention extends Intention {
             this.#turnOnMainLight(agent).then((_) => {
                 if (agent == roomAgents[roomIds.ID_ROOM_BEDROOM]) {
                     // Adjust light only if bedroom agent
-                    agent.postSubGoal(this.#genAdjustMorningGoal());
+                    agent.postSubGoal(this.#genAdjustLightMorningGoal());
                 }
             });
         } else if (time.hh == 23 && time.mm == 0) {
             // Time to sleep, no need for a PDDL intention here
             this.#turnOffMainLight(agent);
+        }
+    }
+
+    /**
+     * Post turn on goal to the given shutter agent.
+     * 
+     * @param {ShutterAgent} agent 
+     * @returns {Promise<boolean>}
+     */
+    #turnOnShutter(agent) {
+        return agent.postSubGoal(new TurnOnShuttersGoal());
+    }
+
+    /**
+     * Post turn off goal to the given shutter agent.
+     * 
+     * @param {ShutterAgent} agent 
+     * @returns {Promise<boolean>}
+     */
+    #turnOffShutter(agent) {
+        return agent.postSubGoal(new TurnOffShuttersGoal());
+    }
+
+    #postShutterGoalsIfNeeded(agent) {
+        let time = Clock.global;
+        if (time.hh == 7 && time.mm == 0) {
+            // Turn all shutters on
+            this.#turnOnShutter(agent)
+        } else if (time.hh == 23 && time.mm == 0) {
+            // Turn all shutters off
+            this.#turnOffShutter(agent);
         }
     }
 
@@ -152,6 +191,10 @@ class SenseDaytimeIntention extends Intention {
                     // 2. Turn on all lights
                     if (agent instanceof RoomAgent) {
                         this.#postLightGoalsIfNeeded(agent);
+                    }
+                    // 3. Turn on all shutters
+                    if (agent instanceof ShutterAgent) {
+                        this.#postShutterGoalsIfNeeded(agent);
                     }
                 }
             }
