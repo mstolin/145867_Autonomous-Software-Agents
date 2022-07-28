@@ -10,7 +10,7 @@ const Observable = require("./Observable");
  */
 class Clock {
     /** @type {Observable} {dd, hh, mm} */
-    static global = new Observable({ dd: 0, hh: 0, mm: 0 });
+    static global = new Observable({ dd: 0, hh: 0, mm: 0, ss: 0 });
 
     static format() {
         var time = Clock.global;
@@ -21,7 +21,9 @@ class Clock {
             (time.hh < 10 ? "0" : "") +
             time.hh +
             ":" +
-            (time.mm == 0 ? "00" : time.mm)
+            (time.mm == 0 ? "00" : time.mm) +
+            ":" +
+            (time.ss == 0 ? "00" : time.ss)
         );
     }
 
@@ -35,19 +37,27 @@ class Clock {
         Clock.#start = true;
 
         while (Clock.#start) {
-            await new Promise((res) => setTimeout(res, 50));
+            await new Promise((res) => setTimeout(res, 5));
 
-            var { dd, hh, mm } = Clock.global;
+            var { dd, hh, mm, ss } = Clock.global;
 
-            if (mm < 60 - 1) Clock.global.mm += 1;
-            else {
-                if (hh < 23) {
-                    Clock.global.hh += 1; // increased hh but mm still 45
-                    Clock.global.mm = 0; // however, observers are handled as microtask so at the time they are called everything will be sync
+            if (ss < 60 - 1) {
+                Clock.global.ss += 1;
+            } else {
+                if (mm < 60 - 1) {
+                    Clock.global.mm += 1;
+                    Clock.global.ss = 0;
                 } else {
-                    Clock.global.mm = 0;
-                    Clock.global.hh = 0;
-                    Clock.global.dd += 1;
+                    if (hh < 23) {
+                        Clock.global.hh += 1; // increased hh but mm still 45
+                        Clock.global.ss = 0;
+                        Clock.global.mm = 0; // however, observers are handled as microtask so at the time they are called everything will be sync
+                    } else {
+                        Clock.global.ss = 0;
+                        Clock.global.mm = 0;
+                        Clock.global.hh = 0;
+                        Clock.global.dd += 1;
+                    }
                 }
             }
 
