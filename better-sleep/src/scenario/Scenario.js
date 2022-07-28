@@ -4,6 +4,7 @@
 // World
 const house = require("./world/House");
 const personIds = require("./world/persons/PersonIds");
+const Persons = require("./world/persons/Persons");
 const roomIds = require("./world/rooms/RoomIds");
 // BDI
 const houseAgent = require("./bdi/agents/house-agent/HouseAgent");
@@ -13,10 +14,6 @@ const {
     SenseDaytimeGoal,
     SenseIlluminanceGoal,
 } = require("./bdi/agents/house-agent/Goals");
-const {
-    TurnOnShuttersGoal,
-    TurnOffShuttersGoal,
-} = require("./bdi/agents/shutter-agent/Goals");
 // Utils
 const Clock = require("../lib/utils/Clock");
 // Scenario
@@ -90,12 +87,13 @@ initEnvironment()
         turnOnSensors();
     })
     .then((_) => {
+        // To simplify things, the day starts at 5 in the morning
+        Clock.global.set("hh", 5);
         // Start the clock
         Clock.startTimer(1);
         // trigger motion sensor for inital locations
-        for (personId of Object.keys(personIds)) {
-            house
-                .getRoom(roomIds.ID_ROOM_BEDROOM)
-                .motionSensor.addResident(personId);
+        let room = house.getRoom(roomIds.ID_ROOM_BEDROOM)
+        for (personId of Object.values(personIds)) { // TODO This is shit
+            room.addResident(personId);
         }
     });
