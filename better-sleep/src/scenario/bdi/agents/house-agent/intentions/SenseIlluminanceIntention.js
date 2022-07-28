@@ -17,17 +17,21 @@ class SenseIlluminanceIntention extends Intention {
      * @returns
      */
     #genShutterGoal(outdoorIlluminence) {
-        if (outdoorIlluminence < 0.25 || outdoorIlluminence >= 0.75) {
-            // Its either too dark or too bright, close the shutters at least halfway
-            return new PlanningGoal({
-                goal: ["openHalf shutters", "not (openFull shutters)"],
-            });
+        let goal = [];
+        if (outdoorIlluminence >= 0 && outdoorIlluminence <= 0.3) {
+            // Very dark, probably evening => Close shutters
+            goal.push("closed shutters", "not (openFull shutters)", "not (openHalf shutters)");
+        } else if (outdoorIlluminence > 0.3 && outdoorIlluminence <= 0.6) {
+            // Very cloudy, maybe its raining => Open half
+            goal.push("openHalf shutters", "not (openFull shutters)", "not (closed shutters)");
         } else {
-            // fully open
-            return new PlanningGoal({
-                goal: ["openFull shutters", "not (openHalf shutters)"],
-            });
+            // Sunny day => Open full
+            goal.push("openFull shutters", "not (openHalf shutters)", "not (closed shutters)");
         }
+
+        return new PlanningGoal({
+            goal
+        });
     }
 
     #genIlluminancePromise(agents) {
