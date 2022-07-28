@@ -83,8 +83,8 @@ class House {
             throw `Person ${personId} is not in ${sourceId}`;
         }
         person.setLocation(destinationId);
-        sourceRoom.removeResident(personId);
-        destinationRoom.addResident(personId);
+        sourceRoom.removeResident(person);
+        destinationRoom.addResident(person);
     }
 }
 

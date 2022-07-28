@@ -78,12 +78,20 @@ class Room {
         return this.#doors.includes(roomId);
     }
 
-    addResident(personId) {
-        this.#motionSensor.addResident(personId);
+    /**
+     * 
+     * @param {Person} person 
+     */
+    addResident(person) {
+        this.#motionSensor.addResident(person.name);
     }
 
-    removeResident(personId) {
-        this.#motionSensor.removeResident(personId);
+    /**
+     * 
+     * @param {Person} person 
+     */
+    removeResident(person) {
+        this.#motionSensor.removeResident(person.name);
     }
 }
 
