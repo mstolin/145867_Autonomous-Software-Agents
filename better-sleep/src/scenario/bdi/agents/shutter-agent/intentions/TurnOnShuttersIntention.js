@@ -9,15 +9,13 @@ const { TurnOnShuttersGoal } = require("../Goals");
  * in the morning at the given hour by the goal.
  */
 class TurnOnShuttersIntention extends Intention {
-
     static applicable(goal) {
         return goal instanceof TurnOnShuttersGoal;
     }
-
     /**
      * Turns all shutters on.
      */
-    #turnOnShutters() {
+    /*#turnOnShutters() {
         this.agent.room.shutters.forEach((shutter) => {
             try {
               shutter.turnOn();
@@ -38,6 +36,16 @@ class TurnOnShuttersIntention extends Intention {
                 break;
             }
         }
+    }*/
+    *exec() {
+        this.agent.room.shutters.forEach((shutter) => {
+            try {
+                shutter.turnOn();
+                this.agent.beliefs.declare("on shutters");
+            } catch (err) {
+                this.log(err);
+            }
+        });
     }
 }
 
