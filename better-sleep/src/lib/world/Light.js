@@ -17,9 +17,9 @@ class Light extends Device {
         if (this.isOff) {
             throw `${this.name} is off`;
         }
-        if (brightness < 1 || brightness > 800) {
+        /*if (brightness < 1 || brightness > 800) {
             throw "The max. Lumen value of this light is 800lm and it can't be lower than 1lm.";
-        }
+        }*/
         this.set("brightness", brightness);
     }
 
@@ -33,34 +33,10 @@ class Light extends Device {
         if (this.isOff) {
             throw `${this.name} is off`;
         }
-        if (temperature < 1700 || temperature > 6500) {
+        /*if (temperature < 1700 || temperature > 6500) {
             throw "Temperature has a min. value of 1700K and 6500K";
-        }
+        }*/
         this.set("temperature", temperature);
-    }
-
-    /**
-     * Turn the lights state to on.
-     * Additionally, it sets the brightness and
-     * tmperature to an initial state.
-     *
-     * @param {number} brightness
-     * @param {number} temperature
-     */
-    turnOn(brightness = 500, temperature = 1700) {
-        // TODO Use default values that make sense
-        if (this.isOn) {
-            throw `${this.name} is off`;
-        }
-
-        try {
-            this.set("deviceState", Device.STATE_DEVICE_ON);
-            this.setBrightness(brightness);
-            this.setTemperature(temperature);
-        } catch (err) {
-            this.set("deviceState", Device.STATE_DEVICE_OFF);
-            throw err;
-        }
     }
 
     /**
@@ -69,11 +45,7 @@ class Light extends Device {
      * temperature to 0.
      */
     turnOff() {
-        if (this.isOff) {
-            throw `${this.name} is already off`;
-        }
-
-        this.set("deviceState", Device.STATE_DEVICE_OFF);
+        super.turnOff()
         // no need to use designated setter
         // If the light if off, everything has to be 0 anyway
         this.set("brightness", 0);

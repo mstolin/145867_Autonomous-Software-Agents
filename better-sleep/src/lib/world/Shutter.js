@@ -26,6 +26,9 @@ class Shutter extends Device {
      * Opens the shutter by setting the state to STATE_SHUTTER_FULLYOPEN.
      */
     open() {
+        if (this.isOff) {
+            throw `${this.name} is off`;
+        }
         if (this.isOpen) {
             throw `${this.name} is already in state ${STATE_SHUTTER_OPEN}`;
         }
@@ -36,6 +39,9 @@ class Shutter extends Device {
      * Opens the shutter by setting the state to STATE_SHUTTER_HALFWAYOPEN.
      */
      halfwayOpen() {
+        if (this.isOff) {
+            throw `${this.name} is off`;
+        }
         if (this.isHalfwayOpen) {
             throw `${this.name} is already in state ${STATE_SHUTTER_HALFWAYOPEN}`;
         }
@@ -46,10 +52,18 @@ class Shutter extends Device {
      * Closes the shutter by setting the state to STATE_SHUTTER_CLOSED.
      */
     close() {
-        if (this.state == STATE_SHUTTER_CLOSED) {
+        if (this.isOff) {
+            throw `${this.name} is off`;
+        }
+        if (this.isClosed) {
             throw `${this.name} is already in state ${STATE_SHUTTER_CLOSED}`;
         }
         this.set("state", STATE_SHUTTER_CLOSED);
+    }
+
+    turnOff() {
+        super.turnOn();
+        this.close();
     }
 }
 
