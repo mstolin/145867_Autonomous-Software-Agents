@@ -17,7 +17,7 @@ const {
 // Utils
 const Clock = require("../lib/utils/Clock");
 // Scenario
-const startRoutine = require("./Routine");
+const executeRoutine = require("./Routine");
 // Observers
 const {
     observeAllRooms,
@@ -46,8 +46,31 @@ houseAgent.postSubGoal(
         ],
     })
 );
-
 houseAgent.postSubGoal(new SenseIlluminanceGoal());
+
+// THIS HAS TO BE EXECUTED AFTER STARTROUTINE
+// TODO MAKE THEN()
+houseAgent.postSubGoal(new SenseDaytimeGoal());
+
+//Clock.global.observe("dd", () => {
+// Post goals in this observer, because these need to be recurring
+// every day.
+
+/* Goal is to turn on light in the morning to wake up everyone in the bedroom
+    and to turn in it off when they are going to sleep. To adjust brightness and
+    temp, PDDL intentions are supposed to handle this.
+    */
+
+//for (const shutterAgent of Object.values(shutterAgents)) {
+/* The goal is to tun on the shutters in morning, when everybody
+        wakes up and to turn them off in the evening when they are going
+        to sleep. We only need to turn the devices on or off. PDDL intentions
+        will open them according to the outdoor illuminance automatically. 
+        */
+//shutterAgent.postSubGoal(new TurnOnShuttersGoal({ hh: 7, mm: 0 }));
+//shutterAgent.postSubGoal(new TurnOffShuttersGoal({ hh: 23, mm: 0 }));
+//}
+//});
 
 /*
     ROUTINE
@@ -55,45 +78,22 @@ houseAgent.postSubGoal(new SenseIlluminanceGoal());
 // Start the routine when the clock starts
 Clock.global.observe("mm", () => {
     let time = Clock.global;
-    startRoutine(time, house);
+    executeRoutine(time);
 });
-
-// THIS HAS TO BE EXECUTED AFTER STARTROUTINE
-// TODO MAKE THEN()
-houseAgent.postSubGoal(new SenseDaytimeGoal());
-
-Clock.global.observe("dd", () => {
-    // Post goals in this observer, because these need to be recurring
-    // every day.
-
-    /* Goal is to turn on light in the morning to wake up everyone in the bedroom
-    and to turn in it off when they are going to sleep. To adjust brightness and
-    temp, PDDL intentions are supposed to handle this.
-    */
-
-    for (const shutterAgent of Object.values(shutterAgents)) {
-        /* The goal is to tun on the shutters in morning, when everybody
-        wakes up and to turn them off in the evening when they are going
-        to sleep. We only need to turn the devices on or off. PDDL intentions
-        will open them according to the outdoor illuminance automatically. 
-        */
-        //shutterAgent.postSubGoal(new TurnOnShuttersGoal({ hh: 7, mm: 0 }));
-        //shutterAgent.postSubGoal(new TurnOffShuttersGoal({ hh: 23, mm: 0 }));
-    }
-});
-
 initEnvironment()
     .then((_) => {
         turnOnSensors();
+    })
+    .then((_) => {
+        // trigger motion sensor for inital locations
+        let room = house.getRoom(roomIds.ID_ROOM_BEDROOM);
+        for (person of Object.values(Persons)) {
+            room.addResident(person);
+        }
     })
     .then((_) => {
         // To simplify things, the day starts at 5 in the morning
         Clock.global.set("hh", 5);
         // Start the clock
         Clock.startTimer(1);
-        // trigger motion sensor for inital locations
-        let room = house.getRoom(roomIds.ID_ROOM_BEDROOM)
-        for (personId of Object.values(personIds)) { // TODO This is shit
-            room.addResident(personId);
-        }
     });
