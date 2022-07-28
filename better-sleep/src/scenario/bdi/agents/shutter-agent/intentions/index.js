@@ -1,12 +1,11 @@
-//const OpenAllShuttersIntention = require("./OpenAllShuttersIntention");
-//const OpenAllShuttersHalfwayIntention = require("./OpenAllShuttersHalfwayIntention");
-//const CloseShuttersIntention = require("./CloseShuttersIntention");
 const TurnOnShuttersIntention = require("./TurnOnShuttersIntention");
 const TurnOffShuttersIntention = require("./TurnOffShuttersIntention");
 const OpenShuttersFullIntention = require("./OpenShuttersFullIntention");
 const OpenShuttersHalfIntention = require("./OpenShuttersHalfIntention");
+const CloseShuttersIntention = require("./CloseShuttersIntention");
 
 let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
+    CloseShuttersIntention,
     OpenShuttersFullIntention,
     OpenShuttersHalfIntention,
 ]);

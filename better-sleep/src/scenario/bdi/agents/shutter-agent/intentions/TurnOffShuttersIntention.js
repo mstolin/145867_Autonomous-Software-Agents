@@ -13,32 +13,6 @@ class TurnOffShuttersIntention extends Intention {
         return goal instanceof TurnOffShuttersGoal;
     }
 
-    /**
-     * Turns all shutters off.
-     */
-    /*#turnOffShutters() {
-        this.agent.room.shutters.forEach((shutter) => {
-            try {
-              shutter.turnOff();
-              this.agent.beliefs.undeclare("on shutters");
-            } catch (err) {
-              this.log(err);
-            }
-        });
-    }
-
-    *exec() {
-        let hh = this.goal.parameters["hh"];
-        let mm = this.goal.parameters["mm"];
-        while (true) {
-            yield;
-            if (Clock.global.hh == hh && Clock.global.mm == mm) {
-                this.#turnOffShutters();
-                break;
-            }
-        }
-    }*/
-
     *exec() {
         this.agent.room.shutters.forEach((shutter) => {
             try {
