@@ -1,9 +1,8 @@
 const roomIds = require("./world/rooms/RoomIds");
 const personIds = require("./world/persons/PersonIds");
+const house = require("./world/House");
 
-// To simplify things, instead of starting the day at 7,
-// we start at 1
-function startRoutine(time, house) {
+function executeRoutine(time) {
     /**
      * 1. Snadra and Bob wake up
      * 2.1. Sandra walks into the bathroom and needs 15min
@@ -15,8 +14,6 @@ function startRoutine(time, house) {
      * 5. Bob walks into the bathroom to get ready
      * 6. Bob walks into the guest room to start working
      */
-
-    // TODO MM increase by 2 for everyone 
 
     if (time.hh == 7 && time.mm == 2) {
         house.movePersonTo(
@@ -300,4 +297,4 @@ function startRoutine(time, house) {
     }
 }
 
-module.exports = startRoutine;
+module.exports = executeRoutine;
