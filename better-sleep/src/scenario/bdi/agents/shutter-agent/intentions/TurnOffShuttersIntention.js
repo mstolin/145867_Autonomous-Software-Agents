@@ -1,5 +1,4 @@
 const Intention = require("../../../../../lib/bdi/Intention");
-const Clock = require("../../../../../lib/utils/Clock");
 const { TurnOffShuttersGoal } = require("../Goals");
 
 /**
