@@ -6,13 +6,10 @@ class TurnLightOnIntention extends Intention {
         return goal instanceof TurnLightOnGoal;
     }
 
-    *exec() {
-        try {
-            this.agent.room.mainLight.turnOn();
-            this.agent.beliefs.declare("on mainLight");
-        } catch (err) {
-            this.log(err);
-        }
+    *exec(params) {
+        let mainLight = params["mainLight"];
+        mainLight.turnOn();
+        this.agent.beliefs.declare(`on ${mainLight.name}`);
     }
 }
 
