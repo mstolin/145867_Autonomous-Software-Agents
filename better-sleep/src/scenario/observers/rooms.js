@@ -1,7 +1,6 @@
-const house = require("../world/House");
 const Logger = require("../../lib/utils/Logger");
 
-const observeAllRooms = () => {
+function observeAllRooms(house) {
     Object.keys(house.rooms).forEach((id) => {
         let room = house.getRoom(id);
         // shutters
@@ -54,6 +53,6 @@ const observeAllRooms = () => {
             )
         );
     });
-};
+}
 
 module.exports = { observeAllRooms };
