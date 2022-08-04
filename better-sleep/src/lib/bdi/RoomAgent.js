@@ -3,24 +3,29 @@ const Agent = require("./Agent");
 class RoomAgent extends Agent {
 
     /** @type {Room} */
-    #room;
+    //#room;
+
+    /** @type {Array<Room>} */
+    #rooms = [];
 
     /**
      * Constructs a RoomAgent instance.
      *  
-     * @param {string} name 
-     * @param {Room} room 
+     * @param {string} name
      */
-    constructor(name, room) {
+    constructor(name) {
         super(name);
-        this.#room = room;
     }
 
     /**
      * Returns the agents room.
      */
-    get room() {
+    /*get room() {
         return this.#room;
+    }*/
+
+    addRoom(room) {
+        this.#rooms.push(room);
     }
 }
 
