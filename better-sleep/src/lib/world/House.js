@@ -1,5 +1,5 @@
 const Agent = require("../bdi/Agent");
-const RoomAgent = require("../bdi/RoomAgent");
+const LightAgent = require("../bdi/LightAgent");
 const ShutterAgent = require("../bdi/ShutterAgent");
 const IlluminanceSensor = require("./IlluminanceSensor");
 
@@ -12,7 +12,7 @@ class House {
     #illuminanceSensor;
     /** @type {Agent} */
     #houseAgent;
-    /** @type {RoomAgent} */
+    /** @type {LightAgent} */
     #lightAgent;
     /** @type {ShutterAgent} */
     #shutterAgent;

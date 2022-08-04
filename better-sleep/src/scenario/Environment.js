@@ -4,7 +4,7 @@ const { initPersons } = require("./world/persons/Persons");
 const personIds = require("./world/persons/PersonIds");
 const roomIds = require("./world/rooms/RoomIds");
 const { initHouseAgent } = require("./bdi/agents/house-agent/HouseAgent");
-const { initRoomAgent } = require("./bdi/agents/room-agent");
+const { initLightAgent } = require("./bdi/agents/light-agent");
 //const shutterAgents = require("./bdi/agents/shutter-agent");
 const {
     SenseMovementGoal,
@@ -21,7 +21,7 @@ function initHouse() {
 function createAgents(house) {
     return new Promise((resolve, _) => {
         house.houseAgent = initHouseAgent();
-        house.lightAgent = initRoomAgent(house);
+        house.lightAgent = initLightAgent(house);
         // TODO house.shutterAgent = initShutterAgent(house)
         resolve(house);
     });

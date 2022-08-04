@@ -2,11 +2,11 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { SenseDaytimeGoal } = require("../Goals");
-const roomAgent = require("../../room-agent");
+const lightAgent = require("../../light-agent");
 const roomIds = require("../../../../world/rooms/RoomIds");
-const { TurnLightOnGoal, TurnLightOffGoal } = require("../../room-agent/Goals");
+const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent/Goals");
 const shutterAgents = require("../../shutter-agent");
-const RoomAgent = require("../../../../../lib/bdi/RoomAgent");
+const LightAgent = require("../../../../../lib/bdi/LightAgent");
 const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
 const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent/Goals");
 const Agent = require("../../../../../lib/bdi/Agent");
@@ -97,7 +97,7 @@ class SenseDaytimeIntention extends Intention {
      * Post goal to the room agent to turn off
      * the main light.
      *
-     * @param {RoomAgent} agent
+     * @param {LightAgent} agent
      * @returns {Promise<boolean>}
      */
     #turnOffMainLight(agent, mainLight) {
@@ -108,7 +108,7 @@ class SenseDaytimeIntention extends Intention {
      * Post goal to the room agent to turn on
      * the main light.
      *
-     * @param {RoomAgent} agent
+     * @param {LightAgent} agent
      * @returns {Promise<boolean>}
      */
     #turnOnMainLight(agent, mainLight) {
@@ -192,7 +192,7 @@ class SenseDaytimeIntention extends Intention {
                     // 1. Update belief
                     this.#updateDaytimeBeliefs(daytime, agent);
                     // 2. Turn on all lights
-                    if (agent instanceof RoomAgent) {
+                    if (agent instanceof LightAgent) {
                         this.#postLightGoalsIfNeeded(agent);
                     }
                     // 3. Turn on all shutters

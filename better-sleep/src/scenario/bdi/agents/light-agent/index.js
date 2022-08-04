@@ -1,9 +1,9 @@
-const RoomAgent = require("../../../../lib/bdi/RoomAgent");
+const LightAgent = require("../../../../lib/bdi/LightAgent");
 const { initIntentions } = require("./intentions");
 
-const initRoomAgent = (house) => {
+const initLightAgent = (house) => {
     let intentions = initIntentions(house);
-    let agent = new RoomAgent("Light-Agent");
+    let agent = new LightAgent("Light-Agent");
     for (room of Object.values(house.rooms)) {
         agent.addRoom(room);
     }
@@ -13,4 +13,4 @@ const initRoomAgent = (house) => {
     return agent;
 };
 
-module.exports = { initRoomAgent };
+module.exports = { initLightAgent };

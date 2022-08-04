@@ -1,9 +1,6 @@
 const Agent = require("./Agent");
 
-class RoomAgent extends Agent {
-
-    /** @type {Room} */
-    //#room;
+class LightAgent extends Agent {
 
     /** @type {Array<Room>} */
     #rooms = [];
@@ -29,4 +26,4 @@ class RoomAgent extends Agent {
     }
 }
 
-module.exports = RoomAgent;
+module.exports = LightAgent;

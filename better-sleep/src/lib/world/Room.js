@@ -2,7 +2,7 @@ const Light = require("./Light");
 const LightSensor = require("./LightSensor");
 const Shutter = require("./Shutter");
 const MotionSensor = require("./MotionSensor");
-const RoomAgent = require("../bdi/RoomAgent");
+const LightAgent = require("../bdi/LightAgent");
 const ShutterAgent = require("../bdi/ShutterAgent");
 
 class Room {
@@ -18,7 +18,7 @@ class Room {
     #shutters = [];
     /** @type {MotionSensor} */
     #motionSensor;
-    /** @type {RoomAgent} */
+    /** @type {LightAgent} */
     #lightAgent;
     /** @type {ShutterAgent} */
     #shutterAgent;
