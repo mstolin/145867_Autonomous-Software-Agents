@@ -4,11 +4,13 @@
     "description": "",
     "scripts": {
         "scenario": "node src/scenario/Scenario.js",
+        "genIntentions": "node src/utils/generateAdjustIntentions.js",
         "test": "jest"
     },
     "author": "Marcel Pascal Stolin <marcelpascal.stolin@studenti.unitn.it>",
     "license": "MIT",
     "devDependencies": {
+        "handlebars": "^4.7.7",
         "jest": "^28.0.1"
     }
 }
