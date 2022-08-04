@@ -2,6 +2,8 @@ const Light = require("./Light");
 const LightSensor = require("./LightSensor");
 const Shutter = require("./Shutter");
 const MotionSensor = require("./MotionSensor");
+const RoomAgent = require("../bdi/RoomAgent");
+const ShutterAgent = require("../bdi/ShutterAgent");
 
 class Room {
     /** @type {string} */
@@ -16,6 +18,10 @@ class Room {
     #shutters = [];
     /** @type {MotionSensor} */
     #motionSensor;
+    /** @type {RoomAgent} */
+    #lightAgent;
+    /** @type {ShutterAgent} */
+    #shutterAgent;
 
     /**
      * Constructs a new Room instance.
@@ -60,11 +66,31 @@ class Room {
         return this.#motionSensor;
     }
 
+    get lightAgent() {
+        return this.#lightAgent;
+    }
+
+    get shutterAgent() {
+        return this.#shutterAgent;
+    }
+
+    get agents() {
+        return [this.#lightAgent] //, this.#shutterAgent]; // TODO Add shutter agent
+    }
+
     /**
      * True if some resident is in the room.
      */
     get isOccupied() {
         return this.#motionSensor.get("isOccupied");
+    }
+
+    set lightAgent(lightAgent) {
+        this.#lightAgent = lightAgent;
+    }
+
+    set shutterAgent(shutterAgent) {
+        this.#shutterAgent = shutterAgent;
     }
 
     /**
@@ -79,16 +105,16 @@ class Room {
     }
 
     /**
-     * 
-     * @param {Person} person 
+     *
+     * @param {Person} person
      */
     addResident(person) {
         this.#motionSensor.addResident(person.name);
     }
 
     /**
-     * 
-     * @param {Person} person 
+     *
+     * @param {Person} person
      */
     removeResident(person) {
         this.#motionSensor.removeResident(person.name);

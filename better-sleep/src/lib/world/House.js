@@ -1,23 +1,30 @@
+const Agent = require("../bdi/Agent");
+const RoomAgent = require("../bdi/RoomAgent");
+const ShutterAgent = require("../bdi/ShutterAgent");
 const IlluminanceSensor = require("./IlluminanceSensor");
 
 class House {
     /** @type {object} */
-    #people;
+    #people = {}; // TODO Rename persons
     /** @type {object} */
-    #rooms;
+    #rooms = {};
     /** @type {IlluminanceSensor} */
     #illuminanceSensor;
+    /** @type {Agent} */
+    #houseAgent;
+    /** @type {RoomAgent} */
+    #lightAgent;
+    /** @type {ShutterAgent} */
+    #shutterAgent;
 
-    /**
-     * Constructs a new House instance.
-     *
-     * @param {object} people The people of this house
-     * @param {object} rooms All rooms of the house
-     */
-    constructor(people, rooms) {
-        this.#people = people;
-        this.#rooms = rooms;
-        this.#illuminanceSensor = new IlluminanceSensor("house-illuminance-sensor");
+    constructor() {
+        this.#illuminanceSensor = new IlluminanceSensor(
+            "house-illuminance-sensor"
+        );
+    }
+
+    get persons() {
+        return this.people;
     }
 
     get people() {
@@ -30,6 +37,42 @@ class House {
 
     get illuminanceSensor() {
         return this.#illuminanceSensor;
+    }
+
+    get houseAgent() {
+        return this.#houseAgent;
+    }
+
+    get lightAgent() {
+        return this.#lightAgent;
+    }
+
+    get shutterAgent() {
+        return this.#shutterAgent;
+    }
+
+    set persons(persons) {
+        this.people = persons;
+    }
+
+    set people(people) {
+        this.#people = people;
+    }
+
+    set rooms(rooms) {
+        this.#rooms = rooms;
+    }
+
+    set houseAgent(houseAgent) {
+        this.#houseAgent = houseAgent;
+    }
+
+    set lightAgent(lightAgent) {
+        this.#lightAgent = lightAgent;
+    }
+
+    set shutterAgent(shutterAgent) {
+        this.#shutterAgent = shutterAgent;
     }
 
     /**
