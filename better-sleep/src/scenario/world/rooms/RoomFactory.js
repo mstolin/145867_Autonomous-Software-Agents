@@ -1,5 +1,4 @@
 const Room = require("../../../lib/world/Room");
-const roomAgent = require("../../bdi/agents/room-agent");
 const ids = require("./RoomIds");
 
 const doors = {};
@@ -20,7 +19,7 @@ class RoomFactory {
     static #numberOfShutters = 2;
 
     static createRoom(id) {
-        return new Room(id, doors[id], this.#numberOfShutters, roomAgent, null);
+        return new Room(id, doors[id], this.#numberOfShutters);
     }
 }
 
