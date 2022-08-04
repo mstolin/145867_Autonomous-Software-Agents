@@ -6,10 +6,10 @@ class AdjustLightOffIntention extends Intention {
     #beliefsToUpdate = [
         "morning-brightness mainLight",
         "afternoon-brightness mainLight",
-        "evening-brightness mainLight",
+        "avening-brightness mainLight",
         "morning-temp mainLight",
         "afternoon-temp mainLight",
-        "evening-temp mainLight",
+        "avening-temp mainLight",
     ]
 
     static applicable(goal) {
@@ -23,9 +23,13 @@ class AdjustLightOffIntention extends Intention {
     }
 
     *exec() {
-        this.agent.room.mainLight.setTemperature(0);
-        this.agent.room.mainLight.setBrightness(0);
-        this.#updateBeliefs();
+        try {
+            this.agent.room.mainLight.setTemperature(0);
+            this.agent.room.mainLight.setBrightness(0);
+            this.#updateBeliefs();
+        } catch (err) {
+            this.log(err);
+        }
     }
 }
 
