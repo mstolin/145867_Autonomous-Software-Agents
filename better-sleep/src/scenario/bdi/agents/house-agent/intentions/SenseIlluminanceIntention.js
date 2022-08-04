@@ -2,7 +2,6 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseIlluminanceGoal } = require("../Goals");
 const shutterAgents = require("../../shutter-agent");
-const house = require("../../../../world/House");
 
 class SenseIlluminanceIntention extends Intention {
     static applicable(goal) {

@@ -1,7 +1,6 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseMovementGoal } = require("../Goals");
-const roomAgents = require("../../room-agent");
 const { AdjustLightOffGoal } = require("../../room-agent/Goals");
 const Clock = require("../../../../../lib/utils/Clock");
 
@@ -66,21 +65,21 @@ class SenseMovementIntention extends Intention {
      * @param {Agent} roomAgent
      * @returns
      */
-    #genRoomPromise(roomAgent) {
+    #genRoomPromise(agent) {
         let goalPromise = new Promise(async (_) => {
             while (true) {
-                let room = roomAgent.room;
+                let room = agent.room;
                 let isOccupied = await room.motionSensor.notifyChange(
                     "isOccupied"
                 );
                 let daytime = this.#getDaytimeForTime(Clock.global.hh);
-                if (roomAgent.beliefs.check("on mainLight")) {
+                if (agent.beliefs.check("on mainLight")) {
                     if (isOccupied) {
-                        roomAgent.beliefs.undeclare("free thisRoom");
-                        roomAgent.postSubGoal(this.#genAdjustGoal(daytime));
+                        agent.beliefs.undeclare("free thisRoom");
+                        agent.postSubGoal(this.#genAdjustGoal(daytime));
                     } else {
-                        roomAgent.beliefs.declare("free thisRoom");
-                        roomAgent.postSubGoal(new AdjustLightOffGoal());
+                        agent.beliefs.declare("free thisRoom");
+                        agent.postSubGoal(new AdjustLightOffGoal());
                     }
                 }
             }
@@ -89,12 +88,13 @@ class SenseMovementIntention extends Intention {
     }
 
     *exec() {
-        let roomGoals = [];
+        /*let roomGoals = [];
         for (const agent of Object.values(roomAgents)) {
             let goal = this.#genRoomPromise(agent);
             roomGoals.push(goal);
         }
-        yield Promise.all(roomGoals);
+        yield Promise.all(roomGoals);*/
+        // TODO Instead of agent give room as parameter + cross reference in room, room.lightAgent & agent.rooms
     }
 }
 
