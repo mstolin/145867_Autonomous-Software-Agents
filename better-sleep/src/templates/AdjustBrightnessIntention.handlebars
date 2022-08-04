@@ -1,0 +1,31 @@
+const pddlActionIntention = require("../../../../../../lib/pddl/actions/pddlActionIntention");
+
+class Adjust{{time}}LightBrightness{{roomName}}Intention extends pddlActionIntention {
+    static parameters = [
+        "{{roomName}}-main_light",
+        "time",
+        "{{roomName}}",
+    ];
+    static precondition = [
+        ["LIGHT", "{{roomName}}-main_light"],
+        ["DAYTIME", "time"],
+        ["{{upper time}}", "time"],
+        ["ROOM", "{{roomName}}"],
+        ["{{upper roomName}}", "{{roomName}}"],
+        ["on", "{{roomName}}-main_light"],
+        ["not {{lower time}}-brightness", "{{roomName}}-main_light"],
+        ["not free", "{{roomName}}"],
+    ];
+    static effect = [
+        ["not {{not}}-brightness", "{{roomName}}-main_light"],
+        ["{{lower time}}-brightness", "{{roomName}}-main_light"],
+    ];
+
+    *exec() {
+        let mainLight = this.agent.rooms["{{roomName}}"].mainLight;
+        yield mainLight.setBrightness({{brightness}});
+        for (let b of this.effect) this.agent.beliefs.apply(b);
+    }
+}
+
+module.exports = Adjust{{time}}LightBrightness{{roomName}}Intention;
