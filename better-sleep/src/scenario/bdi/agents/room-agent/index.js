@@ -1,20 +1,16 @@
 const RoomAgent = require("../../../../lib/bdi/RoomAgent");
-const intentions = require("./intentions");
-const roomIds = require("../../../world/rooms/RoomIds");
-const rooms = require("../../../world/rooms");
+const { initIntentions } = require("./intentions");
 
-const initRoomAgent = (id, room) => {
-    let agent = new RoomAgent(`Room-Agent-${id}`, room);
+const initRoomAgent = (house) => {
+    let intentions = initIntentions(house);
+    let agent = new RoomAgent("Light-Agent");
+    for (room of Object.values(house.rooms)) {
+        agent.addRoom(room);
+    }
     for (const intention of intentions) {
         agent.intentions.push(intention);
     }
     return agent;
 };
 
-let roomAgents = {};
-for (const id of Object.values(roomIds)) {
-    let room = rooms[id];
-    roomAgents[id] = initRoomAgent(id, room);
-}
-
-module.exports = roomAgents;
+module.exports = { initRoomAgent };

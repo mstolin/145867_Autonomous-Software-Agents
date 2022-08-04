@@ -1,25 +1,64 @@
 const TurnLightOnIntention = require("./TurnLightOnIntention");
 const TurnLightOffIntention = require("./TurnLightOffIntention");
 const AdjustLightOffIntention = require("./AdjustLightOffIntention");
-const AdjustMorningLightTemperatureIntention = require("./AdjustMorningLightTemperatureIntention");
-const AdjustAfternoonLightTemperatureIntention = require("./AdjustAfternoonLightTemperatureIntention");
-const AdjustEveningLightTemperatureIntention = require("./AdjustEveningLightTemperatureIntention");
-const AdjustMorningLightBrightnessIntention = require("./AdjustMorningLightBrightnessIntention");
-const AdjustAfternoonLightBrightnessIntention = require("./AdjustAfternoonLightBrightnessIntention");
-const AdjustEveningLightBrightnessIntention = require("./AdjustEveningLightBrightnessIntention");
+const GenericAdjustIntentionFactory = require("./GenericAdjustLightIntention");
 
-let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
-    AdjustMorningLightTemperatureIntention,
-    AdjustAfternoonLightTemperatureIntention,
-    AdjustEveningLightTemperatureIntention,
-    AdjustMorningLightBrightnessIntention,
-    AdjustAfternoonLightBrightnessIntention,
-    AdjustEveningLightBrightnessIntention,
-]);
+function genGenericAdjustIntentions(house) {
+    let planningIntentions = [];
+    for (room of Object.values(house.rooms)) {
+        let AdjustMorningLightTempIntention =
+            GenericAdjustIntentionFactory.genAdjustMorningTempIntention(
+                room,
+                (_) => room.mainLight.setTemperature(2000)
+            );
+        let AdjustAfternoonLightTempIntention =
+            GenericAdjustIntentionFactory.genAdjustAfternoonTempIntention(
+                room,
+                (_) => room.mainLight.setTemperature(4000)
+            );
+        let AdjustEveningLightTempIntention =
+            GenericAdjustIntentionFactory.genAdjustEveningTempIntention(
+                room,
+                (_) => room.mainLight.setTemperature(1900)
+            );
+        let AdjustMorningBrightnessIntention =
+            GenericAdjustIntentionFactory.genAdjustMorningBrightnessIntention(
+                room,
+                (_) => room.mainLight.setBrightness(200)
+            );
+        let AdjustAfternoonBrightnessIntention =
+            GenericAdjustIntentionFactory.genAdjustMorningBrightnessIntention(
+                room,
+                (_) => room.mainLight.setBrightness(500)
+            );
+        let AdjustEveningBrightnessIntention =
+            GenericAdjustIntentionFactory.genAdjustMorningBrightnessIntention(
+                room,
+                (_) => room.mainLight.setBrightness(300)
+            );
+        planningIntentions.push(
+            AdjustMorningLightTempIntention,
+            AdjustAfternoonLightTempIntention,
+            AdjustEveningLightTempIntention,
+            AdjustMorningBrightnessIntention,
+            AdjustAfternoonBrightnessIntention,
+            AdjustEveningBrightnessIntention
+        );
+    }
+    let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
+        ...planningIntentions,
+    ]);
+    return PlanningIntention;
+}
 
-module.exports = [
-    AdjustLightOffIntention,
-    TurnLightOffIntention,
-    TurnLightOnIntention,
-    PlanningIntention,
-];
+const initIntentions = (house) => {
+    let planningIntention = genGenericAdjustIntentions(house);
+    return [
+        AdjustLightOffIntention,
+        TurnLightOffIntention,
+        TurnLightOnIntention,
+        planningIntention,
+    ];
+};
+
+module.exports = { initIntentions };
