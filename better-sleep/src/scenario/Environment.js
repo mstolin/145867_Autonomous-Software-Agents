@@ -48,7 +48,7 @@ function setAgents(house) {
             room.shutterAgent = house.shutterAgent;
         }
         resolve(house);
-    })
+    });
 }
 
 function setInitialLocations(house) {
@@ -69,12 +69,19 @@ function setInitialBeliefs(house) {
     return new Promise((resolve, _) => {
         let lightAgent = house.lightAgent;
         // Set initial beliefs for all room agents
-        for (const room of Object.values(house.rooms)) {
+        for (const roomId of Object.values(roomIds)) {
+            let room = house.rooms[roomId];
             //let shutterAgent = shutterAgents[room.name];
 
             lightAgent.beliefs.declare(`LIGHT ${room.mainLight.name}`);
             lightAgent.beliefs.declare("DAYTIME time");
             lightAgent.beliefs.declare(`ROOM ${room.name}`);
+            lightAgent.beliefs.declare(`${roomId.toUpperCase()} ${room.name}`);
+            if (room.name == roomIds.ID_ROOM_BEDROOM) {
+                lightAgent.beliefs.undeclare(`free ${room.name}`);
+            } else {
+                lightAgent.beliefs.declare(`free ${room.name}`);
+            }
 
             //shutterAgent.beliefs.declare("DAYTIME time");
             //shutterAgent.beliefs.declare("SHUTTER shutters");
@@ -104,14 +111,7 @@ function turnOnSensors(house) {
 function postSensorGoals(house) {
     let houseAgent = house.houseAgent;
     return new Promise((resolve, _) => {
-        /*houseAgent.postSubGoal(
-            new SenseMovementGoal({
-                persons: [
-                    house.getPerson(personIds.ID_PERSON_SANDRA),
-                    house.getPerson(personIds.ID_PERSON_BOB),
-                ],
-            })
-        );*/
+        houseAgent.postSubGoal(new SenseMovementGoal({ house }));
         //houseAgent.postSubGoal(new SenseIlluminanceGoal());
         houseAgent.postSubGoal(new SenseDaytimeGoal({ house }));
 
