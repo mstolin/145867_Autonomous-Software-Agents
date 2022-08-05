@@ -1,6 +1,6 @@
 const pddlActionIntention = require("../../../../../../lib/pddl/actions/pddlActionIntention");
 
-class Adjust{{time}}LightTemperature{{roomName}}Intention extends pddlActionIntention {
+class Adjust{{time}}LightTemperature{{class roomName}}Intention extends pddlActionIntention {
     static parameters = [
         "{{roomName}}-main_light",
         "time",
@@ -22,10 +22,10 @@ class Adjust{{time}}LightTemperature{{roomName}}Intention extends pddlActionInte
     ];
 
     *exec() {
-        let mainLight = this.agent.rooms["{{roomName}}"].mainLight;
+        let mainLight = this.agent.room.mainLight;
         yield mainLight.setTemperature({{temperature}});
         for (let b of this.effect) this.agent.beliefs.apply(b);
     }
 }
 
-module.exports = Adjust{{time}}LightTemperature{{roomName}}Intention;
+module.exports = Adjust{{time}}LightTemperature{{class roomName}}Intention;
