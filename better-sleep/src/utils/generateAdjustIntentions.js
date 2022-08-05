@@ -53,6 +53,15 @@ Handlebars.registerHelper("lower", function (aString) {
     return aString.toLowerCase();
 });
 
+Handlebars.registerHelper("class", (aString) => transformClassName(aString));
+
+function transformClassName(aString) {
+    let escapedStr = aString.toLowerCase().replace("-", "").replace("_", "");
+    let transformedString =
+        escapedStr.charAt(0).toUpperCase() + escapedStr.slice(1);
+    return transformedString;
+}
+
 function genContent(template, config) {
     const templateFunc = Handlebars.compile(template);
     return templateFunc(config);
@@ -69,7 +78,9 @@ async function writeFile() {
         for (const roomName of Object.values(roomIds)) {
             for (const brightnessIntentionConfig of brightnessIntentions) {
                 brightnessIntentionConfig.roomName = roomName;
-                let fileName = `Adjust${brightnessIntentionConfig.time}LightBrightness${roomName}Intention`;
+                let fileName = `Adjust${
+                    brightnessIntentionConfig.time
+                }LightBrightness${transformClassName(roomName)}Intention`;
                 let path = `${outputPath}/${fileName}.js`;
                 //console.log(`const ${fileName} = require("./pddlIntentions/${fileName}.js");`);
                 console.log(`require("./pddlIntentions/${fileName}.js"),`);
@@ -81,7 +92,9 @@ async function writeFile() {
             }
             for (const temperatureIntentionConfig of temperatureIntentions) {
                 temperatureIntentionConfig.roomName = roomName;
-                let fileName = `Adjust${temperatureIntentionConfig.time}LightTemperature${roomName}Intention`;
+                let fileName = `Adjust${
+                    temperatureIntentionConfig.time
+                }LightTemperature${transformClassName(roomName)}Intention`;
                 let path = `${outputPath}/${fileName}.js`;
                 //console.log(`const ${fileName} = require("./pddlIntentions/${fileName}.js");`);
                 console.log(`require("./pddlIntentions/${fileName}.js"),`);
