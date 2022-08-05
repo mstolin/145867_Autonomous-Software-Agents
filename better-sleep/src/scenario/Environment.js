@@ -4,7 +4,7 @@ const { initPersons } = require("./world/persons/Persons");
 const personIds = require("./world/persons/PersonIds");
 const roomIds = require("./world/rooms/RoomIds");
 const { initHouseAgent } = require("./bdi/agents/house-agent/HouseAgent");
-const { initLightAgent } = require("./bdi/agents/light-agent");
+const { initLightAgents } = require("./bdi/agents/light-agent");
 //const shutterAgents = require("./bdi/agents/shutter-agent");
 const {
     SenseMovementGoal,
@@ -21,7 +21,12 @@ function initHouse() {
 function createAgents(house) {
     return new Promise((resolve, _) => {
         house.houseAgent = initHouseAgent();
-        house.lightAgent = initLightAgent(house);
+
+        let lightAgents = initLightAgents(house);
+        for (const roomId of Object.keys(house.rooms)) {
+            let lightAgent = lightAgents[roomId];
+            house.getRoom(roomId).lightAgent = lightAgent;
+        }
         // TODO house.shutterAgent = initShutterAgent(house)
         resolve(house);
     });
@@ -37,16 +42,6 @@ function createPersons(house) {
 function createRooms(house) {
     return new Promise((resolve, _) => {
         house.rooms = initRooms();
-        resolve(house);
-    });
-}
-
-function setAgents(house) {
-    return new Promise((resolve, _) => {
-        for (const room of Object.values(house.rooms)) {
-            room.lightAgent = house.lightAgent;
-            room.shutterAgent = house.shutterAgent;
-        }
         resolve(house);
     });
 }
@@ -67,11 +62,11 @@ function setInitialLocations(house) {
 
 function setInitialBeliefs(house) {
     return new Promise((resolve, _) => {
-        let lightAgent = house.lightAgent;
         // Set initial beliefs for all room agents
         for (const roomId of Object.values(roomIds)) {
             let room = house.rooms[roomId];
             //let shutterAgent = shutterAgents[room.name];
+            let lightAgent = room.lightAgent;
 
             lightAgent.beliefs.declare(`LIGHT ${room.mainLight.name}`);
             lightAgent.beliefs.declare("DAYTIME time");
@@ -124,7 +119,6 @@ function initEnvironment() {
         .then((house) => createPersons(house))
         .then((house) => createRooms(house))
         .then((house) => createAgents(house))
-        .then((house) => setAgents(house))
         .then((house) => setInitialLocations(house))
         .then((house) => setInitialBeliefs(house))
         .then((house) => turnOnSensors(house))
