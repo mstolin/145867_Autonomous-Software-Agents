@@ -4,28 +4,29 @@ const { AdjustLightOffGoal } = require("../Goals");
 class AdjustLightOffIntention extends Intention {
     
     #beliefsToUpdate = [
-        "morning-brightness mainLight",
-        "afternoon-brightness mainLight",
-        "evening-brightness mainLight",
-        "morning-temp mainLight",
-        "afternoon-temp mainLight",
-        "evening-temp mainLight",
+        "morning-brightness",
+        "afternoon-brightness",
+        "evening-brightness",
+        "morning-temp",
+        "afternoon-temp",
+        "evening-temp",
     ]
 
     static applicable(goal) {
         return goal instanceof AdjustLightOffGoal;
     }
 
-    #updateBeliefs() {
+    #updateBeliefs(mainLight) {
         for (const belief of this.#beliefsToUpdate) {
-            this.agent.beliefs.undeclare(belief);
+            this.agent.beliefs.undeclare(`${belief} ${mainLight}`);
         }
     }
 
-    *exec() {
-        this.agent.room.mainLight.setTemperature(0);
-        this.agent.room.mainLight.setBrightness(0);
-        this.#updateBeliefs();
+    *exec(params) {
+        let mainLight = params.mainLight;
+        mainLight.setTemperature(0);
+        mainLight.setBrightness(0);
+        this.#updateBeliefs(mainLight.name);
     }
 }
 

@@ -7,7 +7,7 @@ class TurnLightOnIntention extends Intention {
     }
 
     *exec(params) {
-        let mainLight = params["mainLight"];
+        let mainLight = params.mainLight;
         mainLight.turnOn();
         this.agent.beliefs.declare(`on ${mainLight.name}`);
     }

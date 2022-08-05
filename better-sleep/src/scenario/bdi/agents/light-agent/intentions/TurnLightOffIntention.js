@@ -7,7 +7,7 @@ class TurnLightOffIntention extends Intention {
     }
 
     *exec(params) {
-        let mainLight = params["mainLight"];
+        let mainLight = params.mainLight;
         mainLight.turnOff();
         this.agent.beliefs.undeclare(`on ${mainLight.name}`);
     }
