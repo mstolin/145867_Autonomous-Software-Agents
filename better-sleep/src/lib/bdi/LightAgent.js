@@ -1,24 +1,24 @@
 const Agent = require("./Agent");
 
 class LightAgent extends Agent {
-    /** @type {Object<String, Room>} */
-    #rooms;
+    /** @type {Room} */
+    #room;
 
     /**
      * Constructs a RoomAgent instance.
      *
      * @param {string} name
      */
-    constructor(name, rooms) {
+    constructor(name, room) {
         super(name);
-        this.#rooms = rooms;
+        this.#room = room;
     }
 
     /**
      * Returns the agents room.
      */
-    get rooms() {
-        return this.#rooms;
+    get room() {
+        return this.#room;
     }
 }
 
