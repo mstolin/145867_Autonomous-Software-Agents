@@ -2,14 +2,12 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
 const { SenseDaytimeGoal } = require("../Goals");
-const lightAgent = require("../../light-agent");
-const roomIds = require("../../../../world/rooms/RoomIds");
 const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent/Goals");
-const shutterAgents = require("../../shutter-agent");
 const LightAgent = require("../../../../../lib/bdi/LightAgent");
 const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
 const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent/Goals");
 const Agent = require("../../../../../lib/bdi/Agent");
+const roomIds = require("../../../../world/rooms/RoomIds");
 
 const MORNING = "MORNING";
 const AFTERNOON = "AFTERNOON";
@@ -183,30 +181,18 @@ class SenseDaytimeIntention extends Intention {
      *
      * @returns Promise to update all room agent beliefs
      */
-    #genClockSensor(house) {
+    #genClockSensor(rooms) {
         let promise = new Promise(async (_) => {
             while (true) {
                 let hour = await Clock.global.notifyChange("hh");
                 let daytime = this.#getDaytimeForTime(hour);
-                /*for (const agent of agents) {
-                    // 1. Update belief
-                    this.#updateDaytimeBeliefs(daytime, agent);
-                    // 2. Turn on all lights
-                    if (agent instanceof LightAgent) {
-                        this.#postLightGoalsIfNeeded(agent);
-                    }
-                    // 3. Turn on all shutters
-                    if (agent instanceof ShutterAgent) {
-                        this.#postShutterGoalsIfNeeded(agent);
-                    }
-                }*/
-                for (const room of Object.values(house.rooms)) {
+                for (const room of Object.values(rooms)) {
                     // 1. Update belief
                     this.#updateDaytimeBeliefs(daytime, room.agents);
                     // 2. Turn on all lights
                     this.#postLightGoalsIfNeeded(room);
                     // 3. Turn on all shutters
-                    //this.#postShutterGoalsIfNeeded(room.shutterAgent);
+                    this.#postShutterGoalsIfNeeded(room.shutterAgent);
                 }
             }
         });
@@ -214,15 +200,8 @@ class SenseDaytimeIntention extends Intention {
     }
 
     *exec(params) {
-        /*let agents = [
-            //...Object.values(roomAgents),
-            roomAgent,
-            ...Object.values(shutterAgents),
-        ];
-        let clockGoal = this.#genClockSensor(agents);
-        yield Promise.resolve(clockGoal);*/
-        let house = params.house;
-        let clockGoal = this.#genClockSensor(house);
+        let rooms = params.rooms;
+        let clockGoal = this.#genClockSensor(rooms);
         yield Promise.resolve(clockGoal);
     }
 }

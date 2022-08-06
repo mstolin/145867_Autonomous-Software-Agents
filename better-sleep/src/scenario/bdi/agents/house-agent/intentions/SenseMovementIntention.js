@@ -47,12 +47,12 @@ class SenseMovementIntention extends Intention {
      * @param {string} daytime Current daytime as string
      * @returns
      */
-    #genAdjustGoal(daytime) {
+    #genAdjustGoal(daytime, mainLight) {
         let daytimeLower = daytime.toLowerCase();
         return new PlanningGoal({
             goal: [
-                `${daytimeLower}-temp mainLight`,
-                `${daytimeLower}-brightness mainLight`,
+                `${daytimeLower}-temp ${mainLight}`,
+                `${daytimeLower}-brightness ${mainLight}`,
             ],
         });
     }
@@ -62,24 +62,32 @@ class SenseMovementIntention extends Intention {
      * this intention to turn on/off the main light of
      * a specific room by the room agent.
      *
-     * @param {Agent} roomAgent
+     * @param {Room} room
      * @returns
      */
-    #genRoomPromise(agent) {
+    #genRoomPromise(room) {
+        let lightAgent = room.lightAgent;
+
         let goalPromise = new Promise(async (_) => {
             while (true) {
-                let room = agent.room;
                 let isOccupied = await room.motionSensor.notifyChange(
                     "isOccupied"
                 );
                 let daytime = this.#getDaytimeForTime(Clock.global.hh);
-                if (agent.beliefs.check("on mainLight")) {
+                if (lightAgent.beliefs.check(`on ${room.mainLight.name}`)) {
                     if (isOccupied) {
-                        agent.beliefs.undeclare("free thisRoom");
-                        agent.postSubGoal(this.#genAdjustGoal(daytime));
+                        lightAgent.beliefs.undeclare(`free ${room.name}`);
+                        lightAgent.postSubGoal(
+                            this.#genAdjustGoal(daytime, room.mainLight.name)
+                        );
                     } else {
-                        agent.beliefs.declare("free thisRoom");
-                        agent.postSubGoal(new AdjustLightOffGoal());
+                        lightAgent.beliefs.declare(`free ${room.name}`);
+                        lightAgent.postSubGoal(
+                            new AdjustLightOffGoal({
+                                mainLight: room.mainLight,
+                            }),
+                            room.mainLight.name
+                        );
                     }
                 }
             }
@@ -87,14 +95,16 @@ class SenseMovementIntention extends Intention {
         return goalPromise;
     }
 
-    *exec() {
-        /*let roomGoals = [];
-        for (const agent of Object.values(roomAgents)) {
-            let goal = this.#genRoomPromise(agent);
-            roomGoals.push(goal);
+    *exec(params) {
+        let goals = [];
+        let rooms = params.rooms;
+
+        for (const room of Object.values(rooms)) {
+            let roomGoal = this.#genRoomPromise(room);
+            goals.push(roomGoal);
         }
-        yield Promise.all(roomGoals);*/
-        // TODO Instead of agent give room as parameter + cross reference in room, room.lightAgent & agent.rooms
+
+        yield Promise.all(goals);
     }
 }
 

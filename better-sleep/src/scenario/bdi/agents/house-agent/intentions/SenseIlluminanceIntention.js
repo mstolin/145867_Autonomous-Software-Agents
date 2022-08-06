@@ -1,7 +1,6 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseIlluminanceGoal } = require("../Goals");
-const shutterAgents = require("../../shutter-agent");
 
 class SenseIlluminanceIntention extends Intention {
     static applicable(goal) {
@@ -33,16 +32,17 @@ class SenseIlluminanceIntention extends Intention {
         });
     }
 
-    #genIlluminancePromise(agents) {
+    #genIlluminancePromise(house) {
         let promise = new Promise(async (_) => {
             while (true) {
                 let outdoorIlluminence =
                     await house.illuminanceSensor.notifyChange("illuminence");
-                for (const agent of Object.values(agents)) {
-                    if (agent.beliefs.check("on shutters")) {
+                for (const room of Object.values(house.rooms)) {
+                    let shutterAgent = room.shutterAgent;
+                    if (shutterAgent.beliefs.check("on shutters")) {
                         // Only if shutters have been turned on
                         let goal = this.#genShutterGoal(outdoorIlluminence);
-                        agent.postSubGoal(goal);
+                        shutterAgent.postSubGoal(goal);
                     }
                 }
             }
@@ -50,8 +50,9 @@ class SenseIlluminanceIntention extends Intention {
         return promise;
     }
 
-    *exec() {
-        let illuminanceGoal = this.#genIlluminancePromise(shutterAgents);
+    *exec(params) {
+        let house = params.house;
+        let illuminanceGoal = this.#genIlluminancePromise(house);
         yield Promise.resolve(illuminanceGoal);
     }
 }
