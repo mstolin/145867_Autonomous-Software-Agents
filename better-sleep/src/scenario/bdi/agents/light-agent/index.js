@@ -2,7 +2,7 @@ const LightAgent = require("../../../../lib/bdi/LightAgent");
 const { initIntentions } = require("./intentions");
 
 function initLightAgent(room) {
-    let agent = new LightAgent(`${room.name}-LightAgent`, room);
+    let agent = new LightAgent(`LightAgent-${room.name}`, room);
     let intentions = initIntentions(room.name);
     for (const intention of intentions) {
         agent.intentions.push(intention);
