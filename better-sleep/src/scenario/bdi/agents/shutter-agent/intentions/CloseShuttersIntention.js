@@ -20,12 +20,8 @@ class CloseShuttersIntention extends pddlActionIntention {
     }
 
     *exec() {
-        try {
-            this.#closeShutters();
-            for (let b of this.effect) this.agent.beliefs.apply(b);
-        } catch (err) {
-            this.log(err);
-        }
+        this.#closeShutters();
+        for (let b of this.effect) this.agent.beliefs.apply(b);
     }
 }
 

@@ -20,12 +20,8 @@ class OpenShuttersHalfwayIntention extends pddlActionIntention {
     }
 
     *exec() {
-        try {
-            this.#openShuttersHalf();
-            for (let b of this.effect) this.agent.beliefs.apply(b);
-        } catch (err) {
-            this.log(err);
-        }
+        this.#openShuttersHalf();
+        for (let b of this.effect) this.agent.beliefs.apply(b);
     }
 }
 

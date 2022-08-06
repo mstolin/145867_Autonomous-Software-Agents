@@ -14,12 +14,8 @@ class TurnOffShuttersIntention extends Intention {
 
     *exec() {
         this.agent.room.shutters.forEach((shutter) => {
-            try {
-                shutter.turnOff();
-                this.agent.beliefs.undeclare("on shutters");
-            } catch (err) {
-                this.log(err);
-            }
+            shutter.turnOff();
+            this.agent.beliefs.undeclare("on shutters");
         });
     }
 }

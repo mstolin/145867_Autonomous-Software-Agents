@@ -4,14 +4,18 @@ const OpenShuttersFullIntention = require("./OpenShuttersFullIntention");
 const OpenShuttersHalfIntention = require("./OpenShuttersHalfIntention");
 const CloseShuttersIntention = require("./CloseShuttersIntention");
 
-let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
-    CloseShuttersIntention,
-    OpenShuttersFullIntention,
-    OpenShuttersHalfIntention,
-]);
+function initIntentions() {
+    let { PlanningIntention } = require("../../../../../lib/pddl/Blackbox")([
+        CloseShuttersIntention,
+        OpenShuttersFullIntention,
+        OpenShuttersHalfIntention,
+    ]);
 
-module.exports = [
-    PlanningIntention,
-    TurnOnShuttersIntention,
-    TurnOffShuttersIntention,
-];
+    return [
+        PlanningIntention,
+        TurnOnShuttersIntention,
+        TurnOffShuttersIntention,
+    ];
+}
+
+module.exports = { initIntentions };
