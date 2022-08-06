@@ -75,7 +75,7 @@ class Room {
     }
 
     get agents() {
-        return [this.#lightAgent] //, this.#shutterAgent]; // TODO Add shutter agent
+        return [this.#lightAgent, this.#shutterAgent];
     }
 
     /**
