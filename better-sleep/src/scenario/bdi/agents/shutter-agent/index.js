@@ -1,18 +1,22 @@
 const ShutterAgent = require("../../../../lib/bdi/ShutterAgent");
-const intentions = require("./intentions");
-const rooms = require("../../../world/rooms");
+const { initIntentions } = require("./intentions");
 
-const initShutterAgent = (room) => {
-    let agent = new ShutterAgent(`Shutter-Agent-${room.name}`, room);
+function initShutterAgent(room, intentions) {
+    let agent = new ShutterAgent(`ShutterAgent-${room.name}`, room);
     for (const intention of intentions) {
         agent.intentions.push(intention);
     }
     return agent;
-};
-
-let shutterAgents = {};
-for (const room of Object.values(rooms)) {
-    shutterAgents[room.name] = initShutterAgent(room);
 }
 
-module.exports = shutterAgents;
+function initShutterAgents(house) {
+    let intentions = initIntentions();
+    let shutterAgents = Object.keys(house.rooms).map((roomId) => {
+        let room = house.getRoom(roomId);
+        let agent = initShutterAgent(room, intentions);
+        return { [roomId]: agent };
+    });
+    return Object.assign({}, ...shutterAgents);
+}
+
+module.exports = { initShutterAgents };
