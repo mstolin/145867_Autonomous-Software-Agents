@@ -5,7 +5,7 @@ const personIds = require("./world/persons/PersonIds");
 const roomIds = require("./world/rooms/RoomIds");
 const { initHouseAgent } = require("./bdi/agents/house-agent/HouseAgent");
 const { initLightAgents } = require("./bdi/agents/light-agent");
-//const shutterAgents = require("./bdi/agents/shutter-agent");
+const { initShutterAgents } = require("./bdi/agents/shutter-agent");
 const {
     SenseMovementGoal,
     SenseDaytimeGoal,
@@ -23,11 +23,14 @@ function createAgents(house) {
         house.houseAgent = initHouseAgent();
 
         let lightAgents = initLightAgents(house);
+        let shutterAgents = initShutterAgents(house);
         for (const roomId of Object.keys(house.rooms)) {
             let lightAgent = lightAgents[roomId];
-            house.getRoom(roomId).lightAgent = lightAgent;
+            let shutterAgent = shutterAgents[roomId];
+            let room = house.getRoom(roomId);
+            room.lightAgent = lightAgent;
+            room.shutterAgent = shutterAgent;
         }
-        // TODO house.shutterAgent = initShutterAgent(house)
         resolve(house);
     });
 }
@@ -65,7 +68,7 @@ function setInitialBeliefs(house) {
         // Set initial beliefs for all room agents
         for (const roomId of Object.values(roomIds)) {
             let room = house.rooms[roomId];
-            //let shutterAgent = shutterAgents[room.name];
+            let shutterAgent = room.shutterAgent;
             let lightAgent = room.lightAgent;
 
             lightAgent.beliefs.declare(`LIGHT ${room.mainLight.name}`);
@@ -78,8 +81,8 @@ function setInitialBeliefs(house) {
                 lightAgent.beliefs.declare(`free ${room.name}`);
             }
 
-            //shutterAgent.beliefs.declare("DAYTIME time");
-            //shutterAgent.beliefs.declare("SHUTTER shutters");
+            shutterAgent.beliefs.declare("DAYTIME time");
+            shutterAgent.beliefs.declare("SHUTTER shutters");
         }
 
         resolve(house);
@@ -106,10 +109,9 @@ function turnOnSensors(house) {
 function postSensorGoals(house) {
     let houseAgent = house.houseAgent;
     return new Promise((resolve, _) => {
-        houseAgent.postSubGoal(new SenseMovementGoal({ house }));
-        //houseAgent.postSubGoal(new SenseIlluminanceGoal());
-        houseAgent.postSubGoal(new SenseDaytimeGoal({ house }));
-
+        houseAgent.postSubGoal(new SenseMovementGoal({ rooms: house.rooms }));
+        houseAgent.postSubGoal(new SenseIlluminanceGoal({ house }));
+        houseAgent.postSubGoal(new SenseDaytimeGoal({ rooms: house.rooms }));
         resolve(house);
     });
 }
