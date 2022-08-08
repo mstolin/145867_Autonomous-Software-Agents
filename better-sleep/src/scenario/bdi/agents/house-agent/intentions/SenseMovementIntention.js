@@ -9,10 +9,10 @@ const AFTERNOON = "AFTERNOON";
 const EVENING = "EVENING";
 
 /**
- * @class
+ * @class SenseMovementIntention
  *
  * This intention works as a sensor.
- * It is supposed to tell a specific room agent if a resident
+ * It is supposed to tell a specific light agent if a resident
  * entered or left the room.
  * According to this info, it posts a subgoal to either turn
  * on or off the light, and adjust the light according to the
@@ -28,7 +28,7 @@ class SenseMovementIntention extends Intention {
      * given hour of the current time.
      *
      * @param {int} hour
-     * @returns Daytime string
+     * @returns {string}
      */
     #getDaytimeForTime(hour) {
         if (hour >= 6 && hour < 12) {
@@ -45,7 +45,7 @@ class SenseMovementIntention extends Intention {
      * main light.
      *
      * @param {string} daytime Current daytime as string
-     * @returns
+     * @returns {PlanningGoal}
      */
     #genAdjustGoal(daytime, mainLight) {
         let daytimeLower = daytime.toLowerCase();
@@ -63,7 +63,7 @@ class SenseMovementIntention extends Intention {
      * a specific room by the room agent.
      *
      * @param {Room} room
-     * @returns
+     * @returns {Promise}
      */
     #genRoomPromise(room) {
         let lightAgent = room.lightAgent;

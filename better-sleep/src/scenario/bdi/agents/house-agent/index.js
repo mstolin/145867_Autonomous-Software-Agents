@@ -9,6 +9,12 @@ const {
     SenseIlluminanceGoal,
 } = require("./goals");
 
+/**
+ * Initiates an instance of an Agent that will serve
+ * as the House-Agent.
+ * 
+ * @returns {Agent}
+ */
 const initHouseAgent = () => {
     let houseAgent = new Agent("House-Agent", new BeliefSet());
     // add all intentions

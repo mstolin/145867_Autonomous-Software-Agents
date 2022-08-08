@@ -6,7 +6,10 @@ const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
 const Agent = require("../../../../../lib/bdi/Agent");
 const { SenseDaytimeGoal } = require("../goals");
 const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent");
-const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent");
+const {
+    TurnOnShuttersGoal,
+    TurnOffShuttersGoal,
+} = require("../../shutter-agent");
 const { roomIds } = require("../../../../world/rooms");
 
 const MORNING = "MORNING";
@@ -17,8 +20,12 @@ const EVENING = "EVENING";
  * @class SenseDaytimeIntention
  *
  * This intention works as a sensor.
- * It is supposed to tell a specific room
- * agent the current daytime, morning, afternoon, evening.
+ * It is supposed to update all light agents and shutter agents
+ * beliefs to the current daytime, morning, afternoon, evening.
+ *
+ * In addition, it starts the intentions for all light agents
+ * to either turn on or off the light, as well as for all shutter
+ * agents to turn on or off all shutters.
  */
 class SenseDaytimeIntention extends Intention {
     static applicable(goal) {
@@ -56,7 +63,7 @@ class SenseDaytimeIntention extends Intention {
     }
 
     /**
-     * Update all room agents belief according
+     * Update all agents belief according
      * to the current daytime.
      *
      * @param {string} daytime
@@ -79,7 +86,7 @@ class SenseDaytimeIntention extends Intention {
      * given hour of the current time.
      *
      * @param {int} hour
-     * @returns Daytime string
+     * @returns {string}
      */
     #getDaytimeForTime(hour) {
         if (hour >= 6 && hour < 12) {
@@ -92,31 +99,31 @@ class SenseDaytimeIntention extends Intention {
     }
 
     /**
-     * Post goal to the room agent to turn off
+     * Start light agent intention to turn off
      * the main light.
      *
      * @param {LightAgent} agent
      * @returns {Promise<boolean>}
      */
     #turnOffMainLight(agent, mainLight) {
-        return agent.postSubGoal(new TurnLightOffGoal({mainLight}));
+        return agent.postSubGoal(new TurnLightOffGoal({ mainLight }));
     }
 
     /**
-     * Post goal to the room agent to turn on
+     * Start light agent intention to turn on
      * the main light.
      *
      * @param {LightAgent} agent
      * @returns {Promise<boolean>}
      */
     #turnOnMainLight(agent, mainLight) {
-        return agent.postSubGoal(new TurnLightOnGoal({mainLight}));
+        return agent.postSubGoal(new TurnLightOnGoal({ mainLight }));
     }
 
     /**
      * Generates a PDDL planning goal that adjusts
      * the temperature and brightness for the morning.
-     * 
+     *
      * @returns {PlanningGoal}
      */
     #genAdjustLightMorningGoal(mainLight) {
@@ -128,6 +135,11 @@ class SenseDaytimeIntention extends Intention {
         });
     }
 
+    /**
+     * Start light agent intentions if needed.
+     *
+     * @param {Room} room
+     */
     #postLightGoalsIfNeeded(room) {
         let time = Clock.global;
         if (time.hh == 7 && time.mm == 0) {
@@ -135,7 +147,9 @@ class SenseDaytimeIntention extends Intention {
             this.#turnOnMainLight(room.lightAgent, room.mainLight).then((_) => {
                 if (room.name == roomIds.ID_ROOM_BEDROOM) {
                     // Adjust light only if bedroom agent
-                    room.lightAgent.postSubGoal(this.#genAdjustLightMorningGoal(room.mainLight));
+                    room.lightAgent.postSubGoal(
+                        this.#genAdjustLightMorningGoal(room.mainLight)
+                    );
                 }
             });
         } else if (time.hh == 23 && time.mm == 0) {
@@ -145,9 +159,10 @@ class SenseDaytimeIntention extends Intention {
     }
 
     /**
-     * Post turn on goal to the given shutter agent.
-     * 
-     * @param {ShutterAgent} agent 
+     * Start shutter agent intention to turn on
+     * the shutter.
+     *
+     * @param {ShutterAgent} agent
      * @returns {Promise<boolean>}
      */
     #turnOnShutter(agent) {
@@ -155,20 +170,26 @@ class SenseDaytimeIntention extends Intention {
     }
 
     /**
-     * Post turn off goal to the given shutter agent.
-     * 
-     * @param {ShutterAgent} agent 
+     * Start shutter agent intention to turn off
+     * the shutter.
+     *
+     * @param {ShutterAgent} agent
      * @returns {Promise<boolean>}
      */
     #turnOffShutter(agent) {
         return agent.postSubGoal(new TurnOffShuttersGoal());
     }
 
+    /**
+     * Start shutter agent intentions if needed.
+     *
+     * @param {ShutterAgent} agent
+     */
     #postShutterGoalsIfNeeded(agent) {
         let time = Clock.global;
         if (time.hh == 7 && time.mm == 0) {
             // Turn all shutters on
-            this.#turnOnShutter(agent)
+            this.#turnOnShutter(agent);
         } else if (time.hh == 23 && time.mm == 0) {
             // Turn all shutters off
             this.#turnOffShutter(agent);
