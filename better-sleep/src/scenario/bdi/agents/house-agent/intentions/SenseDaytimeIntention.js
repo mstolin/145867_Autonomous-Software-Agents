@@ -1,12 +1,12 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
-const { SenseDaytimeGoal } = require("../goals");
-const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent/goals");
 const LightAgent = require("../../../../../lib/bdi/LightAgent");
 const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
-const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent/goals");
 const Agent = require("../../../../../lib/bdi/Agent");
+const { SenseDaytimeGoal } = require("../goals");
+const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent/goals");
+const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent");
 const { roomIds } = require("../../../../world/rooms");
 
 const MORNING = "MORNING";

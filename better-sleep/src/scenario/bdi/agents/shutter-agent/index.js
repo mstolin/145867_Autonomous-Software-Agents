@@ -1,5 +1,6 @@
 const ShutterAgent = require("../../../../lib/bdi/ShutterAgent");
 const { initIntentions } = require("./intentions");
+const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("./goals");
 
 function initShutterAgent(room, intentions) {
     let agent = new ShutterAgent(`ShutterAgent-${room.name}`, room);
@@ -19,4 +20,4 @@ function initShutterAgents(house) {
     return Object.assign({}, ...shutterAgents);
 }
 
-module.exports = { initShutterAgents };
+module.exports = { initShutterAgents, TurnOnShuttersGoal, TurnOffShuttersGoal };
