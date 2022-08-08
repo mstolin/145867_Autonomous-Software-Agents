@@ -1,5 +1,5 @@
 const Intention = require("../../../../../lib/bdi/Intention");
-const { TurnOnShuttersGoal } = require("../Goals");
+const { TurnOnShuttersGoal } = require("../goals");
 
 /**
  * @class TurnOnShuttersIntention
