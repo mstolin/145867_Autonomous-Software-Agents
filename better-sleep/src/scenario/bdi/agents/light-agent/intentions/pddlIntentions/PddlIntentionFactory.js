@@ -1,4 +1,4 @@
-const roomIds = require("../../../../../world/rooms/RoomIds");
+const { roomIds } = require("../../../../../world/rooms");
 
 class PDDLIntentionFactory {
     static #genPDDLIntentions(intentions) {

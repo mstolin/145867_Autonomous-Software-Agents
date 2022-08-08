@@ -7,7 +7,7 @@ const LightAgent = require("../../../../../lib/bdi/LightAgent");
 const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
 const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent/goals");
 const Agent = require("../../../../../lib/bdi/Agent");
-const roomIds = require("../../../../world/rooms/RoomIds");
+const { roomIds } = require("../../../../world/rooms");
 
 const MORNING = "MORNING";
 const AFTERNOON = "AFTERNOON";

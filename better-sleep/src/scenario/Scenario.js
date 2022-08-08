@@ -2,7 +2,7 @@
     IMPORTS
 */
 // World
-const roomIds = require("./world/rooms/RoomIds");
+const { roomIds } = require("./world/rooms");
 // Utils
 const Clock = require("../lib/utils/Clock");
 // Scenario

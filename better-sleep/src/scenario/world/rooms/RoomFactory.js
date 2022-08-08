@@ -1,5 +1,5 @@
 const Room = require("../../../lib/world/Room");
-const ids = require("./RoomIds");
+const ids = require("./roomIds");
 
 const doors = {};
 doors[ids.ID_ROOM_FIRST_FLOOR] = [ids.ID_ROOM_LIVING_ROOM, ids.ID_ROOM_KITCHEN];
