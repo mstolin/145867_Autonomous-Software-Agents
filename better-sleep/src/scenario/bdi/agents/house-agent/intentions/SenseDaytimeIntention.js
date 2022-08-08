@@ -1,7 +1,7 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const Clock = require("../../../../../lib/utils/Clock");
-const { SenseDaytimeGoal } = require("../Goals");
+const { SenseDaytimeGoal } = require("../goals");
 const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent/Goals");
 const LightAgent = require("../../../../../lib/bdi/LightAgent");
 const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");

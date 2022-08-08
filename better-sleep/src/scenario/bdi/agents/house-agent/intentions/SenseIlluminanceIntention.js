@@ -1,6 +1,6 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
-const { SenseIlluminanceGoal } = require("../Goals");
+const { SenseIlluminanceGoal } = require("../goals");
 
 class SenseIlluminanceIntention extends Intention {
     static applicable(goal) {
