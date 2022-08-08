@@ -1,5 +1,5 @@
 const roomIds = require("./world/rooms/RoomIds");
-const personIds = require("./world/persons/PersonIds");
+const { personIds } = require("./world/persons");
 
 function executeRoutine(time, house) {
     /**

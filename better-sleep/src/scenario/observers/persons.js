@@ -1,4 +1,4 @@
-const personIds = require("../world/persons/PersonIds");
+const { personIds } = require("../world/persons");
 const Logger = require("../../lib/utils/Logger");
 
 function observePersonLocations(house) {

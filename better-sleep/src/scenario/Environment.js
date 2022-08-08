@@ -1,7 +1,6 @@
 const House = require("../lib/world/House");
 const { initRooms } = require("./world/rooms");
-const { initPersons } = require("./world/persons/Persons");
-const personIds = require("./world/persons/PersonIds");
+const { initPersons, personIds } = require("./world/persons");
 const roomIds = require("./world/rooms/RoomIds");
 const { initHouseAgent } = require("./bdi/agents/house-agent/HouseAgent");
 const { initLightAgents } = require("./bdi/agents/light-agent");

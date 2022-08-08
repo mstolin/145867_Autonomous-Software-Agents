@@ -1,14 +1,12 @@
 const Person = require("../../../lib/world/Person");
-const ids = require("./PersonIds");
-
-// TODO Rename to index.js
+const personIds = require("./personIds");
 
 function initPersons() {
     let persons = {};
-    for (const name of Object.values(ids)) {
+    for (const name of Object.values(personIds)) {
         persons[name] = new Person(name);
     }
     return persons;
 };
 
-module.exports = { initPersons };
+module.exports = { initPersons, personIds };
