@@ -1,13 +1,13 @@
 const House = require("../lib/world/House");
 const Clock = require("../lib/utils/Clock");
 const { roomIds } = require("./world/rooms");
-const { executeRoutine } = require("./Routine");
+const { executeRoutine } = require("./routine");
 const {
     observeAllRooms,
     observePersonLocations,
     observeHouseSensors,
 } = require("./observers");
-const { initEnvironment } = require("./Environment");
+const { initEnvironment } = require("./environment");
 
 /*
     HELPER FUNCTIONS

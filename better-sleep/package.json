@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "",
     "scripts": {
-        "scenario": "node src/scenario/Scenario.js",
+        "scenario": "node src/scenario/scenario.js",
         "genIntentions": "node src/utils/generateAdjustIntentions.js",
         "test": "jest"
     },
