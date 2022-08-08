@@ -1,6 +1,11 @@
 const RoomFactory = require("./RoomFactory");
 const roomIds = require("./roomIds");
 
+/**
+ * Initiates all wanted rooms.
+ *
+ * @returns {Object<string, Room>}
+ */
 function initRooms() {
     let rooms = {};
     rooms[roomIds.ID_ROOM_FIRST_FLOOR] = RoomFactory.createRoom(

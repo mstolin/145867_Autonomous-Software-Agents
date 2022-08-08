@@ -15,9 +15,20 @@ doors[ids.ID_ROOM_BEDROOM] = [ids.ID_ROOM_SECOND_FLOOR];
 doors[ids.ID_ROOM_GUESTROOM] = [ids.ID_ROOM_SECOND_FLOOR];
 doors[ids.ID_ROOM_BATHROOM] = [ids.ID_ROOM_FIRST_FLOOR];
 
+/**
+ * The RoomFactory is used to initate a specific room
+ * instance.
+ * @class
+ */
 class RoomFactory {
     static #numberOfShutters = 2;
 
+    /**
+     * Initates the room instance for the given room ID.
+     *
+     * @param {string} id
+     * @returns {Room}
+     */
     static createRoom(id) {
         return new Room(id, doors[id], this.#numberOfShutters);
     }
