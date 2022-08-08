@@ -2,7 +2,7 @@ const House = require("../lib/world/House");
 const { initRooms } = require("./world/rooms");
 const { initPersons, personIds } = require("./world/persons");
 const roomIds = require("./world/rooms/RoomIds");
-const { initHouseAgent } = require("./bdi/agents/house-agent/HouseAgent");
+const { initHouseAgent } = require("./bdi/agents/house-agent");
 const { initLightAgents } = require("./bdi/agents/light-agent");
 const { initShutterAgents } = require("./bdi/agents/shutter-agent");
 const {
