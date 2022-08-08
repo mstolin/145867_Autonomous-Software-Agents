@@ -1,5 +1,9 @@
 const pddlActionIntention = require("../../../../../lib/pddl/actions/pddlActionIntention");
 
+/**
+ * This intention fully opens all shutters of the room.
+ * @class
+ */
 class OpenShuttersFullIntention extends pddlActionIntention {
     static parameters = ["shutters"];
     static precondition = [
@@ -13,6 +17,9 @@ class OpenShuttersFullIntention extends pddlActionIntention {
         ["not closed", "shutters"],
     ];
 
+    /**
+     * This will open all shutters of the room.
+     */
     #openShutters() {
         this.agent.room.shutters.forEach((shutter) => {
             shutter.open();

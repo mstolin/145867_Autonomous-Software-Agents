@@ -2,10 +2,8 @@ const Intention = require("../../../../../lib/bdi/Intention");
 const { TurnOnShuttersGoal } = require("../goals");
 
 /**
- * @class TurnOnShuttersIntention
- *
- * This intention is responsible to turn on all shutters
- * in the morning at the given hour by the goal.
+ * This intention is responsible to turn on all shutters.
+ * @class
  */
 class TurnOnShuttersIntention extends Intention {
     static applicable(goal) {
