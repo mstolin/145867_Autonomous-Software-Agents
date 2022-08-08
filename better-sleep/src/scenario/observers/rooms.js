@@ -1,5 +1,11 @@
 const Logger = require("../../lib/utils/Logger");
 
+/**
+ * This functions observes the staes of all sensors
+ * of all rooms of the given house.
+ *
+ * @param {House} house
+ */
 function observeAllRooms(house) {
     Object.keys(house.rooms).forEach((id) => {
         let room = house.getRoom(id);
