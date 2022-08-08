@@ -1,5 +1,10 @@
 const LightAgent = require("../../../../lib/bdi/LightAgent");
 const { initIntentions } = require("./intentions");
+const {
+    AdjustLightOffGoal,
+    TurnLightOnGoal,
+    TurnLightOffGoal,
+} = require("./goals");
 
 function initLightAgent(room) {
     let agent = new LightAgent(`LightAgent-${room.name}`, room);
@@ -19,4 +24,9 @@ function initLightAgents(house) {
     return Object.assign({}, ...lightAgents);
 }
 
-module.exports = { initLightAgents };
+module.exports = {
+    initLightAgents,
+    AdjustLightOffGoal,
+    TurnLightOnGoal,
+    TurnLightOffGoal,
+};

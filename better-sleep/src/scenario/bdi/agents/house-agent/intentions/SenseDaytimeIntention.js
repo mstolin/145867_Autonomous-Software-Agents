@@ -5,7 +5,7 @@ const LightAgent = require("../../../../../lib/bdi/LightAgent");
 const ShutterAgent = require("../../../../../lib/bdi/ShutterAgent");
 const Agent = require("../../../../../lib/bdi/Agent");
 const { SenseDaytimeGoal } = require("../goals");
-const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent/goals");
+const { TurnLightOnGoal, TurnLightOffGoal } = require("../../light-agent");
 const { TurnOnShuttersGoal, TurnOffShuttersGoal } = require("../../shutter-agent");
 const { roomIds } = require("../../../../world/rooms");
 
