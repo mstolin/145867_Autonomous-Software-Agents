@@ -114,7 +114,7 @@ function updateLightAgentBeliefs(lightAgent, room) {
     lightAgent.beliefs.declare(`LIGHT ${room.mainLight.name}`);
     lightAgent.beliefs.declare("DAYTIME time");
     lightAgent.beliefs.declare(`ROOM ${room.name}`);
-    lightAgent.beliefs.declare(`${roomId.toUpperCase()} ${room.name}`);
+    lightAgent.beliefs.declare(`${room.name.toUpperCase()} ${room.name}`);
     if (room.name == roomIds.ID_ROOM_BEDROOM) {
         lightAgent.beliefs.undeclare(`free ${room.name}`);
     } else {
