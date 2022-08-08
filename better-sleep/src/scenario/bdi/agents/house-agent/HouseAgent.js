@@ -1,9 +1,9 @@
 const Agent = require("../../../../lib/bdi/Agent");
 const intentions = require("./intentions");
-const beliefs = require("./Beliefs");
+const BeliefSet = require("../../../../lib/bdi/Beliefset");
 
 const initHouseAgent = () => {
-    let houseAgent = new Agent("House-Agent", beliefs);
+    let houseAgent = new Agent("House-Agent", new BeliefSet());
     // add all intentions
     for (let intention of intentions) {
         houseAgent.intentions.push(intention);
