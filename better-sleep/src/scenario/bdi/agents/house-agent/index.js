@@ -2,8 +2,6 @@ const Agent = require("../../../../lib/bdi/Agent");
 const intentions = require("./intentions");
 const BeliefSet = require("../../../../lib/bdi/Beliefset");
 const {
-    MorningGoal,
-    EveningGoal,
     SenseMovementGoal,
     SenseDaytimeGoal,
     SenseIlluminanceGoal,
@@ -26,8 +24,6 @@ const initHouseAgent = () => {
 
 module.exports = {
     initHouseAgent,
-    MorningGoal,
-    EveningGoal,
     SenseMovementGoal,
     SenseDaytimeGoal,
     SenseIlluminanceGoal,

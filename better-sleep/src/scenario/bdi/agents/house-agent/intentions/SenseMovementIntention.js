@@ -9,14 +9,13 @@ const AFTERNOON = "AFTERNOON";
 const EVENING = "EVENING";
 
 /**
- * @class SenseMovementIntention
- *
  * This intention works as a sensor.
  * It is supposed to tell a specific light agent if a resident
  * entered or left the room.
  * According to this info, it posts a subgoal to either turn
  * on or off the light, and adjust the light according to the
  * current daytime.
+ * @class
  */
 class SenseMovementIntention extends Intention {
     static applicable(goal) {

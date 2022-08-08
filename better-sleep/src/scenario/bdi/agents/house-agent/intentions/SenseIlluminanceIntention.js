@@ -3,12 +3,11 @@ const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseIlluminanceGoal } = require("../goals");
 
 /**
- * @class SenseIlluminanceIntention
- *
  * This is a sensor intention.
- * The goal is to push goals to the sensor agent, to 
+ * The goal is to push goals to the sensor agent, to
  * trigger intentions to open or close the shutters
  * according to the outdoor illuminence.
+ * @class
  */
 class SenseIlluminanceIntention extends Intention {
     static applicable(goal) {

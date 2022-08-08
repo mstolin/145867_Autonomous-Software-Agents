@@ -1,19 +1,19 @@
 const Goal = require("../../../../lib/bdi/Goal");
 
-class MorningGoal extends Goal {}
-
-class EveningGoal extends Goal {}
-
 class SenseMovementGoal extends Goal {}
-
+/**
+ * This goal triggers the SenseDaytimeIntention.
+ * @class
+ */
 class SenseDaytimeGoal extends Goal {}
-
+/**
+ * This goal triggers the SenseIlluminanceIntention.
+ * @class
+ */
 class SenseIlluminanceGoal extends Goal {}
 
 module.exports = {
-  MorningGoal,
-  EveningGoal,
-  SenseMovementGoal,
-  SenseDaytimeGoal,
-  SenseIlluminanceGoal,
+    SenseMovementGoal,
+    SenseDaytimeGoal,
+    SenseIlluminanceGoal,
 };

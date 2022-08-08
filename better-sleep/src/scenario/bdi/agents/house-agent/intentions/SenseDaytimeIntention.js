@@ -17,8 +17,6 @@ const AFTERNOON = "AFTERNOON";
 const EVENING = "EVENING";
 
 /**
- * @class SenseDaytimeIntention
- *
  * This intention works as a sensor.
  * It is supposed to update all light agents and shutter agents
  * beliefs to the current daytime, morning, afternoon, evening.
@@ -26,6 +24,7 @@ const EVENING = "EVENING";
  * In addition, it starts the intentions for all light agents
  * to either turn on or off the light, as well as for all shutter
  * agents to turn on or off all shutters.
+ * @class
  */
 class SenseDaytimeIntention extends Intention {
     static applicable(goal) {
