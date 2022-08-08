@@ -9,7 +9,7 @@ const {
     SenseMovementGoal,
     SenseDaytimeGoal,
     SenseIlluminanceGoal,
-} = require("./bdi/agents/house-agent/goals");
+} = require("./bdi/agents/house-agent");
 
 function initHouse() {
     return new Promise((resolve, _) => {
