@@ -1,7 +1,7 @@
 const Intention = require("../../../../../lib/bdi/Intention");
 const PlanningGoal = require("../../../../../lib/pddl/PlanningGoal");
 const { SenseMovementGoal } = require("../goals");
-const { AdjustLightOffGoal } = require("../../light-agent/Goals");
+const { AdjustLightOffGoal } = require("../../light-agent/goals");
 const Clock = require("../../../../../lib/utils/Clock");
 
 const MORNING = "MORNING";

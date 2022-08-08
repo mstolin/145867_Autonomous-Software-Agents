@@ -1,5 +1,5 @@
 const Intention = require("../../../../../lib/bdi/Intention");
-const { TurnLightOnGoal } = require("../Goals");
+const { TurnLightOnGoal } = require("../goals");
 
 class TurnLightOnIntention extends Intention {
     static applicable(goal) {
