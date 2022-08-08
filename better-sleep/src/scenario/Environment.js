@@ -11,12 +11,26 @@ const {
     SenseIlluminanceGoal,
 } = require("./bdi/agents/house-agent");
 
+/**
+ * This function initiates the house
+ * of the scenario.
+ * 
+ * @returns {Promise<House>}
+ */
 function initHouse() {
     return new Promise((resolve, _) => {
         resolve(new House());
     });
 }
 
+/**
+ * This function initiates the House-Agent, Light-Agents,
+ * and the Shutter-Agents. Additionally it will add them
+ * to the given house.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function createAgents(house) {
     return new Promise((resolve, _) => {
         house.houseAgent = initHouseAgent();
@@ -34,6 +48,13 @@ function createAgents(house) {
     });
 }
 
+/**
+ * This function ititiates all residents and
+ * adds them to the given house instance.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function createPersons(house) {
     return new Promise((resolve, _) => {
         house.persons = initPersons();
@@ -41,6 +62,13 @@ function createPersons(house) {
     });
 }
 
+/**
+ * This function initiates all rooms of the
+ * house.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function createRooms(house) {
     return new Promise((resolve, _) => {
         house.rooms = initRooms();
@@ -48,6 +76,13 @@ function createRooms(house) {
     });
 }
 
+/**
+ * This function sets the initial locations of
+ * bob and sandra to the bedroom.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function setInitialLocations(house) {
     return new Promise((resolve, _) => {
         // Set initial location of persons
@@ -62,32 +97,72 @@ function setInitialLocations(house) {
     });
 }
 
+/**
+ * Updates the initial beliefs of the given light agent.
+ * 
+ * It sets:
+ * - LIGHT to the name of the given main light
+ * - DAYTIME to time
+ * - ROOM to the name of the given room
+ * - The room type
+ * - Occupation status of the room (initially only bedroom is occupied)
+ * 
+ * @param {LightAgent} lightAgent 
+ * @param {Room} room 
+ */
+function updateLightAgentBeliefs(lightAgent, room) {
+    lightAgent.beliefs.declare(`LIGHT ${room.mainLight.name}`);
+    lightAgent.beliefs.declare("DAYTIME time");
+    lightAgent.beliefs.declare(`ROOM ${room.name}`);
+    lightAgent.beliefs.declare(`${roomId.toUpperCase()} ${room.name}`);
+    if (room.name == roomIds.ID_ROOM_BEDROOM) {
+        lightAgent.beliefs.undeclare(`free ${room.name}`);
+    } else {
+        lightAgent.beliefs.declare(`free ${room.name}`);
+    }
+}
+
+/**
+ * Sets the initial beliefs of the given shutter agent.
+ * 
+ * It sets:
+ * - DAYTIME to time
+ * - SHUTTER to shutter
+ * 
+ * @param {ShutterAgent} shutterAgent 
+ */
+function updateShutterAgentBeliefs(shutterAgent) {
+    shutterAgent.beliefs.declare("DAYTIME time");
+    shutterAgent.beliefs.declare("SHUTTER shutters");
+}
+
+/**
+ * This function updates the initial beleifs of all 
+ * agents of the house.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function setInitialBeliefs(house) {
     return new Promise((resolve, _) => {
         // Set initial beliefs for all room agents
-        for (const roomId of Object.values(roomIds)) {
-            let room = house.rooms[roomId];
+        for (const room of Object.values(house.rooms)) {
             let shutterAgent = room.shutterAgent;
             let lightAgent = room.lightAgent;
-
-            lightAgent.beliefs.declare(`LIGHT ${room.mainLight.name}`);
-            lightAgent.beliefs.declare("DAYTIME time");
-            lightAgent.beliefs.declare(`ROOM ${room.name}`);
-            lightAgent.beliefs.declare(`${roomId.toUpperCase()} ${room.name}`);
-            if (room.name == roomIds.ID_ROOM_BEDROOM) {
-                lightAgent.beliefs.undeclare(`free ${room.name}`);
-            } else {
-                lightAgent.beliefs.declare(`free ${room.name}`);
-            }
-
-            shutterAgent.beliefs.declare("DAYTIME time");
-            shutterAgent.beliefs.declare("SHUTTER shutters");
+            updateLightAgentBeliefs(lightAgent, room);
+            updateShutterAgentBeliefs(shutterAgent);
         }
-
         resolve(house);
     });
 }
 
+/**
+ * This function turns on all sensor deices of the
+ * house.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function turnOnSensors(house) {
     return new Promise((resolve, _) => {
         // House specific sensors
@@ -105,6 +180,12 @@ function turnOnSensors(house) {
     });
 }
 
+/**
+ * This function start the sensor intentions of the house agent.
+ * 
+ * @param {House} house 
+ * @returns {Promise<House>}
+ */
 function postSensorGoals(house) {
     let houseAgent = house.houseAgent;
     return new Promise((resolve, _) => {
@@ -115,6 +196,12 @@ function postSensorGoals(house) {
     });
 }
 
+/**
+ * This function will initialize the environment for the
+ * scenario.
+ * 
+ * @returns {Promise<House>}
+ */
 function initEnvironment() {
     return initHouse()
         .then((house) => createPersons(house))

@@ -1,24 +1,26 @@
-/*
-    IMPORTS
-*/
-// World
-const { roomIds } = require("./world/rooms");
-// Utils
+const House = require("../lib/world/House");
 const Clock = require("../lib/utils/Clock");
-// Scenario
-const executeRoutine = require("./Routine");
-// Observers
+const { roomIds } = require("./world/rooms");
+const { executeRoutine } = require("./Routine");
 const {
     observeAllRooms,
     observePersonLocations,
     observeHouseSensors,
 } = require("./observers");
-// Environment
 const { initEnvironment } = require("./Environment");
 
 /*
     HELPER FUNCTIONS
 */
+
+/**
+ * This function triggers the motion sensors when
+ * the scenario start. This is necessary because both
+ * residents are in the bedroom when the scenario begins.
+ *
+ * @param {House} house
+ * @returns {Promise<House>}
+ */
 function triggerMotionSensors(house) {
     return new Promise((resolve, _) => {
         let room = house.getRoom(roomIds.ID_ROOM_BEDROOM);
@@ -30,6 +32,15 @@ function triggerMotionSensors(house) {
     });
 }
 
+/**
+ * This function will start the observers.
+ * All residents, room sensors, and house sensors
+ * are observed. This is necessary for the log
+ * and useful for debugging.
+ *
+ * @param {House} house
+ * @returns {Promise<House>}
+ */
 function startObservers(house) {
     return new Promise((resolve, _) => {
         observeAllRooms(house);
@@ -40,7 +51,7 @@ function startObservers(house) {
 }
 
 /*
-    ROUTINE
+    INTI ENVIRONMENT AND START ROUTINE
 */
 initEnvironment()
     .then((house) => startObservers(house))

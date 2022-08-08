@@ -1,6 +1,14 @@
 const { roomIds } = require("./world/rooms");
 const { personIds } = require("./world/persons");
 
+/**
+ * This function executes the routine of all
+ * residents. It will move the residents between
+ * different rooms, depending on the given time.
+ *
+ * @param {Object<string, int>}} time
+ * @param {House} house
+ */
 function executeRoutine(time, house) {
     /**
      * 1. Snadra and Bob wake up
@@ -296,4 +304,4 @@ function executeRoutine(time, house) {
     }
 }
 
-module.exports = executeRoutine;
+module.exports = { executeRoutine };
