@@ -70,7 +70,7 @@ function executeRoutine(time, house) {
         );
     }
 
-    if (time.dd == 00 && time.hh == 7 && time.mm == 22) {
+    if (time.hh == 7 && time.mm == 22) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_SECOND_FLOOR,
@@ -78,7 +78,7 @@ function executeRoutine(time, house) {
         );
     }
 
-    if (time.dd == 00 && time.hh == 7 && time.mm == 24) {
+    if (time.hh == 7 && time.mm == 24) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_FIRST_FLOOR,
