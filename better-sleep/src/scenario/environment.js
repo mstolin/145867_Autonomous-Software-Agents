@@ -132,7 +132,6 @@ function updateLightAgentBeliefs(lightAgent, room) {
  * @param {ShutterAgent} shutterAgent 
  */
 function updateShutterAgentBeliefs(shutterAgent) {
-    shutterAgent.beliefs.declare("DAYTIME time");
     shutterAgent.beliefs.declare("SHUTTER shutters");
 }
 

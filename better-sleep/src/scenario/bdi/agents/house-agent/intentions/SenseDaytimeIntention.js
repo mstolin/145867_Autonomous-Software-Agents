@@ -66,17 +66,15 @@ class SenseDaytimeIntention extends Intention {
      * to the current daytime.
      *
      * @param {string} daytime
-     * @param {Array<Agent>} agent
+     * @param {LightAgent} agent
      */
-    #updateDaytimeBeliefs(daytime, agents) {
-        for (const agent of agents) {
-            if (daytime === MORNING) {
-                this.#declareMorning(agent);
-            } else if (daytime === AFTERNOON) {
-                this.#declareAfternoon(agent);
-            } else if (daytime === EVENING) {
-                this.#declareEvening(agent);
-            }
+    #updateDaytimeBeliefs(daytime, agent) {
+        if (daytime === MORNING) {
+            this.#declareMorning(agent);
+        } else if (daytime === AFTERNOON) {
+            this.#declareAfternoon(agent);
+        } else if (daytime === EVENING) {
+            this.#declareEvening(agent);
         }
     }
 
@@ -208,7 +206,7 @@ class SenseDaytimeIntention extends Intention {
                 let daytime = this.#getDaytimeForTime(hour);
                 for (const room of Object.values(rooms)) {
                     // 1. Update belief
-                    this.#updateDaytimeBeliefs(daytime, room.agents);
+                    this.#updateDaytimeBeliefs(daytime, room.lightAgent);
                     // 2. Turn on all lights
                     this.#postLightGoalsIfNeeded(room);
                     // 3. Turn on all shutters
