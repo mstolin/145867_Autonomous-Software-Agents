@@ -5,6 +5,7 @@ const ID_ROOM_BEDROOM = "bedroom";
 const ID_ROOM_GUESTROOM = "guestroom";
 const ID_ROOM_UPPER_FLOOR = "upper_floor";
 const ID_ROOM_BATHROOM = "bathroom";
+const ID_OUTSIDE = "outside";
 
 module.exports = {
     ID_ROOM_LOWER_FLOOR,
@@ -14,4 +15,5 @@ module.exports = {
     ID_ROOM_GUESTROOM,
     ID_ROOM_UPPER_FLOOR,
     ID_ROOM_BATHROOM,
+    ID_OUTSIDE,
 };

@@ -105,6 +105,7 @@ function executeRoutine(time, house) {
             roomIds.ID_ROOM_LOWER_FLOOR,
             roomIds.ID_ROOM_UPPER_FLOOR
         );
+        house.leave(personIds.ID_PERSON_SANDRA);
     }
 
     if (time.hh == 7 && time.mm == 49) {
@@ -228,11 +229,7 @@ function executeRoutine(time, house) {
     }
 
     if (time.hh == 18 && time.mm == 0) {
-        house.movePersonTo(
-            personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_LOWER_FLOOR,
-            roomIds.ID_ROOM_LIVING_ROOM
-        );
+        house.enter(personIds.ID_PERSON_SANDRA);
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_GUESTROOM,
@@ -241,6 +238,11 @@ function executeRoutine(time, house) {
     }
 
     if (time.hh == 18 && time.mm == 2) {
+        house.movePersonTo(
+            personIds.ID_PERSON_SANDRA,
+            roomIds.ID_ROOM_LOWER_FLOOR,
+            roomIds.ID_ROOM_LIVING_ROOM
+        );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_UPPER_FLOOR,

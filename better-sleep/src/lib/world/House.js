@@ -2,6 +2,7 @@ const Agent = require("../bdi/Agent");
 const LightAgent = require("../bdi/LightAgent");
 const ShutterAgent = require("../bdi/ShutterAgent");
 const IlluminanceSensor = require("./IlluminanceSensor");
+const { roomIds } = require("../../scenario/world/rooms");
 
 class House {
     /** @type {object} */
@@ -128,6 +129,36 @@ class House {
         person.setLocation(destinationId);
         sourceRoom.removeResident(person);
         destinationRoom.addResident(person);
+    }
+
+    /**
+     * This method should be used for a person to leave the house.
+     *
+     * @param {string} personId
+     */
+    leave(personId) {
+        let person = this.getPerson(personId);
+        let sourceRoom = this.getRoom(roomIds.ID_ROOM_LOWER_FLOOR);
+        if (!person.isInRoom(roomIds.ID_ROOM_LOWER_FLOOR)) {
+            throw `Person ${personId} is not in ${sourceRoom.name}`;
+        }
+        person.setLocation(roomIds.ID_OUTSIDE);
+        sourceRoom.removeResident(person);
+    }
+
+    /**
+     * This methd should be used for a person to enter the house.
+     *
+     * @param {string} personId
+     */
+    enter(personId) {
+        let person = this.getPerson(personId);
+        if (!person.isInRoom(roomIds.ID_OUTSIDE)) {
+            throw `Person ${personId} is not outside the house`;
+        }
+        let destRoom = this.getRoom(roomIds.ID_ROOM_LOWER_FLOOR);
+        person.setLocation(roomIds.ID_ROOM_LOWER_FLOOR);
+        destRoom.addResident(person);
     }
 }
 
