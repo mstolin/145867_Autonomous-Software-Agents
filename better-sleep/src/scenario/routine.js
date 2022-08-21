@@ -26,32 +26,32 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_BEDROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_BEDROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 7 && time.mm == 3) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_BATHROOM
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 7 && time.mm == 5) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR,
             roomIds.ID_ROOM_KITCHEN
         );
     }
@@ -60,7 +60,7 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_BATHROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
 
         house.movePersonTo(
@@ -73,15 +73,15 @@ function executeRoutine(time, house) {
     if (time.hh == 7 && time.mm == 22) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_SECOND_FLOOR,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 7 && time.mm == 24) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR,
             roomIds.ID_ROOM_LIVING_ROOM
         );
     }
@@ -90,27 +90,27 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_LIVING_ROOM,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_LIVING_ROOM,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 7 && time.mm == 47) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_FIRST_FLOOR,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 7 && time.mm == 49) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_BATHROOM
         );
     }
@@ -119,14 +119,14 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_BATHROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 8 && time.mm == 2) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_GUESTROOM
         );
     }
@@ -135,22 +135,22 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_GUESTROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 12 && time.mm == 2) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 12 && time.mm == 4) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR,
             roomIds.ID_ROOM_KITCHEN
         );
     }
@@ -175,22 +175,22 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_KITCHEN,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 12 && time.mm == 57) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_FIRST_FLOOR,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 12 && time.mm == 59) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_GUESTROOM
         );
     }
@@ -199,14 +199,14 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_GUESTROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 14 && time.mm == 3) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_BATHROOM
         );
     }
@@ -215,14 +215,14 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_BATHROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 14 && time.mm == 13) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_GUESTROOM
         );
     }
@@ -230,28 +230,28 @@ function executeRoutine(time, house) {
     if (time.hh == 18 && time.mm == 0) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR,
             roomIds.ID_ROOM_LIVING_ROOM
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_GUESTROOM,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 18 && time.mm == 2) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_UPPER_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 18 && time.mm == 4) {
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_FIRST_FLOOR,
+            roomIds.ID_ROOM_LOWER_FLOOR,
             roomIds.ID_ROOM_KITCHEN
         );
     }
@@ -268,37 +268,37 @@ function executeRoutine(time, house) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
             roomIds.ID_ROOM_LIVING_ROOM,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
             roomIds.ID_ROOM_LIVING_ROOM,
-            roomIds.ID_ROOM_FIRST_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR
         );
     }
 
     if (time.hh == 22 && time.mm == 2) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_FIRST_FLOOR,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_FIRST_FLOOR,
-            roomIds.ID_ROOM_SECOND_FLOOR
+            roomIds.ID_ROOM_LOWER_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR
         );
     }
 
     if (time.hh == 22 && time.mm == 4) {
         house.movePersonTo(
             personIds.ID_PERSON_SANDRA,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_BEDROOM
         );
         house.movePersonTo(
             personIds.ID_PERSON_BOB,
-            roomIds.ID_ROOM_SECOND_FLOOR,
+            roomIds.ID_ROOM_UPPER_FLOOR,
             roomIds.ID_ROOM_BEDROOM
         );
     }

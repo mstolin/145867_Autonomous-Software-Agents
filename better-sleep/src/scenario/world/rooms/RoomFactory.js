@@ -2,18 +2,18 @@ const Room = require("../../../lib/world/Room");
 const ids = require("./roomIds");
 
 const doors = {};
-doors[ids.ID_ROOM_FIRST_FLOOR] = [ids.ID_ROOM_LIVING_ROOM, ids.ID_ROOM_KITCHEN];
-doors[ids.ID_ROOM_LIVING_ROOM] = [ids.ID_ROOM_KITCHEN, ids.ID_ROOM_FIRST_FLOOR];
-doors[ids.ID_ROOM_KITCHEN] = [ids.ID_ROOM_LIVING_ROOM, ids.ID_ROOM_FIRST_FLOOR];
-doors[ids.ID_ROOM_SECOND_FLOOR] = [
+doors[ids.ID_ROOM_LOWER_FLOOR] = [ids.ID_ROOM_LIVING_ROOM, ids.ID_ROOM_KITCHEN];
+doors[ids.ID_ROOM_LIVING_ROOM] = [ids.ID_ROOM_KITCHEN, ids.ID_ROOM_LOWER_FLOOR];
+doors[ids.ID_ROOM_KITCHEN] = [ids.ID_ROOM_LIVING_ROOM, ids.ID_ROOM_LOWER_FLOOR];
+doors[ids.ID_ROOM_UPPER_FLOOR] = [
     ids.ID_ROOM_BEDROOM,
     ids.ID_ROOM_BATHROOM,
     ids.ID_ROOM_GUESTROOM,
-    ids.ID_ROOM_FIRST_FLOOR,
+    ids.ID_ROOM_LOWER_FLOOR,
 ];
-doors[ids.ID_ROOM_BEDROOM] = [ids.ID_ROOM_SECOND_FLOOR];
-doors[ids.ID_ROOM_GUESTROOM] = [ids.ID_ROOM_SECOND_FLOOR];
-doors[ids.ID_ROOM_BATHROOM] = [ids.ID_ROOM_FIRST_FLOOR];
+doors[ids.ID_ROOM_BEDROOM] = [ids.ID_ROOM_UPPER_FLOOR];
+doors[ids.ID_ROOM_GUESTROOM] = [ids.ID_ROOM_UPPER_FLOOR];
+doors[ids.ID_ROOM_BATHROOM] = [ids.ID_ROOM_LOWER_FLOOR];
 
 /**
  * The RoomFactory is used to initate a specific room

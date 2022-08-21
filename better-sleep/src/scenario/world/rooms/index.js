@@ -8,8 +8,8 @@ const roomIds = require("./roomIds");
  */
 function initRooms() {
     let rooms = {};
-    rooms[roomIds.ID_ROOM_FIRST_FLOOR] = RoomFactory.createRoom(
-        roomIds.ID_ROOM_FIRST_FLOOR
+    rooms[roomIds.ID_ROOM_LOWER_FLOOR] = RoomFactory.createRoom(
+        roomIds.ID_ROOM_LOWER_FLOOR
     );
     rooms[roomIds.ID_ROOM_KITCHEN] = RoomFactory.createRoom(
         roomIds.ID_ROOM_KITCHEN
@@ -17,8 +17,8 @@ function initRooms() {
     rooms[roomIds.ID_ROOM_LIVING_ROOM] = RoomFactory.createRoom(
         roomIds.ID_ROOM_LIVING_ROOM
     );
-    rooms[roomIds.ID_ROOM_SECOND_FLOOR] = RoomFactory.createRoom(
-        roomIds.ID_ROOM_SECOND_FLOOR
+    rooms[roomIds.ID_ROOM_UPPER_FLOOR] = RoomFactory.createRoom(
+        roomIds.ID_ROOM_UPPER_FLOOR
     );
     rooms[roomIds.ID_ROOM_BATHROOM] = RoomFactory.createRoom(
         roomIds.ID_ROOM_BATHROOM

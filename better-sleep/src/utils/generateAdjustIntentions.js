@@ -1,6 +1,6 @@
 const Handlebars = require("handlebars");
 const fs = require("fs/promises");
-const roomIds = require("../scenario/world/rooms/RoomIds");
+const { roomIds } = require("../scenario/world/rooms");
 
 const outputPath =
     "./src/scenario/bdi/agents/light-agent/intentions/pddlIntentions";
