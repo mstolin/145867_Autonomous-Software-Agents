@@ -7,14 +7,14 @@ class PDDLIntentionFactory {
         return PlanningIntention;
     }
 
-    static #getFirstFloorIntentions() {
+    static #getLowerFloorIntentions() {
         return [
-            require("./AdjustMorningLightBrightnessFirstfloorIntention.js"),
-            require("./AdjustAfternoonLightBrightnessFirstfloorIntention.js"),
-            require("./AdjustEveningLightBrightnessFirstfloorIntention.js"),
-            require("./AdjustMorningLightTemperatureFirstfloorIntention.js"),
-            require("./AdjustAfternoonLightTemperatureFirstfloorIntention.js"),
-            require("./AdjustEveningLightTemperatureFirstfloorIntention.js"),
+            require("./AdjustMorningLightBrightnessLowerfloorIntention.js"),
+            require("./AdjustAfternoonLightBrightnessLowerfloorIntention.js"),
+            require("./AdjustEveningLightBrightnessLowerfloorIntention.js"),
+            require("./AdjustMorningLightTemperatureLowerfloorIntention.js"),
+            require("./AdjustAfternoonLightTemperatureLowerfloorIntention.js"),
+            require("./AdjustEveningLightTemperatureLowerfloorIntention.js"),
         ];
     }
 
@@ -40,14 +40,14 @@ class PDDLIntentionFactory {
         ];
     }
 
-    static #getSecondFloorIntentions() {
+    static #getUpperFloorIntentions() {
         return [
-            require("./AdjustMorningLightBrightnessSecondfloorIntention.js"),
-            require("./AdjustAfternoonLightBrightnessSecondfloorIntention.js"),
-            require("./AdjustEveningLightBrightnessSecondfloorIntention.js"),
-            require("./AdjustMorningLightTemperatureSecondfloorIntention.js"),
-            require("./AdjustAfternoonLightTemperatureSecondfloorIntention.js"),
-            require("./AdjustEveningLightTemperatureSecondfloorIntention.js"),
+            require("./AdjustMorningLightBrightnessUpperfloorIntention.js"),
+            require("./AdjustAfternoonLightBrightnessUpperfloorIntention.js"),
+            require("./AdjustEveningLightBrightnessUpperfloorIntention.js"),
+            require("./AdjustMorningLightTemperatureUpperfloorIntention.js"),
+            require("./AdjustAfternoonLightTemperatureUpperfloorIntention.js"),
+            require("./AdjustEveningLightTemperatureUpperfloorIntention.js"),
         ];
     }
 
@@ -86,14 +86,14 @@ class PDDLIntentionFactory {
 
     static genPDDLIntentions(roomId) {
         switch (roomId) {
-            case roomIds.ID_ROOM_FIRST_FLOOR:
-                return this.#genPDDLIntentions(this.#getFirstFloorIntentions());
+            case roomIds.ID_ROOM_LOWER_FLOOR:
+                return this.#genPDDLIntentions(this.#getLowerFloorIntentions());
             case roomIds.ID_ROOM_LIVING_ROOM:
                 return this.#genPDDLIntentions(this.#getLivingRoomIntentions());
             case roomIds.ID_ROOM_KITCHEN:
                 return this.#genPDDLIntentions(this.#getKitchenIntentions());
-            case roomIds.ID_ROOM_SECOND_FLOOR:
-                return this.#genPDDLIntentions(this.#getSecondFloorIntentions());
+            case roomIds.ID_ROOM_UPPER_FLOOR:
+                return this.#genPDDLIntentions(this.#getUpperFloorIntentions());
             case roomIds.ID_ROOM_GUESTROOM:
                 return this.#genPDDLIntentions(this.#getGuestroomIntentions());
             case roomIds.ID_ROOM_BEDROOM:
