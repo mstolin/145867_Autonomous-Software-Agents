@@ -1,10 +1,9 @@
 # ToDo
 
--   [] Create adjust brightness intention
--   [] Somehow update room agent beliefs using the light sensor (brightness, temp) Probably a sense intention for each room agent
--   [] Maybe its better to have a single room-agent/light-agent instead of many for each single room
--   [] Maybe its even better to have one agent to only adjust the brightness and one for the temperature
--   [] Even if its doesnt make sense, more delay between the people actions in routine.js, because of the http request 
+
+-   [] Rename roon agent to light agents
+-   [] Only 3 agents
+-   [] Problem immer noch mit den generic intentions, dass muss mal ueberprueft werden, ansonsten wieder zuruck zu einzelne light agents
 
 # 🛏 Better-Sleep
 
@@ -58,7 +57,7 @@ brightness of the light according to the daytime.
 
 # ⚙️ Development
 
-## Add Blackbox Executable
+## 1. Add Blackbox Executable
 
 First you have to add the blackbox executable into `./bin`.
 This project is developed on Linux, therefore, the path to the executable has
@@ -66,7 +65,7 @@ been altered at [./src/lib/pddl/Blackbox.js:37](./src/lib/pddl/Blackbox.js#L37).
 If you want to tun the scenario on windows, include the `.exe` at `./bin` 
 instead, and fix the path at `Blackbox.js`.
 
-## Install NPM Dependencies
+## 2. Init NPM
 
 To run the scenario/tests, it is required to install all dependencies first:
 
@@ -74,7 +73,7 @@ To run the scenario/tests, it is required to install all dependencies first:
 $ npm install
 ```
 
-## Start the Scenario
+## 3. Start the Scenario
 
 In the root directory (where `package.json` is located) execute
 the command `$ npm run scenario`.
