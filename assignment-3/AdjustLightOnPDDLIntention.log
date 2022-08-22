@@ -1,0 +1,21 @@
+LightAgent-lower_floor         Trying to use intention PlanningIntention to achieve goal PddlGoal#40 goal:morning-temp lower_floor-main_light,morning-brightness lower_floor-main_light
+LightAgent-lower_floor>PlanningIntention#40 Intention started
+LightAgent-lower_floor         Belief changed: not free lower_floor
+0:07:3:2        LightAgent-lower_floor>PlanningIntention#40 Plan found:
+LightAgent-lower_floor>PlanningIntention#40 1 (adjustmorninglighttemperaturelowerfloorintention lower-floor-main-light time lower-floor)
+LightAgent-lower_floor>PlanningIntention#40 1 (adjustmorninglightbrightnesslowerfloorintention lower-floor-main-light time lower-floor)
+LightAgent-lower_floor>PlanningIntention#40 Starting sequential step with Intention: (AdjustMorningLightTemperatureLowerfloorIntention lower-floor-main-light time lower-floor) Effect: not evening-temp lower-floor-main-light,morning-temp lower-floor-main-light
+LightAgent-lower_floor>AdjustMorningLightTemperatureLowerfloorIntention#41 Intention started
+(0:07:3:2) [LOWER_FLOOR-MAIN_LIGHT] Has changed temperature to 2000
+LightAgent-lower_floor         Belief changed: not evening-temp lower-floor-main-light
+LightAgent-lower_floor         Belief changed: morning-temp lower-floor-main-light
+0:07:3:3        LightAgent-lower_floor>AdjustMorningLightTemperatureLowerfloorIntention#41 Intention success
+LightAgent-lower_floor>PlanningIntention#40 Starting sequential step with Intention: (AdjustMorningLightBrightnessLowerfloorIntention lower-floor-main-light time lower-floor) Effect: not evening-brightness lower-floor-main-light,morning-brightness lower-floor-main-light
+LightAgent-lower_floor>AdjustMorningLightBrightnessLowerfloorIntention#42 Intention started
+(0:07:3:3) [LOWER_FLOOR-MAIN_LIGHT] Has changed brightness to 200
+(0:07:3:3) [LOWER_FLOOR-LIGHT_SENSOR] Illumince has changed to 200
+LightAgent-lower_floor         Belief changed: not evening-brightness lower-floor-main-light
+LightAgent-lower_floor         Belief changed: morning-brightness lower-floor-main-light
+LightAgent-lower_floor>AdjustMorningLightBrightnessLowerfloorIntention#42 Intention success
+LightAgent-lower_floor>PlanningIntention#40 Intention success
+LightAgent-lower_floor         Succesfully used intention PlanningIntention to achieve goal PddlGoal#40 goal:morning-temp lower_floor-main_light,morning-brightness lower_floor-main_light

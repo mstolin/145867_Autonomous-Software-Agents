@@ -1,0 +1,6 @@
+LightAgent-bathroom            Trying to use intention TurnLightOnIntention to achieve goal TurnLightOnGoal#11[object Object]
+LightAgent-bathroom>TurnLightOnIntention#11 Intention started
+(0:07:00:00) [BATHROOM-MAIN_LIGHT] Has changed deviceState to on
+LightAgent-bathroom            Belief changed: on bathroom-main_light
+LightAgent-bathroom>TurnLightOnIntention#11 Intention success
+LightAgent-bathroom            Succesfully used intention TurnLightOnIntention to achieve goal TurnLightOnGoal#11[object Object]

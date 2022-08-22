@@ -1,0 +1,14 @@
+0:08:00:00      (0:08:00:00) [HOUSE-ILLUMINANCE-SENSOR] Outdoor illuminence has changed to 0.37747083757143196
+ShutterAgent-living_room       Trying to use intention PlanningIntention to achieve goal PddlGoal#66 goal:openHalf shutters,not (openFull shutters),not (closed shutters)
+ShutterAgent-living_room>PlanningIntention#66 Intention started
+ShutterAgent-living_room>PlanningIntention#66 Plan found:
+ShutterAgent-living_room>PlanningIntention#66 1 (openshuttershalfwayintention shutters)
+ShutterAgent-living_room>PlanningIntention#66 Starting sequential step with Intention: (OpenShuttersHalfwayIntention shutters) Effect: openHalf shutters,not openFull shutters,not closed shutters
+ShutterAgent-living_room>OpenShuttersHalfwayIntention#77 Intention started
+(0:08:00:2) [LIVING_ROOM-SHUTTER_1] Has changed state to halfwayOpen
+(0:08:00:2) [LIVING_ROOM-SHUTTER_2] Has changed state to halfwayOpen
+ShutterAgent-living_room       Belief changed: openHalf shutters
+ShutterAgent-living_room       Belief changed: not openFull shutters
+ShutterAgent-living_room>OpenShuttersHalfwayIntention#77 Intention success
+ShutterAgent-living_room>PlanningIntention#66 Intention success
+ShutterAgent-living_room       Succesfully used intention PlanningIntention to achieve goal PddlGoal#66 goal:openHalf shutters,not (openFull shutters),not (closed shutters)

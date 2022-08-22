@@ -1,0 +1,7 @@
+ShutterAgent-lower_floor       Trying to use intention TurnOnShuttersIntention to achieve goal TurnOnShuttersGoal#4[object Object]
+ShutterAgent-lower_floor>TurnOnShuttersIntention#4 Intention started
+(0:07:00:00) [LOWER_FLOOR-SHUTTER_1] Has changed deviceState to on
+ShutterAgent-lower_floor       Belief changed: on shutters
+(0:07:00:00) [LOWER_FLOOR-SHUTTER_2] Has changed deviceState to on
+ShutterAgent-lower_floor>TurnOnShuttersIntention#4 Intention success
+ShutterAgent-lower_floor       Succesfully used intention TurnOnShuttersIntention to achieve goal TurnOnShuttersGoal#4[object Object]

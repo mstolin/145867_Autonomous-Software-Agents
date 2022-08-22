@@ -1,0 +1,17 @@
+(0:07:3:00) [BOB] Has entered lower_floor
+(0:07:3:00) [UPPER_FLOOR-MOTION_SENSOR] Occupied status has changed to false
+(0:07:3:00) [LOWER_FLOOR-MOTION_SENSOR] Occupied status has changed to true
+LightAgent-upper_floor         Trying to use intention AdjustLightOffIntention to achieve goal AdjustLightOffGoal#39[object Object]
+LightAgent-upper_floor>AdjustLightOffIntention#39 Intention started
+LightAgent-upper_floor         Belief changed: free upper_floor
+(0:07:3:00) [UPPER_FLOOR-MAIN_LIGHT] Has changed temperature to 0
+(0:07:3:00) [UPPER_FLOOR-MAIN_LIGHT] Has changed brightness to 0
+LightAgent-upper_floor         Belief changed: not morning-brightness upper_floor-main_light
+LightAgent-upper_floor         Belief changed: not afternoon-brightness upper_floor-main_light
+LightAgent-upper_floor         Belief changed: not evening-brightness upper_floor-main_light
+LightAgent-upper_floor         Belief changed: not morning-temp upper_floor-main_light
+LightAgent-upper_floor         Belief changed: not afternoon-temp upper_floor-main_light
+LightAgent-upper_floor         Belief changed: not evening-temp upper_floor-main_light
+(0:07:3:00) [UPPER_FLOOR-LIGHT_SENSOR] Illumince has changed to 0
+0:07:3:1        LightAgent-upper_floor>AdjustLightOffIntention#39 Intention success
+LightAgent-upper_floor         Succesfully used intention AdjustLightOffIntention to achieve goal AdjustLightOffGoal#39[object Object]
