@@ -1,7 +1,7 @@
 const Device = require("./Device");
 const Clock = require("../utils/Clock");
 
-class IlluminanceSensor extends Device {
+class OutdoorLightSensor extends Device {
     turnOn() {
         super.turnOn();
         this.set(
@@ -32,4 +32,4 @@ class IlluminanceSensor extends Device {
     }
 }
 
-module.exports = IlluminanceSensor;
+module.exports = OutdoorLightSensor;

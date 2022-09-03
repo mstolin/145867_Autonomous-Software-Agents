@@ -165,7 +165,7 @@ function setInitialBeliefs(house) {
 function turnOnSensors(house) {
     return new Promise((resolve, _) => {
         // House specific sensors
-        house.illuminanceSensor.turnOn();
+        house.outdoorLightSensor.turnOn();
         // Room specific sensors
         Object.keys(house.rooms).forEach((id) => {
             let room = house.getRoom(id);

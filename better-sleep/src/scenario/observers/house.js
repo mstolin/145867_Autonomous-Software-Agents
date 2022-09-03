@@ -7,13 +7,13 @@ const Logger = require("../../lib/utils/Logger");
  * @param {House} house
  */
 function observeHouseSensors(house) {
-    house.illuminanceSensor.observe("deviceState", (v, _) =>
-        Logger.prefix(house.illuminanceSensor.name).log(
+    house.outdoorLightSensor.observe("deviceState", (v, _) =>
+        Logger.prefix(house.outdoorLightSensor.name).log(
             `Has changed deviceState to ${v}`
         )
     );
-    house.illuminanceSensor.observe("illuminence", (v, _) =>
-        Logger.prefix(house.illuminanceSensor.name).log(
+    house.outdoorLightSensor.observe("illuminence", (v, _) =>
+        Logger.prefix(house.outdoorLightSensor.name).log(
             `Outdoor illuminence has changed to ${v}`
         )
     );

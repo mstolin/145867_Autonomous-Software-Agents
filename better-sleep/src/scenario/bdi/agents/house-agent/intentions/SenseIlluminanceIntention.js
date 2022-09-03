@@ -63,7 +63,7 @@ class SenseIlluminanceIntention extends Intention {
         let promise = new Promise(async (_) => {
             while (true) {
                 let outdoorIlluminence =
-                    await house.illuminanceSensor.notifyChange("illuminence");
+                    await house.outdoorLightSensor.notifyChange("illuminence");
                 for (const room of Object.values(house.rooms)) {
                     let shutterAgent = room.shutterAgent;
                     if (shutterAgent.beliefs.check("on shutters")) {

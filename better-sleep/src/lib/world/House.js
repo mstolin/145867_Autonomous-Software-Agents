@@ -1,7 +1,7 @@
 const Agent = require("../bdi/Agent");
 const LightAgent = require("../bdi/LightAgent");
 const ShutterAgent = require("../bdi/ShutterAgent");
-const IlluminanceSensor = require("./IlluminanceSensor");
+const OutdoorLightSensor = require("./OutdoorLightSensor");
 const { roomIds } = require("../../scenario/world/rooms");
 
 class House {
@@ -9,8 +9,8 @@ class House {
     #people = {}; // TODO Rename persons
     /** @type {object} */
     #rooms = {};
-    /** @type {IlluminanceSensor} */
-    #illuminanceSensor;
+    /** @type {OutdoorLightSensor} */
+    #outdoorLightSensor;
     /** @type {Agent} */
     #houseAgent;
     /** @type {LightAgent} */
@@ -19,8 +19,8 @@ class House {
     #shutterAgent;
 
     constructor() {
-        this.#illuminanceSensor = new IlluminanceSensor(
-            "house-illuminance-sensor"
+        this.#outdoorLightSensor = new OutdoorLightSensor(
+            "house-outdoor-light-sensor"
         );
     }
 
@@ -36,8 +36,8 @@ class House {
         return this.#rooms;
     }
 
-    get illuminanceSensor() {
-        return this.#illuminanceSensor;
+    get outdoorLightSensor() {
+        return this.#outdoorLightSensor;
     }
 
     get houseAgent() {
