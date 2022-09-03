@@ -36,17 +36,6 @@ function observeAllRooms(house) {
                 `Has changed temperature to ${v}`
             )
         );
-        // light sensor
-        room.lightSensor.observe("deviceState", (v, _) =>
-            Logger.prefix(room.lightSensor.name).log(
-                `Has changed deviceState to ${v}`
-            )
-        );
-        room.lightSensor.observe("roomIlluminence", (v, _) =>
-            Logger.prefix(room.lightSensor.name).log(
-                `Illumince has changed to ${v}`
-            )
-        );
         // motion sensor
         room.motionSensor.observe("deviceState", (v, _) =>
             Logger.prefix(room.motionSensor.name).log(

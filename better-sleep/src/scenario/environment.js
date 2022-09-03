@@ -169,8 +169,6 @@ function turnOnSensors(house) {
         // Room specific sensors
         Object.keys(house.rooms).forEach((id) => {
             let room = house.getRoom(id);
-            // turn all light sensors on
-            room.lightSensor.turnOn();
             // turn all motion sensors on
             room.motionSensor.turnOn();
         });

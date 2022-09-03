@@ -1,5 +1,4 @@
 const Light = require("./Light");
-const LightSensor = require("./LightSensor");
 const Shutter = require("./Shutter");
 const MotionSensor = require("./MotionSensor");
 const LightAgent = require("../bdi/LightAgent");
@@ -8,8 +7,6 @@ const ShutterAgent = require("../bdi/ShutterAgent");
 class Room {
     /** @type {string} */
     #name;
-    /** @type {LightSensor} */
-    #lightSensor;
     /** @type {Light} */
     #mainLight;
     /** @type {Array<string>} */
@@ -34,7 +31,6 @@ class Room {
         this.#name = name;
         this.#doors = doors;
         this.#mainLight = new Light(`${this.#name}-main_light`);
-        this.#lightSensor = new LightSensor(`${this.#name}-light_sensor`, this);
         this.#motionSensor = new MotionSensor(`${this.#name}-motion_sensor`);
         this.#initShutters(numOfShutters);
     }
@@ -56,10 +52,6 @@ class Room {
 
     get shutters() {
         return this.#shutters;
-    }
-
-    get lightSensor() {
-        return this.#lightSensor;
     }
 
     get motionSensor() {
