@@ -1,5 +1,5 @@
 node
-bin/*
+bin/blackbox
 tmp/*.pddl
 
 # Created by https://www.toptal.com/developers/gitignore/api/node
