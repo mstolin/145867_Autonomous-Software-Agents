@@ -33,8 +33,11 @@ a resident enters a room.
 The folder [assignment-1/](assignment-1), contains the first
 assignment, the project/context/domain description.
 
+At [assignment-3/](assignment-3), the _full-log_ file, specific logs, and the 
+final project report can be found.
+
 The folder [better-sleep/](better-sleep/) contains the
 implementation of the Multi-Agent System in JavaScript.
 
-At [pddl/](pddl/), all problem defintions in `pddl` can
+At [pddl/](pddl/), `pddl` problem defintions can
 be found.
